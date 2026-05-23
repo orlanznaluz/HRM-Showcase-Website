@@ -5,12 +5,16 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>HRM Interactive Showcase — Shape the Future of Work</title>
  <meta name="description" content="Discover a career in Human Resource Management. Explore programs, career paths, and student success stories.">
- <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+ <script src="https://cdn.tailwindcss.com"></script>
  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700;900&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="styles/styles.css">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
 </head>
 <body class="w-full animated-gradient min-h-screen">
 
@@ -608,14 +612,14 @@
     </div>
    </div>
   </section>
-<!-- ==================== HR FIRMS NEAR PLV ==================== -->
-  <section id="firms-section" class="map-section py-24 px-6 md:px-16">
+<!-- ==================== FOOD MANUFACTURING COMPANIES ==================== -->
+  <section class="map-section py-24 px-6 md:px-16" id="firms-section">
    <div class="max-w-6xl mx-auto">
     <div class="text-center reveal">
-     <div class="section-label">Opportunities Near Campus</div>
-     <h2 class="section-title">HR Firms Near Pamantasang Lungsod ng Valenzuela</h2>
+     <div class="section-label">Industry Partners</div>
+     <h2 class="section-title">Food Manufacturing Companies in Valenzuela City</h2>
      <p class="section-subtitle mx-auto">
-      Valenzuela City is home to a growing ecosystem of employment agencies, manpower services, and HR consultancies — all within reach of PLV.
+      Valenzuela City is home to a thriving food manufacturing ecosystem — providing HRM students with direct access to internship opportunities, plant tours, mock interviews, HR shadowing programs, and professional networking that prepares them for careers in workforce management.
      </p>
     </div>
 
@@ -632,7 +636,7 @@
        </div>
       </div>
       <div class="plv-pin-body">
-       PLV is a local government-funded public university with over 13,000 students. Its strategic location in northern Metro Manila places graduates within easy reach of HR firms, employment agencies, and corporate offices across Valenzuela and neighboring cities.
+       PLV is a local government-funded public university with over 13,000 students. Its strategic location in northern Metro Manila places graduates within easy reach of food manufacturing companies, employment agencies, and corporate offices across Valenzuela and neighboring cities.
       </div>
       <div class="plv-pin-stats">
        <div class="plv-pin-stat">
@@ -657,64 +661,60 @@
 
     <!-- Interactive Map -->
     <div class="mt-10 reveal reveal-delay-2">
-     <div class="map-container">
-      <iframe
-       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.7456!2d120.98!3d14.70!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b7a3b3b3b3b3%3A0x3b3b3b3b3b3b3b3b!2sPamantasan%20ng%20Lungsod%20ng%20Valenzuela!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph"
-       allowfullscreen=""
-       loading="lazy"
-       referrerpolicy="no-referrer-when-downgrade"
-       title="Map showing Pamantasang Lungsod ng Valenzuela and nearby HR firms">
-      </iframe>
+     <div class="map-container" id="foodMapContainer">
+      <div id="foodMap" style="width:100%;height:500px;border-radius:24px;"></div>
       <div class="map-overlay">
        <div class="map-overlay-content">
-        <h3>Explore the Valenzuela HR Ecosystem</h3>
-        <p>Zoom and pan the map to discover employment agencies, manpower services, and HR consultancies within walking and commuting distance of PLV.</p>
+        <h3>Explore the Valenzuela Food Manufacturing Hub</h3>
+        <p>Click on any marker to see food manufacturing companies, processing plants, and production facilities within commuting distance of PLV.</p>
        </div>
+      </div>
+     </div>
       </div>
      </div>
     </div>
 
-    <!-- HR Firm Cards -->
+    <!-- Food Company Cards -->
     <div class="mt-14">
-     <h3 class="text-xl font-bold text-slate-900 mb-6 reveal">Featured HR Firms in Valenzuela</h3>
+     <h3 class="text-xl font-bold text-slate-900 mb-6 reveal">Featured Food Manufacturing Companies</h3>
      <div class="firm-grid">
 
       <div class="firm-card reveal reveal-delay-1">
        <div class="firm-card-header">
         <div class="firm-icon">
-         <i data-lucide="building-2" class="w-5 h-5"></i>
+         <i data-lucide="utensils" class="w-5 h-5"></i>
         </div>
         <div>
-         <div class="firm-name">Philquest International</div>
-         <div class="firm-type">Private Employment Agency</div>
+         <div class="firm-name">Newton Food Products Mfg.</div>
+         <div class="firm-type">Food Manufacturing</div>
         </div>
        </div>
        <div class="firm-address">
         <i data-lucide="map-pin" class="w-4 h-4"></i>
-        <span>255-C McArthur Highway, Karuhatan, Valenzuela City, Metro Manila</span>
+        <span>84 Ramon Delfin Street, Marulas, Valenzuela City, Metro Manila</span>
        </div>
        <div class="firm-meta">
-        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 291-5305</span>
-        <span class="firm-badge established"><i data-lucide="calendar" class="w-3 h-3"></i> Est. 2009</span>
+        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 291-6793</span>
+        <span class="firm-badge established"><i data-lucide="calendar" class="w-3 h-3"></i> Established</span>
        </div>
       </div>
 
       <div class="firm-card reveal reveal-delay-2">
        <div class="firm-card-header">
         <div class="firm-icon">
-         <i data-lucide="building-2" class="w-5 h-5"></i>
+         <i data-lucide="utensils" class="w-5 h-5"></i>
         </div>
         <div>
-         <div class="firm-name">AS Employment Services</div>
-         <div class="firm-type">Employment Agency</div>
+         <div class="firm-name">M&T Food Industries</div>
+         <div class="firm-type">Food Processing</div>
         </div>
        </div>
        <div class="firm-address">
         <i data-lucide="map-pin" class="w-4 h-4"></i>
-        <span>177 Paso De Blas, Valenzuela City, Metro Manila</span>
+        <span>136 Kabatuhan Road, Valenzuela, Metro Manila</span>
        </div>
        <div class="firm-meta">
-        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 292-7221</span>
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
         <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
        </div>
       </div>
@@ -722,39 +722,39 @@
       <div class="firm-card reveal reveal-delay-3">
        <div class="firm-card-header">
         <div class="firm-icon">
-         <i data-lucide="ship" class="w-5 h-5"></i>
+         <i data-lucide="utensils" class="w-5 h-5"></i>
         </div>
         <div>
-         <div class="firm-name">Brent Overseas Personnel</div>
-         <div class="firm-type">Manning Agency</div>
+         <div class="firm-name">Ecco Food Corporation</div>
+         <div class="firm-type">Food Manufacturing</div>
         </div>
        </div>
        <div class="firm-address">
         <i data-lucide="map-pin" class="w-4 h-4"></i>
-        <span>9658 Pililia Street, Valenzuela City, Metro Manila</span>
+        <span>262 Urrutia, Valenzuela, Metro Manila</span>
        </div>
        <div class="firm-meta">
-        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 890-3723</span>
-        <span class="firm-badge established"><i data-lucide="calendar" class="w-3 h-3"></i> Est. 1992</span>
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
        </div>
       </div>
 
       <div class="firm-card reveal reveal-delay-1">
        <div class="firm-card-header">
         <div class="firm-icon">
-         <i data-lucide="building-2" class="w-5 h-5"></i>
+         <i data-lucide="utensils" class="w-5 h-5"></i>
         </div>
         <div>
-         <div class="firm-name">First Asian Career Solutions</div>
-         <div class="firm-type">Private Employment Agency</div>
+         <div class="firm-name">Lembest Foods Corporation</div>
+         <div class="firm-type">Food Production</div>
         </div>
        </div>
        <div class="firm-address">
         <i data-lucide="map-pin" class="w-4 h-4"></i>
-        <span>STI Lerma, Valenzuela City, Metro Manila</span>
+        <span>2069 Kadon, Valenzuela, Metro Manila</span>
        </div>
        <div class="firm-meta">
-        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 727-6429</span>
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
         <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
        </div>
       </div>
@@ -762,59 +762,59 @@
       <div class="firm-card reveal reveal-delay-2">
        <div class="firm-card-header">
         <div class="firm-icon">
-         <i data-lucide="anchor" class="w-5 h-5"></i>
+         <i data-lucide="utensils" class="w-5 h-5"></i>
         </div>
         <div>
-         <div class="firm-name">SSM Maritime Services</div>
-         <div class="firm-type">Manning Agency</div>
+         <div class="firm-name">Go Tian Food Industries</div>
+         <div class="firm-type">Food Processing</div>
         </div>
        </div>
        <div class="firm-address">
         <i data-lucide="map-pin" class="w-4 h-4"></i>
-        <span>RM 203 BF Condo, Soriano Ave. cor. Solana St., Intramuros, Valenzuela City</span>
+        <span>161 A. Mariano, Valenzuela, Metro Manila</span>
        </div>
        <div class="firm-meta">
-        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 338-0255</span>
-        <span class="firm-badge"><i data-lucide="ship" class="w-3 h-3"></i> Maritime</span>
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
        </div>
       </div>
 
       <div class="firm-card reveal reveal-delay-3">
        <div class="firm-card-header">
         <div class="firm-icon">
-         <i data-lucide="building-2" class="w-5 h-5"></i>
+         <i data-lucide="utensils" class="w-5 h-5"></i>
         </div>
         <div>
-         <div class="firm-name">First Magellan Overseas Corp.</div>
-         <div class="firm-type">Private Employment Agency</div>
+         <div class="firm-name">MGP Food Products</div>
+         <div class="firm-type">Food Manufacturing</div>
         </div>
        </div>
        <div class="firm-address">
         <i data-lucide="map-pin" class="w-4 h-4"></i>
-        <span>Suiza Condo, Valenzuela City, Metro Manila</span>
+        <span>Antonio Compound, 80 Padrigal Street, Valenzuela, Metro Manila</span>
        </div>
        <div class="firm-meta">
-        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 634-3950</span>
-        <span class="firm-badge"><i data-lucide="globe" class="w-3 h-3"></i> Overseas</span>
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
        </div>
       </div>
 
       <div class="firm-card reveal reveal-delay-1">
        <div class="firm-card-header">
         <div class="firm-icon">
-         <i data-lucide="users" class="w-5 h-5"></i>
+         <i data-lucide="utensils" class="w-5 h-5"></i>
         </div>
         <div>
-         <div class="firm-name">Marionbella Manpower Specialist</div>
-         <div class="firm-type">Manpower Services</div>
+         <div class="firm-name">Prime Supreme King Company</div>
+         <div class="firm-type">Food Production</div>
         </div>
        </div>
        <div class="firm-address">
         <i data-lucide="map-pin" class="w-4 h-4"></i>
-        <span>G/F Dulatas Building, Maysan Road, Valenzuela City, Metro Manila</span>
+        <span>940 Sta. Monica Street, St Jude Subdivision, Valenzuela, Metro Manila</span>
        </div>
        <div class="firm-meta">
-        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 293-7522</span>
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
         <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
        </div>
       </div>
@@ -822,40 +822,260 @@
       <div class="firm-card reveal reveal-delay-2">
        <div class="firm-card-header">
         <div class="firm-icon">
-         <i data-lucide="briefcase" class="w-5 h-5"></i>
+         <i data-lucide="utensils" class="w-5 h-5"></i>
         </div>
         <div>
-         <div class="firm-name">Prime Meridian HR Consultancy</div>
-         <div class="firm-type">HR Consultancy</div>
+         <div class="firm-name">Pure Snack Food House</div>
+         <div class="firm-type">Snack Manufacturing</div>
         </div>
        </div>
        <div class="firm-address">
         <i data-lucide="map-pin" class="w-4 h-4"></i>
-        <span>Valenzuela City, Metro Manila (Multiple openings for HR roles)</span>
+        <span>59 ITC Compound Road, Valenzuela, Metro Manila</span>
        </div>
        <div class="firm-meta">
-        <span><i data-lucide="search" class="w-3.5 h-3.5"></i> Hiring Now</span>
-        <span class="firm-badge"><i data-lucide="trending-up" class="w-3 h-3"></i> Growing</span>
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
        </div>
       </div>
 
       <div class="firm-card reveal reveal-delay-3">
        <div class="firm-card-header">
         <div class="firm-icon">
-         <i data-lucide="landmark" class="w-5 h-5"></i>
+         <i data-lucide="utensils" class="w-5 h-5"></i>
         </div>
         <div>
-         <div class="firm-name">Valenzuela Trabaho Portal</div>
-         <div class="firm-type">Government Job Portal</div>
+         <div class="firm-name">Hoc Guan Manufacturing Corporation</div>
+         <div class="firm-type">Food Manufacturing</div>
         </div>
        </div>
        <div class="firm-address">
         <i data-lucide="map-pin" class="w-4 h-4"></i>
-        <span>City Government of Valenzuela — Online job portal for local residents</span>
+        <span>130 Marcelo H. Del Pilar Street, Malabon, Metro Manila</span>
        </div>
        <div class="firm-meta">
-        <span><i data-lucide="globe" class="w-3.5 h-3.5"></i> valenzuelatrabaho.gov.ph</span>
-        <span class="firm-badge"><i data-lucide="shield-check" class="w-3 h-3"></i> Official</span>
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Malabon</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Nearby</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-1">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="utensils" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">CDO Foodsphere</div>
+         <div class="firm-type">Food Processing</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>560 W Service Road, Valenzuela, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge established"><i data-lucide="calendar" class="w-3 h-3"></i> Major</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-2">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="utensils" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">Josie Food Industry</div>
+         <div class="firm-type">Food Manufacturing</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>6011 A. Del Mundo Street, Valenzuela, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-3">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="utensils" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">Newborn Food Products Inc.</div>
+         <div class="firm-type">Food Production</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>Serafia Street, 9 Balubaran, Valenzuela, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-1">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="utensils" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">Silver Swan Manufacturing</div>
+         <div class="firm-type">Food Manufacturing</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>164 Panghulo Road, Bo. Panghulo, Malabon, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Malabon</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Nearby</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-2">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="utensils" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">MCT Food Inc.</div>
+         <div class="firm-type">Food Processing</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>Fortune Village, 168 Alicia, Valenzuela, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-3">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="utensils" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">CBY Foods</div>
+         <div class="firm-type">Food Manufacturing</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>8 Dalisay Street, Serrano Subdivision, Marulas, Valenzuela, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-1">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="utensils" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">Santory</div>
+         <div class="firm-type">Food Production</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>8 M. Antonio, Valenzuela, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge established"><i data-lucide="calendar" class="w-3 h-3"></i> Est. 1978</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-2">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="utensils" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">Donutification Corporation</div>
+         <div class="firm-type">Bakery Manufacturing</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>888 East Cantillion, Valenzuela, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-3">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="utensils" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">Greenbelt Food Products</div>
+         <div class="firm-type">Food Manufacturing</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>383 C. Santiago Street, Dalandanan, Valenzuela, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-1">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="utensils" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">Sionci Bihon Factory</div>
+         <div class="firm-type">Noodle Manufacturing</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>67 A. Marcelo Street, Valenzuela, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-2">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="utensils" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">Centrum Enterprise</div>
+         <div class="firm-type">Food Trading</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>47 Maysan Road, Valenzuela, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
        </div>
       </div>
 
@@ -870,9 +1090,8 @@
        Build Connections Before You Graduate
       </h3>
       <p class="text-slate-900 leading-relaxed">
-       With 10+ employment agencies, manpower services, and HR consultancies within Valenzuela City alone, PLV students have direct access to internship opportunities, job placements, and professional networking — right at their doorstep.
+       With 20+ food manufacturing companies within Valenzuela City and neighboring areas, PLV students have direct access to internship opportunities, plant tours, mock interviews, HR shadowing programs, and professional networking — right at their doorstep.
       </p>
-
      </div>
     </div>
    </div>
@@ -886,5 +1105,103 @@
 
  <!-- Scripts -->
  <script src="scripts/scripts.js"></script>
+
+ <!-- Google Maps JavaScript API -->
+ <script>
+  function initFoodMap() {
+    // Center on Valenzuela City
+    const valenzuela = { lat: 14.7010, lng: 120.9840 };
+
+    const map = new google.maps.Map(document.getElementById('foodMap'), {
+      zoom: 14,
+      center: valenzuela,
+      mapTypeId: 'roadmap',
+      styles: [
+        { featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'off' }] },
+        { featureType: 'transit', elementType: 'labels', stylers: [{ visibility: 'off' }] }
+      ]
+    });
+
+    // Food company locations
+    const companies = [
+      { name: 'Newton Food Products Mfg.', address: '84 Ramon Delfin St, Marulas, Valenzuela', lat: 14.6850, lng: 120.9820 },
+      { name: 'M&T Food Industries', address: '136 Kabatuhan Rd, Valenzuela', lat: 14.7100, lng: 120.9750 },
+      { name: 'Ecco Food Corporation', address: '262 Urrutia, Valenzuela', lat: 14.7050, lng: 120.9900 },
+      { name: 'Lembest Foods Corporation', address: '2069 Kadon, Valenzuela', lat: 14.7150, lng: 120.9800 },
+      { name: 'Go Tian Food Industries', address: '161 A. Mariano, Valenzuela', lat: 14.6950, lng: 120.9850 },
+      { name: 'MGP Food Products', address: '80 Padrigal St, Valenzuela', lat: 14.7000, lng: 120.9780 },
+      { name: 'Prime Supreme King Company', address: '940 Sta. Monica St, Valenzuela', lat: 14.7080, lng: 120.9720 },
+      { name: 'Pure Snack Food House', address: '59 ITC Comp. Rd, Valenzuela', lat: 14.6900, lng: 120.9880 },
+      { name: 'Hoc Guan Manufacturing', address: '130 Marcelo H. Del Pilar St, Malabon', lat: 14.6650, lng: 120.9700 },
+      { name: 'CDO Foodsphere', address: '560 W Service Rd, Valenzuela', lat: 14.7200, lng: 120.9950 },
+      { name: 'Josie Food Industry', address: '6011 A. Del Mundo St, Valenzuela', lat: 14.6920, lng: 120.9830 },
+      { name: 'Newborn Food Products Inc.', address: 'Serafia St, Balubaran, Valenzuela', lat: 14.6880, lng: 120.9790 },
+      { name: 'Silver Swan Manufacturing', address: '164 Panghulo Rd, Malabon', lat: 14.6600, lng: 120.9650 },
+      { name: 'MCT Food Inc.', address: '168 Alicia, Fortune Village, Valenzuela', lat: 14.7050, lng: 120.9850 },
+      { name: 'CBY Foods', address: '8 Dalisay St, Serrano Subdivision, Valenzuela', lat: 14.6980, lng: 120.9810 },
+      { name: 'Santory', address: '8 M. Antonio, Valenzuela', lat: 14.7020, lng: 120.9770 },
+      { name: 'Donutification Corporation', address: '888 East Cantillion, Valenzuela', lat: 14.6960, lng: 120.9870 },
+      { name: 'Greenbelt Food Products', address: '383 C. Santiago St, Valenzuela', lat: 14.7120, lng: 120.9730 },
+      { name: 'Sionci Bihon Factory', address: '67 A. Marcelo St, Valenzuela', lat: 14.6940, lng: 120.9840 },
+      { name: 'Centrum Enterprise', address: '47 Maysan Rd, Valenzuela', lat: 14.6800, lng: 120.9860 }
+    ];
+
+    // PLV location
+    const plv = { lat: 14.7010, lng: 120.9840 };
+
+    // Add PLV marker (different color - blue)
+    new google.maps.Marker({
+      position: plv,
+      map: map,
+      title: 'Pamantasang Lungsod ng Valenzuela',
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        scale: 12,
+        fillColor: '#2563eb',
+        fillOpacity: 1,
+        strokeColor: '#ffffff',
+        strokeWeight: 2
+      }
+    });
+
+    // Add PLV info window
+    const plvInfo = new google.maps.InfoWindow({
+      content: '<div style="padding:8px;font-family:DM Sans,sans-serif;"><strong style="color:#2563eb;">PLV</strong><br>Pamantasang Lungsod ng Valenzuela</div>'
+    });
+
+    // Add company markers
+    companies.forEach(company => {
+      const marker = new google.maps.Marker({
+        position: { lat: company.lat, lng: company.lng },
+        map: map,
+        title: company.name,
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 8,
+          fillColor: '#e07b3a',
+          fillOpacity: 1,
+          strokeColor: '#ffffff',
+          strokeWeight: 2
+        }
+      });
+
+      const infoWindow = new google.maps.InfoWindow({
+        content: '<div style="padding:8px;font-family:DM Sans,sans-serif;max-width:220px;"><strong style="color:#e07b3a;">' + company.name + '</strong><br><span style="color:#666;font-size:0.85rem;">' + company.address + '</span></div>'
+      });
+
+      marker.addListener('click', () => {
+        infoWindow.open(map, marker);
+      });
+    });
+
+    // Fit bounds to show all markers
+    const bounds = new google.maps.LatLngBounds();
+    bounds.extend(plv);
+    companies.forEach(c => bounds.extend(new google.maps.LatLng(c.lat, c.lng)));
+    map.fitBounds(bounds);
+  }
+ </script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8rUpk63_RlZPGfPLc08EaV29AsQ3bbQM&loading=async&callback=initFoodMap" async></script>
+
 </body>
 </html>
