@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>HRM Interactive Showcase — Shape the Future of Work</title>
+ <meta name="description" content="Discover a career in Human Resource Management. Explore programs, career paths, and student success stories.">
+ <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+ <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700;900&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="w-full animated-gradient min-h-screen">
+
+ <!-- ==================== STICKY NAVIGATION ==================== -->
+ <nav class="site-nav" id="siteNav">
+  <div class="nav-inner">
+   <a href="#" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" aria-label="Home">
+    <i data-lucide="gem" class="nav-diamond"></i>
+   </a>
+   <ul class="nav-links">
+    <li><a href="#career-section">Careers</a></li>
+    <li><a href="#learn-section">Curriculum</a></li>
+    <li><a href="#stories-section">Stories</a></li>
+    <li><a href="#firms-section">Firms</a></li>
+   </ul>
+   <button class="nav-theme-toggle" id="navThemeToggle" aria-label="Toggle dark mode">
+    <i data-lucide="sun" class="theme-icon-light"></i>
+    <i data-lucide="moon" class="theme-icon-dark"></i>
+   </button>
+   <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Toggle menu">
+    <i data-lucide="menu" class="w-6 h-6"></i>
+   </button>
+  </div>
+  <div class="nav-mobile-menu" id="navMobileMenu">
+   <a href="#career-section">Careers</a>
+   <a href="#learn-section">Curriculum</a>
+   <a href="#stories-section">Stories</a>
+   <a href="#firms-section">Firms</a>
+  </div>
+ </nav>
+
+
+ <!-- ==================== HERO ==================== -->
+ <!-- ==================== HERO ==================== -->
+ <!-- ==================== HERO ==================== -->
+ <header class="hero px-6 md:px-16">
+  <div class="hero-content">
+   <h1 class="hero-title">
+    Shape the Future of Work with HRM
+   </h1>
+   <p class="hero-subtitle">
+    Build a career that unites people, strategy, and success. Our program equips you to lead, inspire, and transform workplaces worldwide.
+   </p>
+   <button class="hero-cta" onclick="document.getElementById('career-section').scrollIntoView({behavior:'smooth'})">
+    <span>Explore Programs</span>
+    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+   </button>
+  </div>
+
+  <!-- Hero Portrait Carousel - 3D Rotating Carousel -->
+   <div class="hero-carousel-wrapper">
+    <div class="scene">
+     <div class="a3d" style="--n: 10">
+      <img class="card" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face" style="--i: 0" alt="HR Professional" loading="lazy">
+      <img class="card" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop&crop=face" style="--i: 1" alt="HR Professional" loading="lazy">
+      <img class="card" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face" style="--i: 2" alt="HR Professional" loading="lazy">
+      <img class="card" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face" style="--i: 3" alt="HR Professional" loading="lazy">
+      <img class="card" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face" style="--i: 4" alt="HR Professional" loading="lazy">
+      <img class="card" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face" style="--i: 5" alt="HR Professional" loading="lazy">
+      <img class="card" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=500&fit=crop&crop=face" style="--i: 6" alt="HR Professional" loading="lazy">
+      <img class="card" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop&crop=face" style="--i: 7" alt="HR Professional" loading="lazy">
+      <img class="card" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face" style="--i: 8" alt="HR Professional" loading="lazy">
+      <img class="card" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop&crop=face" style="--i: 9" alt="HR Professional" loading="lazy">
+     </div>
+    </div>
+   </div>
+
+   <!-- Hero Features -->
+  <div class="hero-features">
+   <div class="hero-feature">
+    <div class="hero-feature-icon">
+     <i data-lucide="message-circle" class="w-5 h-5"></i>
+    </div>
+    <h3 class="hero-feature-title">Real-Time Collaboration</h3>
+    <p class="hero-feature-desc">Communicate seamlessly and keep everyone in sync with built-in messaging, file sharing, and live updates.</p>
+   </div>
+   <div class="hero-feature">
+    <div class="hero-feature-icon">
+     <i data-lucide="layout-list" class="w-5 h-5"></i>
+    </div>
+    <h3 class="hero-feature-title">Task & Project Tracking</h3>
+    <p class="hero-feature-desc">Assign tasks, set deadlines, and visualize progress with boards, lists, and timelines tailored to your team's style.</p>
+   </div>
+   <div class="hero-feature">
+    <div class="hero-feature-icon">
+     <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+    </div>
+    <h3 class="hero-feature-title">Performance Insights</h3>
+    <p class="hero-feature-desc">Make smarter decisions with analytics that show productivity trends, bottlenecks, and team workload balance.</p>
+   </div>
+  </div>
+ </header>
+
+ <main>
+  <!-- ==================== ENTERPRISE REALITY ==================== -->
+  <section class="enterprise-section py-24 px-6 md:px-16">
+   <div class="max-w-4xl mx-auto text-center">
+    <div class="reveal">
+     <div class="section-label">The Challenge</div>
+     <h2 class="section-title">The Enterprise Reality</h2>
+     <p class="section-subtitle mx-auto">
+      Bridging the competency divide between certified HR professionals and emerging cross-functional talent.
+     </p>
+    </div>
+    <div class="enterprise-card mt-12 reveal reveal-delay-2">
+     <p class="text-lg leading-relaxed text-slate-900">
+      Enterprise ecosystems today face a critical talent infrastructure challenge: certified HR professionals bring deep structural compliance expertise and labor analytics frameworks, while emerging cross-functional talent brings agile adaptability and transferable skillsets. The gap between these distinct talent pipelines creates operational friction, delays strategic initiatives, and leaves organizations vulnerable to workforce readiness gaps.
+     </p>
+     <div class="mt-6 pt-6 border-t border-slate-100 flex items-center justify-center gap-2 text-sm font-medium text-slate-900">
+      <i data-lucide="lightbulb" class="w-4 h-4 text-amber-500"></i>
+      Mapping and integrating these competency models is the foundation for scaling organizations and maximizing talent utilization.
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ==================== WHY CHOOSE HRM ==================== -->
+  <section class="py-24 px-6 md:px-16">
+   <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center">
+     <div class="section-label">Why HRM?</div>
+     <h2 class="section-title">Strategic Advantages That Set You Apart</h2>
+     <p class="section-subtitle mx-auto">
+      A career in Human Resource Management opens doors to leadership, impact, and growth across every industry.
+     </p>
+    </div>
+    <div class="mt-12 grid md:grid-cols-2 gap-5">
+     <div class="pro-card reveal reveal-delay-1">
+      <div class="pro-icon"><i data-lucide="trending-up" class="w-5 h-5"></i></div>
+      <div>
+       <h3 class="font-bold text-slate-900">High Demand Across Every Industry</h3>
+       <p class="text-sm text-slate-900 mt-1">Every organization needs HR expertise — from startups to Fortune 500 companies.</p>
+      </div>
+     </div>
+     <div class="pro-card reveal reveal-delay-2">
+      <div class="pro-icon"><i data-lucide="heart-handshake" class="w-5 h-5"></i></div>
+      <div>
+       <h3 class="font-bold text-slate-900">Direct Impact on Culture & Wellbeing</h3>
+       <p class="text-sm text-slate-900 mt-1">Shape company culture, improve employee wellbeing, and drive retention strategies.</p>
+      </div>
+     </div>
+     <div class="pro-card reveal reveal-delay-3">
+      <div class="pro-icon"><i data-lucide="git-branch" class="w-5 h-5"></i></div>
+      <div>
+       <h3 class="font-bold text-slate-900">Diverse Career Paths</h3>
+       <p class="text-sm text-slate-900 mt-1">From recruitment to organizational development — choose your specialization.</p>
+      </div>
+     </div>
+     <div class="pro-card reveal reveal-delay-4">
+      <div class="pro-icon"><i data-lucide="coins" class="w-5 h-5"></i></div>
+      <div>
+       <h3 class="font-bold text-slate-900">Growing Salaries & Leadership</h3>
+       <p class="text-sm text-slate-900 mt-1">Businesses are investing more in talent — and HR professionals are at the center of it.</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ==================== CAREER PATHS ==================== -->
+  <section id="career-section" class="py-24 px-6 md:px-16">
+   <div class="max-w-6xl mx-auto">
+    <div class="text-center reveal">
+     <div class="section-label light">Career Paths</div>
+     <h2 class="section-title light">Where Will HRM Take You?</h2>
+     <p class="section-subtitle light mx-auto">
+      Explore the many directions your HR career can take — each path offers unique challenges and rewards.
+     </p>
+    </div>
+    <div class="relative mt-14">
+     <div class="overflow-x-auto scrollbar-hide">
+      <div id="career-track" class="carousel-track py-4 px-1">
+       <div class="career-card">
+        <div class="career-card-image-wrap">
+         <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=640&h=400&fit=crop" alt="Talent Acquisition" class="career-card-image" loading="lazy">
+         <span class="career-card-badge">In-Demand</span>
+        </div>
+        <div class="career-card-body">
+         <h3 class="career-card-title">Talent Acquisition Specialist</h3>
+         <p class="career-card-desc">Source, attract, and hire top talent. Build employer branding strategies and manage end-to-end recruitment pipelines.</p>
+        </div>
+       </div>
+       <div class="career-card">
+        <div class="career-card-image-wrap">
+         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=640&h=400&fit=crop" alt="Learning & Development" class="career-card-image" loading="lazy">
+         <span class="career-card-badge">Growing</span>
+        </div>
+        <div class="career-card-body">
+         <h3 class="career-card-title">Learning & Development Manager</h3>
+         <p class="career-card-desc">Design training programs, upskill workforces, and create continuous learning cultures within organizations.</p>
+        </div>
+       </div>
+       <div class="career-card">
+        <div class="career-card-image-wrap">
+         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=640&h=400&fit=crop" alt="Compensation & Benefits" class="career-card-image" loading="lazy">
+         <span class="career-card-badge">Strategic</span>
+        </div>
+        <div class="career-card-body">
+         <h3 class="career-card-title">Compensation & Benefits Analyst</h3>
+         <p class="career-card-desc">Develop competitive pay structures, manage benefits programs, and ensure equitable compensation practices.</p>
+        </div>
+       </div>
+       <div class="career-card">
+        <div class="career-card-image-wrap">
+         <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=640&h=400&fit=crop" alt="Employee Relations" class="career-card-image" loading="lazy">
+         <span class="career-card-badge">Essential</span>
+        </div>
+        <div class="career-card-body">
+         <h3 class="career-card-title">Employee Relations Manager</h3>
+         <p class="career-card-desc">Mediate workplace conflicts, ensure labor law compliance, and foster positive employee-employer relationships.</p>
+        </div>
+       </div>
+       <div class="career-card">
+        <div class="career-card-image-wrap">
+         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=640&h=400&fit=crop" alt="HRIS Analyst" class="career-card-image" loading="lazy">
+         <span class="career-card-badge">Tech-Forward</span>
+        </div>
+        <div class="career-card-body">
+         <h3 class="career-card-title">HRIS Analyst</h3>
+         <p class="career-card-desc">Manage HR technology systems, optimize people data analytics, and drive digital transformation in HR.</p>
+        </div>
+       </div>
+       <div class="career-card">
+        <div class="career-card-image-wrap">
+         <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=640&h=400&fit=crop" alt="Organizational Development" class="career-card-image" loading="lazy">
+         <span class="career-card-badge">Leadership</span>
+        </div>
+        <div class="career-card-body">
+         <h3 class="career-card-title">Organizational Development Consultant</h3>
+         <p class="career-card-desc">Drive change management, design organizational structures, and align culture with business strategy.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div id="career-dots" class="carousel-dots"></div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ==================== STUDENT STORIES ==================== -->
+  <section id="stories-section" class="py-24 px-6 md:px-16">
+   <div class="max-w-6xl mx-auto">
+    <div class="text-center reveal">
+     <div class="section-label">Testimonials</div>
+     <h2 class="section-title">Student Stories</h2>
+     <p class="section-subtitle mx-auto">
+      Hear from our graduates who are now making a real impact in the world of HR.
+     </p>
+    </div>
+    <div class="relative mt-14">
+     <div class="overflow-x-auto scrollbar-hide">
+      <div id="stories-track" class="carousel-track py-4 px-1">
+       <div class="id-card">
+        <div class="flex items-center gap-4">
+         <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=144&h=144&fit=crop&crop=face" alt="Maria Angela Santos" class="id-card-photo" loading="lazy">
+         <div>
+          <p class="font-bold text-slate-900 text-lg">Maria Angela Santos</p>
+          <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · Cum Laude</p>
+         </div>
+        </div>
+        <div class="mt-5 pt-5 border-t border-slate-100">
+         <p class="id-card-quote text-sm">HRM taught me that people are the most valuable asset. Now I lead talent acquisition for a Fortune 500 company.</p>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+         <span class="id-card-batch">Batch 2023</span>
+         <span class="font-mono text-xs text-slate-600">HRM-2023-0147</span>
+        </div>
+       </div>
+       <div class="id-card">
+        <div class="flex items-center gap-4">
+         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=144&h=144&fit=crop&crop=face" alt="James Reyes" class="id-card-photo" loading="lazy">
+         <div>
+          <p class="font-bold text-slate-900 text-lg">James Reyes</p>
+          <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · Dean's Lister</p>
+         </div>
+        </div>
+        <div class="mt-5 pt-5 border-t border-slate-100">
+         <p class="id-card-quote text-sm">The program gave me real-world exposure through internships. I landed my dream role in employee engagement before graduation.</p>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+         <span class="id-card-batch">Batch 2024</span>
+         <span class="font-mono text-xs text-slate-600">HRM-2024-0089</span>
+        </div>
+       </div>
+       <div class="id-card">
+        <div class="flex items-center gap-4">
+         <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=144&h=144&fit=crop&crop=face" alt="Kathleen Lim" class="id-card-photo" loading="lazy">
+         <div>
+          <p class="font-bold text-slate-900 text-lg">Kathleen Lim</p>
+          <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · With Honors</p>
+         </div>
+        </div>
+        <div class="mt-5 pt-5 border-t border-slate-100">
+         <p class="id-card-quote text-sm">From classroom case studies to actual HR consulting — this program prepared me for the complexities of modern workforce management.</p>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+         <span class="id-card-batch">Batch 2022</span>
+         <span class="font-mono text-xs text-slate-600">HRM-2022-0231</span>
+        </div>
+       </div>
+       <div class="id-card">
+        <div class="flex items-center gap-4">
+         <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=144&h=144&fit=crop&crop=face" alt="David Cruz" class="id-card-photo" loading="lazy">
+         <div>
+          <p class="font-bold text-slate-900 text-lg">David Cruz</p>
+          <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · Magna Cum Laude</p>
+         </div>
+        </div>
+        <div class="mt-5 pt-5 border-t border-slate-100">
+         <p class="id-card-quote text-sm">I specialize in HR analytics now. The data-driven approach I learned here gave me an edge no one else had.</p>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+         <span class="id-card-batch">Batch 2023</span>
+         <span class="font-mono text-xs text-slate-600">HRM-2023-0312</span>
+        </div>
+       </div>
+       <div class="id-card">
+        <div class="flex items-center gap-4">
+         <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=144&h=144&fit=crop&crop=face" alt="Sophia Mendoza" class="id-card-photo" loading="lazy">
+         <div>
+          <p class="font-bold text-slate-900 text-lg">Sophia Mendoza</p>
+          <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · With Honors</p>
+         </div>
+        </div>
+        <div class="mt-5 pt-5 border-t border-slate-100">
+         <p class="id-card-quote text-sm">The hands-on training in labor law and compliance gave me the confidence to handle complex workplace issues from day one.</p>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+         <span class="id-card-batch">Batch 2024</span>
+         <span class="font-mono text-xs text-slate-600">HRM-2024-0156</span>
+        </div>
+       </div>
+       <div class="id-card">
+        <div class="flex items-center gap-4">
+         <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=144&h=144&fit=crop&crop=face" alt="Rafael Torres" class="id-card-photo" loading="lazy">
+         <div>
+          <p class="font-bold text-slate-900 text-lg">Rafael Torres</p>
+          <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · Dean's Lister</p>
+         </div>
+        </div>
+        <div class="mt-5 pt-5 border-t border-slate-100">
+         <p class="id-card-quote text-sm">I never imagined I'd be managing payroll for 500+ employees at 24. The practical simulations in class made all the difference.</p>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+         <span class="id-card-batch">Batch 2023</span>
+         <span class="font-mono text-xs text-slate-600">HRM-2023-0284</span>
+        </div>
+       </div>
+       <div class="id-card">
+        <div class="flex items-center gap-4">
+         <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=144&h=144&fit=crop&crop=face" alt="Isabella Garcia" class="id-card-photo" loading="lazy">
+         <div>
+          <p class="font-bold text-slate-900 text-lg">Isabella Garcia</p>
+          <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · Cum Laude</p>
+         </div>
+        </div>
+        <div class="mt-5 pt-5 border-t border-slate-100">
+         <p class="id-card-quote text-sm">The mentorship from industry professionals helped me build a network that landed me a role at a top multinational firm.</p>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+         <span class="id-card-batch">Batch 2022</span>
+         <span class="font-mono text-xs text-slate-600">HRM-2022-0198</span>
+        </div>
+       </div>
+       <div class="id-card">
+        <div class="flex items-center gap-4">
+         <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=144&h=144&fit=crop&crop=face" alt="Marcus Dela Cruz" class="id-card-photo" loading="lazy">
+         <div>
+          <p class="font-bold text-slate-900 text-lg">Marcus Dela Cruz</p>
+          <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · Magna Cum Laude</p>
+         </div>
+        </div>
+        <div class="mt-5 pt-5 border-t border-slate-100">
+         <p class="id-card-quote text-sm">From classroom debates on labor relations to negotiating union contracts — the program prepared me for every challenge.</p>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+         <span class="id-card-batch">Batch 2023</span>
+         <span class="font-mono text-xs text-slate-600">HRM-2023-0341</span>
+        </div>
+       </div>
+       <div class="id-card">
+        <div class="flex items-center gap-4">
+         <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=144&h=144&fit=crop&crop=face" alt="Camille Tan" class="id-card-photo" loading="lazy">
+         <div>
+          <p class="font-bold text-slate-900 text-lg">Camille Tan</p>
+          <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · With Honors</p>
+         </div>
+        </div>
+        <div class="mt-5 pt-5 border-t border-slate-100">
+         <p class="id-card-quote text-sm">The diversity and inclusion workshops opened my eyes. Now I lead DEI initiatives that impact thousands of employees.</p>
+        </div>
+        <div class="mt-4 flex justify-between items-center">
+         <span class="id-card-batch">Batch 2024</span>
+         <span class="font-mono text-xs text-slate-600">HRM-2024-0217</span>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div id="stories-dots" class="carousel-dots"></div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ==================== WHAT YOU'LL LEARN ==================== -->
+  <section id="learn-section" class="py-24 px-6 md:px-16">
+   <div class="max-w-6xl mx-auto">
+    <div class="text-center reveal">
+     <div class="section-label">Curriculum</div>
+     <h2 class="section-title">What You'll Learn</h2>
+     <p class="section-subtitle mx-auto">
+      A comprehensive curriculum designed to prepare you for the real challenges of modern HR.
+     </p>
+    </div>
+
+    <!-- Hover Accordion Cards -->
+    <div class="mt-14 reveal reveal-delay-1">
+     <div class="learn-accordion">
+
+      <div class="learn-option" style="--optionBackground:url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop);">
+       <div class="learn-shadow"></div>
+       <div class="learn-label">
+        <div class="learn-icon">
+         <i data-lucide="users"></i>
+        </div>
+        <div class="learn-info">
+         <div class="learn-main">Talent Management</div>
+         <div class="learn-sub">Workforce planning, succession management, and strategic talent pipelines that drive organizational growth.</div>
+        </div>
+       </div>
+      </div>
+
+      <div class="learn-option" style="--optionBackground:url(https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop);">
+       <div class="learn-shadow"></div>
+       <div class="learn-label">
+        <div class="learn-icon">
+         <i data-lucide="shield-check"></i>
+        </div>
+        <div class="learn-info">
+         <div class="learn-main">Labor Law & Compliance</div>
+         <div class="learn-sub">Philippine labor code, DOLE regulations, and international employment standards mastery.</div>
+        </div>
+       </div>
+      </div>
+
+      <div class="learn-option" style="--optionBackground:url(https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop);">
+       <div class="learn-shadow"></div>
+       <div class="learn-label">
+        <div class="learn-icon">
+         <i data-lucide="bar-chart-3"></i>
+        </div>
+        <div class="learn-info">
+         <div class="learn-main">HR Analytics</div>
+         <div class="learn-sub">People data, predictive modeling, and evidence-based decision making for strategic advantage.</div>
+        </div>
+       </div>
+      </div>
+
+      <div class="learn-option" style="--optionBackground:url(https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop);">
+       <div class="learn-shadow"></div>
+       <div class="learn-label">
+        <div class="learn-icon">
+         <i data-lucide="brain"></i>
+        </div>
+        <div class="learn-info">
+         <div class="learn-main">Organizational Behavior</div>
+         <div class="learn-sub">Motivation theories, team dynamics, leadership models, and culture building frameworks.</div>
+        </div>
+       </div>
+      </div>
+
+      <div class="learn-option" style="--optionBackground:url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop);">
+       <div class="learn-shadow"></div>
+       <div class="learn-label">
+        <div class="learn-icon">
+         <i data-lucide="globe"></i>
+        </div>
+        <div class="learn-info">
+         <div class="learn-main">Global HR Practices</div>
+         <div class="learn-sub">Cross-cultural management, expatriate programs, and international staffing strategies.</div>
+        </div>
+       </div>
+      </div>
+
+      <div class="learn-option" style="--optionBackground:url(https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop);">
+       <div class="learn-shadow"></div>
+       <div class="learn-label">
+        <div class="learn-icon">
+         <i data-lucide="target"></i>
+        </div>
+        <div class="learn-info">
+         <div class="learn-main">Strategic HR Planning</div>
+         <div class="learn-sub">Aligning HR initiatives with business objectives and driving measurable organizational growth.</div>
+        </div>
+       </div>
+      </div>
+
+     </div>
+    </div>
+   </div>
+  </section>
+
+<!-- ==================== PROGRAM MATERIALS ==================== -->
+  <section class="py-24 px-6 md:px-16">
+   <div class="max-w-6xl mx-auto">
+    <div class="text-center reveal">
+     <div class="section-label">Resources</div>
+     <h2 class="section-title">Program Materials</h2>
+     <p class="section-subtitle mx-auto">
+      Download our resources to learn more about the HRM program, upcoming events, and alumni success.
+     </p>
+    </div>
+    <div class="mt-14 grid sm:grid-cols-3 gap-8">
+     <div class="material-card reveal reveal-delay-1">
+      <div class="material-card-img-wrap">
+       <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=640&h=400&fit=crop" alt="Program Brochure" class="material-card-img" loading="lazy">
+       <button class="material-card-download" aria-label="Download Program Brochure">
+        <i data-lucide="download" class="w-4 h-4"></i>
+       </button>
+      </div>
+      <div class="p-6">
+       <h3 class="font-bold text-slate-900 text-lg">Program Brochure</h3>
+       <p class="text-sm text-slate-900 mt-2 leading-relaxed">Complete overview of curriculum, faculty profiles, and admission requirements.</p>
+      </div>
+     </div>
+     <div class="material-card reveal reveal-delay-2">
+      <div class="material-card-img-wrap">
+       <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=640&h=400&fit=crop" alt="Event Poster" class="material-card-img" loading="lazy">
+       <button class="material-card-download" aria-label="Download Event Poster">
+        <i data-lucide="download" class="w-4 h-4"></i>
+       </button>
+      </div>
+      <div class="p-6">
+       <h3 class="font-bold text-slate-900 text-lg">Event Poster</h3>
+       <p class="text-sm text-slate-900 mt-2 leading-relaxed">Upcoming open days, career fairs, and guest speaker events you won't want to miss.</p>
+      </div>
+     </div>
+     <div class="material-card reveal reveal-delay-3">
+      <div class="material-card-img-wrap">
+       <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&h=400&fit=crop" alt="Market Insert" class="material-card-img" loading="lazy">
+       <button class="material-card-download" aria-label="Download Market Insert">
+        <i data-lucide="download" class="w-4 h-4"></i>
+       </button>
+      </div>
+      <div class="p-6">
+       <h3 class="font-bold text-slate-900 text-lg">Market Insert</h3>
+       <p class="text-sm text-slate-900 mt-2 leading-relaxed">Industry partnerships, placement rates, and alumni success data at a glance.</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+
+  <!-- ==================== FUTURE TRENDS ==================== -->
+  <section class="relative py-24 px-6 md:px-16 overflow-hidden">
+   
+   <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="text-center reveal">
+     <div class="section-label light">Looking Ahead</div>
+     <h2 class="section-title light">Future Trends in HR</h2>
+     <p class="section-subtitle light mx-auto">
+      The landscape is evolving rapidly. Here's what's shaping the future of human resources.
+     </p>
+    </div>
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+     <div class="trend-card reveal reveal-delay-1">
+      <span class="trend-number">01</span>
+      <h3 class="trend-card-title">AI-Powered Recruitment</h3>
+      <p class="trend-card-desc">Machine learning algorithms screening candidates, reducing bias, and predicting job fit with unprecedented accuracy.</p>
+     </div>
+     <div class="trend-card reveal reveal-delay-2">
+      <span class="trend-number">02</span>
+      <h3 class="trend-card-title">Remote-First Culture</h3>
+      <p class="trend-card-desc">Hybrid and fully remote models require new approaches to engagement, performance management, and team cohesion.</p>
+     </div>
+     <div class="trend-card reveal reveal-delay-3">
+      <span class="trend-number">03</span>
+      <h3 class="trend-card-title">People Analytics</h3>
+      <p class="trend-card-desc">Data-driven insights on turnover, engagement, and productivity transforming HR from reactive to predictive.</p>
+     </div>
+     <div class="trend-card reveal reveal-delay-1">
+      <span class="trend-number">04</span>
+      <h3 class="trend-card-title">Employee Wellbeing</h3>
+      <p class="trend-card-desc">Mental health programs, flexible benefits, and holistic wellness initiatives becoming non-negotiable.</p>
+     </div>
+     <div class="trend-card reveal reveal-delay-2">
+      <span class="trend-number">05</span>
+      <h3 class="trend-card-title">Skills-Based Hiring</h3>
+      <p class="trend-card-desc">Moving beyond degrees to competency mapping, micro-credentials, and demonstrable skills portfolios.</p>
+     </div>
+     <div class="trend-card reveal reveal-delay-3">
+      <span class="trend-number">06</span>
+      <h3 class="trendcard-title">DEI Integration</h3>
+      <p class="trend-card-desc">Diversity, equity, and inclusion woven into every HR process from hiring to leadership development.</p>
+     </div>
+    </div>
+   </div>
+  </section>
+<!-- ==================== HR FIRMS NEAR PLV ==================== -->
+  <section id="firms-section" class="map-section py-24 px-6 md:px-16">
+   <div class="max-w-6xl mx-auto">
+    <div class="text-center reveal">
+     <div class="section-label">Opportunities Near Campus</div>
+     <h2 class="section-title">HR Firms Near Pamantasang Lungsod ng Valenzuela</h2>
+     <p class="section-subtitle mx-auto">
+      Valenzuela City is home to a growing ecosystem of employment agencies, manpower services, and HR consultancies — all within reach of PLV.
+     </p>
+    </div>
+
+    <!-- PLV Pin Card -->
+    <div class="mt-12 reveal reveal-delay-1">
+     <div class="plv-pin">
+      <div class="plv-pin-header">
+       <div class="plv-pin-icon">
+        <i data-lucide="graduation-cap" class="w-7 h-7 text-white"></i>
+       </div>
+       <div>
+        <div class="plv-pin-title">Pamantasang Lungsod ng Valenzuela</div>
+        <div class="plv-pin-subtitle">Tongco St., Barangay Maysan, Valenzuela City</div>
+       </div>
+      </div>
+      <div class="plv-pin-body">
+       PLV is a local government-funded public university with over 13,000 students. Its strategic location in northern Metro Manila places graduates within easy reach of HR firms, employment agencies, and corporate offices across Valenzuela and neighboring cities.
+      </div>
+      <div class="plv-pin-stats">
+       <div class="plv-pin-stat">
+        <div class="plv-pin-stat-value">13K+</div>
+        <div class="plv-pin-stat-label">Students</div>
+       </div>
+       <div class="plv-pin-stat">
+        <div class="plv-pin-stat-value">400+</div>
+        <div class="plv-pin-stat-label">Faculty</div>
+       </div>
+       <div class="plv-pin-stat">
+        <div class="plv-pin-stat-value">2002</div>
+        <div class="plv-pin-stat-label">Established</div>
+       </div>
+       <div class="plv-pin-stat">
+        <div class="plv-pin-stat-value">3</div>
+        <div class="plv-pin-stat-label">Campuses</div>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <!-- Interactive Map -->
+    <div class="mt-10 reveal reveal-delay-2">
+     <div class="map-container">
+      <iframe
+       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.7456!2d120.98!3d14.70!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b7a3b3b3b3b3%3A0x3b3b3b3b3b3b3b3b!2sPamantasan%20ng%20Lungsod%20ng%20Valenzuela!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph"
+       allowfullscreen=""
+       loading="lazy"
+       referrerpolicy="no-referrer-when-downgrade"
+       title="Map showing Pamantasang Lungsod ng Valenzuela and nearby HR firms">
+      </iframe>
+      <div class="map-overlay">
+       <div class="map-overlay-content">
+        <h3>Explore the Valenzuela HR Ecosystem</h3>
+        <p>Zoom and pan the map to discover employment agencies, manpower services, and HR consultancies within walking and commuting distance of PLV.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <!-- HR Firm Cards -->
+    <div class="mt-14">
+     <h3 class="text-xl font-bold text-slate-900 mb-6 reveal">Featured HR Firms in Valenzuela</h3>
+     <div class="firm-grid">
+
+      <div class="firm-card reveal reveal-delay-1">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="building-2" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">Philquest International</div>
+         <div class="firm-type">Private Employment Agency</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>255-C McArthur Highway, Karuhatan, Valenzuela City, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 291-5305</span>
+        <span class="firm-badge established"><i data-lucide="calendar" class="w-3 h-3"></i> Est. 2009</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-2">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="building-2" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">AS Employment Services</div>
+         <div class="firm-type">Employment Agency</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>177 Paso De Blas, Valenzuela City, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 292-7221</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-3">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="ship" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">Brent Overseas Personnel</div>
+         <div class="firm-type">Manning Agency</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>9658 Pililia Street, Valenzuela City, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 890-3723</span>
+        <span class="firm-badge established"><i data-lucide="calendar" class="w-3 h-3"></i> Est. 1992</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-1">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="building-2" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">First Asian Career Solutions</div>
+         <div class="firm-type">Private Employment Agency</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>STI Lerma, Valenzuela City, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 727-6429</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-2">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="anchor" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">SSM Maritime Services</div>
+         <div class="firm-type">Manning Agency</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>RM 203 BF Condo, Soriano Ave. cor. Solana St., Intramuros, Valenzuela City</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 338-0255</span>
+        <span class="firm-badge"><i data-lucide="ship" class="w-3 h-3"></i> Maritime</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-3">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="building-2" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">First Magellan Overseas Corp.</div>
+         <div class="firm-type">Private Employment Agency</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>Suiza Condo, Valenzuela City, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 634-3950</span>
+        <span class="firm-badge"><i data-lucide="globe" class="w-3 h-3"></i> Overseas</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-1">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="users" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">Marionbella Manpower Specialist</div>
+         <div class="firm-type">Manpower Services</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>G/F Dulatas Building, Maysan Road, Valenzuela City, Metro Manila</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 293-7522</span>
+        <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-2">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="briefcase" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">Prime Meridian HR Consultancy</div>
+         <div class="firm-type">HR Consultancy</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>Valenzuela City, Metro Manila (Multiple openings for HR roles)</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="search" class="w-3.5 h-3.5"></i> Hiring Now</span>
+        <span class="firm-badge"><i data-lucide="trending-up" class="w-3 h-3"></i> Growing</span>
+       </div>
+      </div>
+
+      <div class="firm-card reveal reveal-delay-3">
+       <div class="firm-card-header">
+        <div class="firm-icon">
+         <i data-lucide="landmark" class="w-5 h-5"></i>
+        </div>
+        <div>
+         <div class="firm-name">Valenzuela Trabaho Portal</div>
+         <div class="firm-type">Government Job Portal</div>
+        </div>
+       </div>
+       <div class="firm-address">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>City Government of Valenzuela — Online job portal for local residents</span>
+       </div>
+       <div class="firm-meta">
+        <span><i data-lucide="globe" class="w-3.5 h-3.5"></i> valenzuelatrabaho.gov.ph</span>
+        <span class="firm-badge"><i data-lucide="shield-check" class="w-3 h-3"></i> Official</span>
+       </div>
+      </div>
+
+     </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="mt-14 text-center reveal">
+     <div class="glass-card inline-block max-w-2xl">
+      <div class="section-label">Your Network Starts Here</div>
+      <h3 class="text-2xl font-bold text-slate-900 mt-2 mb-3" style="font-family:'Fraunces',serif;">
+       Build Connections Before You Graduate
+      </h3>
+      <p class="text-slate-900 leading-relaxed">
+       With 10+ employment agencies, manpower services, and HR consultancies within Valenzuela City alone, PLV students have direct access to internship opportunities, job placements, and professional networking — right at their doorstep.
+      </p>
+
+     </div>
+    </div>
+   </div>
+  </section>
+
+</main>
+
+ <footer class="site-footer">
+  <p>© 2026 HRM Program Showcase. Empowering the future of work.</p>
+ </footer>
+
+ <!-- Scripts -->
+ <script src="scripts/scripts.js"></script>
+</body>
+</html>
