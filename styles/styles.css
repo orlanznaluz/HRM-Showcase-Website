@@ -2033,3 +2033,10 @@ body.dark-mode .text-slate-500,
 body.dark-mode .text-slate-400 {
   color: #8a7e72;
 }
+
+
+/* Career card badges in dark mode */
+body.dark-mode .career-card-badge {
+  color: #e07b3a;
+  background: rgba(224, 123, 58, 0.12);
+}
