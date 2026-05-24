@@ -277,16 +277,16 @@
 
     // ===== SINGLE PAGE VIEW =====
     const pages = [
-      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/0.png',
-      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/1.png',
-      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/2.png',
-      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/3.png',
-      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/4.png',
-      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/5.png',
-      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/6.png',
-      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/7.png',
-      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/8.png',
-      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/9.png'
+      'public/0.png',
+      'public/1.png',
+      'public/2.png',
+      'public/3.png',
+      'public/4.png',
+      'public/5.png',
+      'public/6.png',
+      'public/7.png',
+      'public/8.png',
+      'public/9.png'
     ];
     
     let currentPage = 0;
