@@ -5,101 +5,5204 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HRM Interactive Showcase — Shape the Future of Work</title>
   <meta name="description" content="Discover a career in Human Resource Management. Explore programs, career paths, and student success stories.">
-  
-  <!-- External Libraries -->
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700;900&display=swap" rel="stylesheet">
-  
-  <!-- Your Styles -->
-  <link rel="stylesheet" href="styles/styles.css">
-  
+
   <base target="_blank">
+  <style>
+/* ============================================
+   HRM Interactive Showcase — Clean Light Mode
+   ============================================ */
+
+:root {
+  --accent: #2563eb;
+  --accent-warm: #8b5cf6;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --bg: #f8fafc;
+  --bg-alt: #f1f5f9;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
+  --radius: 16px;
+  --radius-lg: 24px;
+  --transition: 0.3s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-main);
+  background: var(--bg);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* ---- Background ---- */
+.animated-gradient {
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* ---- Hero Section ---- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  background: #faf6f0;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: -7rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: #0f172a;
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
+  animation: fadeInUp 0.8s ease 0.1s both;
+  text-align: center;
+}
+
+.hero-subtitle {
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  color: #475569;
+  line-height: 1.6;
+  max-width: 520px;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s ease 0.2s both;
+  text-align: center;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: .9rem 2.5rem;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.25);
+  transition: all var(--transition);
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.hero-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(37,99,235,0.35);
+  background: #1d4ed8;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Hero 3D Carousel ---- */
+.hero-carousel-wrapper {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  margin-bottom: -7rem;
+}
+
+.scene, .a3d { display: grid }
+
+.scene {
+  overflow: visible;
+  perspective: 30em;
+  mask: linear-gradient(90deg, #0000, red 15% 85%, #0000);
+  -webkit-mask: linear-gradient(90deg, #0000, red 15% 85%, #0000);
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  padding: 5rem 0;
+}
+
+.a3d {
+  place-self: center;
+  transform-style: preserve-3d;
+  animation: ry 200s linear infinite;
+}
+
+@keyframes ry { 
+  to { rotate: y 1turn } 
+}
+
+.card {
+  --w: 20em;
+  --ba: 1turn/var(--n);
+  grid-area: 1 / 1;
+  width: var(--w);
+  aspect-ratio: 6 / 8;
+  object-fit: cover;
+  border-radius: 1.5em;
+  backface-visibility: hidden;
+  transform: 
+    rotatey(calc(var(--i)*var(--ba)))
+    translatez(calc(-1*(.5*var(--w) + .5em)/tan(.5*var(--ba))));
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .a3d { animation-duration: 128s }
+}
+
+@media (max-width: 768px) {
+  .scene {
+    min-height: 280px;
+    perspective: 25em;
+    padding: 0.5rem 0;
+  }
+  .card {
+    --w: 14em;
+  }
+}
+
+@media (max-width: 480px) {
+  .scene {
+    min-height: 240px;
+    perspective: 20em;
+    padding: 0.25rem 0;
+  }
+  .card {
+    --w: 10em;
+  }
+}
+
+/* ---- Hero Features ---- */
+.hero-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0.75rem auto 0;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.hero-feature {
+  text-align: center;
+  padding: 0.75rem;
+  animation: fadeInUp 0.8s ease 0.5s both;
+}
+
+.hero-feature:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.hero-feature:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+.hero-feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.5rem;
+  color: #2563eb;
+  transition: all 0.3s ease;
+}
+
+.hero-feature:hover .hero-feature-icon {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.2);
+}
+
+.hero-feature-title {
+  font-family: 'Fraunces', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.hero-feature-desc {
+  font-size: 0.8rem;
+  color: #475569;
+  line-height: 1.5;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+/* ---- Responsive Hero ---- */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    min-height: auto;
+  }
+
+  .hero-content {
+    margin-bottom: -0.5rem;
+  }
+
+  .hero-carousel-wrapper {
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .hero-features {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+}
+
+/* ---- Section Headers ---- */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px; height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ---- Enterprise Section ---- */
+.enterprise-section {
+  background: var(--bg-alt);
+  position: relative;
+}
+
+.enterprise-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: rgba(0,0,0,0.06);
+}
+
+.enterprise-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* ---- Pro Cards ---- */
+.pro-card {
+  background: #ffffff;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+
+.pro-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(37,99,235,0.15);
+}
+
+.pro-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #2563eb;
+}
+
+/* ---- Career Cards ---- */
+.career-card {
+  width: 320px;
+  flex-shrink: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition);
+}
+
+.career-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.career-card-image {
+  width: 100%; height: 200px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.career-card:hover .career-card-image {
+  transform: scale(1.08);
+}
+
+.career-card-image-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.career-card-image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15,23,42,0.5);
+}
+
+.career-card-badge {
+  position: absolute;
+  bottom: 1rem; left: 1rem;
+  z-index: 2;
+  padding: 0.35rem 0.75rem;
+  background: rgba(255,255,255,0.9);
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.career-card-body {
+  padding: 1.5rem;
+}
+
+.career-card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.career-card-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ---- ID Cards ---- */
+.id-card {
+  min-width: 300px;
+  max-width: 340px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition);
+}
+
+.id-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--accent);
+}
+
+.id-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.id-card-photo {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.id-card-quote {
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.7;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.id-card-quote::before {
+  content: '"';
+  position: absolute;
+  left: 0; top: -0.5rem;
+  font-family: 'Fraunces', serif;
+  font-size: 2.5rem;
+  color: var(--accent);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.id-card-batch {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #dbeafe;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---- Learn Cards ---- */
+.learn-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.learn-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 0;
+  background: var(--accent);
+  transition: height var(--transition);
+}
+
+.learn-card:hover::after { height: 4px; }
+
+.learn-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.learn-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  position: relative;
+  transition: transform var(--transition);
+}
+
+.learn-card:hover .learn-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* ---- Material Cards ---- */
+.material-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.material-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.material-card-img-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.material-card-img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15,23,42,0.3);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.material-card:hover .material-card-img-wrap::after { opacity: 1; }
+
+.material-card-img {
+  width: 100%; height: 220px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.material-card:hover .material-card-img {
+  transform: scale(1.08);
+}
+
+.material-card-download {
+  position: absolute;
+  bottom: 1rem; right: 1rem;
+  z-index: 2;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+.material-card:hover .material-card-download {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.material-card-download:hover {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+/* ---- Trend Cards ---- */
+.trend-card {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.trend-card:hover {
+  border-color: rgba(37,99,235,0.15);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.trend-number {
+  font-family: 'Fraunces', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(0,0,0,0.04);
+  line-height: 1;
+  position: absolute;
+  top: 1rem; right: 1.5rem;
+}
+
+.trend-card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.trend-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Carousel ---- */
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform 0.5s ease;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.carousel-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  width: 32px;
+  border-radius: 4px;
+  background: var(--accent);
+}
+
+.carousel-dot:hover:not(.active) {
+  background: rgba(0,0,0,0.3);
+}
+
+/* ---- Map Section ---- */
+.map-section {
+  background: var(--bg-alt);
+  position: relative;
+}
+
+.map-container {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #ffffff;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 500px;
+  border: none;
+  display: block;
+}
+
+.map-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(255,255,255,0.9);
+  padding: 3rem 2rem 2rem;
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+}
+
+.map-overlay-content {
+  pointer-events: auto;
+  max-width: 500px;
+}
+
+.map-overlay h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.map-overlay p {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ---- PLV Pin ---- */
+.plv-pin {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  color: #0f172a;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.plv-pin-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.plv-pin-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.plv-pin-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.plv-pin-subtitle {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 0.15rem;
+}
+
+.plv-pin-body {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+.plv-pin-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.plv-pin-stat {
+  text-align: center;
+}
+
+.plv-pin-stat-value {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.plv-pin-stat-label {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---- Firm Cards ---- */
+.firm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.firm-card {
+  background: #ffffff;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.firm-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--transition);
+}
+
+.firm-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.firm-card:hover::before {
+  transform: scaleY(1);
+}
+
+.firm-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  margin-bottom: 0.875rem;
+}
+
+.firm-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: #dbeafe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.firm-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.firm-type {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-top: 0.15rem;
+}
+
+.firm-address {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.firm-address i {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--text-muted);
+}
+
+.firm-meta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.875rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.firm-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.firm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  background: #d1fae5;
+  border-radius: 100px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #059669;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.firm-badge.established {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+/* ---- Glass Card (CTA) ---- */
+.glass-card {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.glass-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.glass-card:hover::before { transform: scaleX(1); }
+
+/* ---- Footer ---- */
+.site-footer {
+  background: var(--bg-alt);
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* ---- Section Reveal ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .map-container iframe { height: 350px; }
+  .firm-grid { grid-template-columns: 1fr; }
+  .id-card { min-width: 280px; }
+  .career-card { width: 280px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* ============================================
+   What You'll Learn — Hover/Click Accordion Cards
+   ============================================ */
+
+.learn-accordion {
+   display: flex;
+   flex-direction: row;
+   align-items: stretch;
+   overflow: hidden;
+   min-width: 600px;
+   max-width: 1100px;
+   width: calc(100% - 40px);
+   height: 450px;
+   margin: 0 auto;
+   gap: 10px;
+}
+
+.learn-accordion .learn-option {
+   position: relative;
+   overflow: hidden;
+   min-width: 80px;
+   flex: 1;
+   border-radius: 30px;
+   background: var(--optionBackground, var(--defaultBackground, #E6E9ED));
+   background-size: auto 120%;
+   background-position: center;
+   cursor: pointer;
+   transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.learn-accordion .learn-option:nth-child(1) { --defaultBackground: #2563eb; }
+.learn-accordion .learn-option:nth-child(2) { --defaultBackground: #059669; }
+.learn-accordion .learn-option:nth-child(3) { --defaultBackground: #d97706; }
+.learn-accordion .learn-option:nth-child(4) { --defaultBackground: #7c3aed; }
+.learn-accordion .learn-option:nth-child(5) { --defaultBackground: #dc2626; }
+.learn-accordion .learn-option:nth-child(6) { --defaultBackground: #0891b2; }
+
+/* DESKTOP: Hover effect */
+@media (hover: hover) and (pointer: fine) {
+   .learn-accordion:hover .learn-option {
+      flex: 1;
+      border-radius: 30px;
+      margin: 0;
+   }
+
+   .learn-accordion .learn-option:hover {
+      flex: 8;
+      border-radius: 40px;
+      background-size: auto 100%;
+      margin: 0;
+   }
+
+   .learn-accordion .learn-option:hover .learn-shadow {
+      box-shadow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+   }
+
+   .learn-accordion .learn-option:hover .learn-label {
+      bottom: 20px;
+      left: 20px;
+   }
+
+   .learn-accordion .learn-option:hover .learn-info .learn-main,
+   .learn-accordion .learn-option:hover .learn-info .learn-sub {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+
+/* MOBILE: Click/tap active state */
+.learn-accordion .learn-option.active {
+   flex: 8;
+   border-radius: 40px;
+   background-size: auto 100%;
+   margin: 0;
+}
+
+.learn-accordion .learn-option.active .learn-shadow {
+   box-shadow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+}
+
+.learn-accordion .learn-option.active .learn-label {
+   bottom: 20px;
+   left: 20px;
+}
+
+.learn-accordion .learn-option.active .learn-info .learn-main,
+.learn-accordion .learn-option.active .learn-info .learn-sub {
+   opacity: 1;
+   transform: translateX(0);
+}
+
+/* Reset others when one is active on mobile */
+.learn-accordion.has-active .learn-option:not(.active) {
+   flex: 1;
+   border-radius: 30px;
+}
+
+.learn-accordion .learn-option .learn-shadow {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   height: 120px;
+   transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+   box-shadow: inset 0 -120px 0px -120px black, inset 0 -120px 0px -100px black;
+}
+
+.learn-accordion .learn-option .learn-label {
+   display: flex;
+   position: absolute;
+   right: 0;
+   bottom: 10px;
+   left: 10px;
+   height: 60px;
+   transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+   align-items: center;
+}
+
+.learn-accordion .learn-option .learn-icon {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   min-width: 48px;
+   max-width: 48px;
+   height: 48px;
+   border-radius: 100%;
+   background-color: white;
+   color: var(--defaultBackground);
+   flex-shrink: 0;
+   font-size: 1.2rem;
+}
+
+.learn-accordion .learn-option .learn-info {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin-left: 12px;
+   color: white;
+   white-space: nowrap;
+   overflow: hidden;
+}
+
+.learn-accordion .learn-option .learn-info > div {
+   position: relative;
+   transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
+}
+
+.learn-accordion .learn-option .learn-info .learn-main {
+   font-weight: bold;
+   font-size: 1.3rem;
+   font-family: 'Fraunces', serif;
+   opacity: 0;
+   transform: translateX(20px);
+}
+
+.learn-accordion .learn-option .learn-info .learn-sub {
+   font-size: 0.9rem;
+   opacity: 0;
+   transform: translateX(20px);
+   transition-delay: .1s;
+   max-width: 300px;
+   white-space: normal;
+   line-height: 1.4;
+   margin-top: 4px;
+}
+
+@media screen and (max-width: 768px) {
+   .learn-accordion {
+      min-width: auto;
+      width: 100%;
+      height: 350px;
+      gap: 6px;
+   }
+   .learn-accordion .learn-option {
+      min-width: 50px;
+   }
+   .learn-accordion .learn-option .learn-icon {
+      min-width: 36px;
+      max-width: 36px;
+      height: 36px;
+      font-size: 0.9rem;
+   }
+   .learn-accordion .learn-option .learn-info .learn-main {
+      font-size: 1rem;
+   }
+   .learn-accordion .learn-option .learn-info .learn-sub {
+      font-size: 0.75rem;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .learn-accordion {
+      height: 300px;
+   }
+   .learn-accordion .learn-option .learn-label {
+      bottom: 8px;
+      left: 8px;
+   }
+   .learn-accordion .learn-option.active .learn-label {
+      bottom: 12px;
+      left: 12px;
+   }
+}
+
+/* ============================================
+   Sticky Top Navigation
+   ============================================ */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+
+.site-nav.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-logo:hover {
+  color: var(--accent);
+}
+
+.nav-logo i {
+  color: var(--accent);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+  padding: 0.25rem 0;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--bg-alt);
+  border: 1px solid rgba(0,0,0,0.08);
+  cursor: pointer;
+  color: var(--text-main);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-theme-toggle:hover {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+}
+
+.nav-theme-toggle .theme-icon-light,
+.nav-theme-toggle .theme-icon-dark {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.nav-theme-toggle .theme-icon-light {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.nav-theme-toggle .theme-icon-dark {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+}
+
+/* Diamond logo */
+.nav-diamond {
+  width: 32px;
+  height: 32px;
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.nav-logo:hover .nav-diamond {
+  transform: rotate(15deg) scale(1.1);
+  filter: drop-shadow(0 2px 8px rgba(37,99,235,0.3));
+}
+
+.nav-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-main);
+  padding: 0.5rem;
+}
+
+.nav-mobile-menu {
+  display: none;
+  flex-direction: column;
+  padding: 1rem 1.5rem;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.nav-mobile-menu a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  transition: color 0.2s ease;
+}
+
+.nav-mobile-menu a:hover {
+  color: var(--accent);
+}
+
+.nav-mobile-menu.active {
+  display: flex;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links,
+  .nav-cta {
+    display: none;
+  }
+
+  .nav-mobile-toggle {
+    display: block;
+  }
+
+  .nav-inner {
+    height: 56px;
+    padding: 0 1rem;
+  }
+}
+
+
+/* ============================================
+   Dark Mode — Warm Glassmorphism Palette
+   ============================================ */
+
+body.dark-mode {
+  --text-main: #f5f0eb;
+  --text-muted: #8a7e72;
+  --bg: #0a0a0a;
+  --bg-alt: #12100e;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.5);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.6);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.7);
+  --accent: #e07b3a;
+  --accent-warm: #c45d1f;
+}
+
+body.dark-mode .hero {
+  background: #0a0a0a;
+}
+
+body.dark-mode .hero-title,
+body.dark-mode .hero-feature-title,
+body.dark-mode .section-title,
+body.dark-mode .trend-card-title,
+body.dark-mode .career-card-title,
+body.dark-mode .firm-name,
+body.dark-mode .plv-pin-title,
+body.dark-mode .map-overlay h3 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .hero-subtitle,
+body.dark-mode .hero-feature-desc,
+body.dark-mode .section-subtitle,
+body.dark-mode .trend-card-desc,
+body.dark-mode .career-card-desc,
+body.dark-mode .firm-address,
+body.dark-mode .plv-pin-body,
+body.dark-mode .map-overlay p {
+  color: #8a7e72;
+}
+
+body.dark-mode .enterprise-section,
+body.dark-mode .map-section,
+body.dark-mode .site-footer {
+  background: #12100e;
+}
+
+/* Glassmorphism cards with warm tint */
+body.dark-mode .enterprise-card,
+body.dark-mode .pro-card,
+body.dark-mode .career-card,
+body.dark-mode .id-card,
+body.dark-mode .learn-card,
+body.dark-mode .material-card,
+body.dark-mode .trend-card,
+body.dark-mode .firm-card,
+body.dark-mode .glass-card,
+body.dark-mode .plv-pin {
+  background: rgba(26, 20, 16, 0.7);
+  border-color: rgba(224, 123, 58, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+body.dark-mode .pro-card:hover,
+body.dark-mode .career-card:hover,
+body.dark-mode .id-card:hover,
+body.dark-mode .learn-card:hover,
+body.dark-mode .material-card:hover,
+body.dark-mode .trend-card:hover,
+body.dark-mode .firm-card:hover,
+body.dark-mode .glass-card:hover {
+  border-color: rgba(224, 123, 58, 0.2);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 20px rgba(224, 123, 58, 0.1), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* Nav */
+body.dark-mode .site-nav {
+  background: rgba(10, 10, 10, 0.85);
+  border-bottom-color: rgba(224, 123, 58, 0.08);
+}
+
+body.dark-mode .site-nav.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .nav-theme-toggle {
+  background: rgba(26, 20, 16, 0.8);
+  border-color: rgba(224, 123, 58, 0.12);
+  color: #f5f0eb;
+}
+
+body.dark-mode .nav-theme-toggle:hover {
+  background: #e07b3a;
+  border-color: #e07b3a;
+  box-shadow: 0 0 20px rgba(224, 123, 58, 0.3);
+}
+
+body.dark-mode .nav-mobile-menu {
+  background: rgba(10, 10, 10, 0.95);
+  border-top-color: rgba(224, 123, 58, 0.08);
+}
+
+body.dark-mode .nav-mobile-menu a {
+  color: #8a7e72;
+  border-bottom-color: rgba(224, 123, 58, 0.04);
+}
+
+body.dark-mode .nav-links a {
+  color: #8a7e72;
+}
+
+body.dark-mode .nav-links a:hover {
+  color: #e07b3a;
+}
+
+body.dark-mode .nav-links a::after {
+  background: #e07b3a;
+}
+
+/* Diamond logo */
+body.dark-mode .nav-diamond {
+  color: #e07b3a;
+}
+
+body.dark-mode .nav-logo:hover .nav-diamond {
+  filter: drop-shadow(0 0 12px rgba(224, 123, 58, 0.4));
+}
+
+/* Section label */
+body.dark-mode .section-label {
+  color: #e07b3a;
+}
+
+body.dark-mode .section-label::before {
+  background: #e07b3a;
+}
+
+/* Accent elements */
+body.dark-mode .id-card-quote::before {
+  color: #e07b3a;
+  opacity: 0.4;
+}
+
+body.dark-mode .hero-feature-icon,
+body.dark-mode .pro-icon,
+body.dark-mode .firm-icon,
+body.dark-mode .plv-pin-icon {
+  background: rgba(224, 123, 58, 0.12);
+  color: #e07b3a;
+}
+
+body.dark-mode .id-card-batch {
+  background: rgba(224, 123, 58, 0.12);
+  color: #e07b3a;
+}
+
+body.dark-mode .firm-badge {
+  background: rgba(5, 150, 105, 0.15);
+}
+
+body.dark-mode .firm-badge.established {
+  background: rgba(180, 83, 9, 0.15);
+}
+
+body.dark-mode .learn-card::after {
+  background: #e07b3a;
+}
+
+/* Hero CTA */
+body.dark-mode .hero-cta {
+  background: #e07b3a;
+  box-shadow: 0 4px 20px rgba(224, 123, 58, 0.25);
+}
+
+body.dark-mode .hero-cta:hover {
+  background: #c45d1f;
+  box-shadow: 0 8px 32px rgba(224, 123, 58, 0.35);
+}
+
+/* Career card image overlay */
+body.dark-mode .career-card-image-wrap::after {
+  background: rgba(10, 8, 6, 0.6);
+}
+
+/* Material card overlay */
+body.dark-mode .material-card-img-wrap::after {
+  background: rgba(10, 8, 6, 0.4);
+}
+
+/* Map overlay */
+body.dark-mode .map-overlay {
+  background: rgba(18, 16, 14, 0.9);
+}
+
+body.dark-mode .map-overlay h3 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .map-overlay p {
+  color: #8a7e72;
+}
+
+/* Trend number */
+body.dark-mode .trend-number {
+  color: rgba(224, 123, 58, 0.06);
+}
+
+/* Carousel dots */
+body.dark-mode .carousel-dot {
+  background: rgba(224, 123, 58, 0.15);
+}
+
+body.dark-mode .carousel-dot.active {
+  background: #e07b3a;
+}
+
+body.dark-mode .carousel-dot:hover:not(.active) {
+  background: rgba(224, 123, 58, 0.3);
+}
+
+/* Enterprise card border */
+body.dark-mode .enterprise-card {
+  border-color: rgba(224, 123, 58, 0.06);
+}
+
+body.dark-mode .enterprise-section::before {
+  background: rgba(224, 123, 58, 0.06);
+}
+
+/* Footer */
+body.dark-mode .site-footer {
+  color: #8a7e72;
+  border-top-color: rgba(224, 123, 58, 0.06);
+}
+
+/* Glass card top line */
+body.dark-mode .glass-card::before {
+  background: #e07b3a;
+}
+
+/* Firm card left line */
+body.dark-mode .firm-card::before {
+  background: #e07b3a;
+}
+
+/* ID card top line */
+body.dark-mode .id-card::before {
+  background: #e07b3a;
+}
+
+/* Learn card bottom line on hover */
+body.dark-mode .learn-card:hover::after {
+  background: #e07b3a;
+}
+
+/* Theme toggle icon swap */
+body.dark-mode .nav-theme-toggle .theme-icon-light {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+body.dark-mode .nav-theme-toggle .theme-icon-dark {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Smooth theme transition */
+body, body * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark mode text color overrides */
+
+body.dark-mode .enterprise-card p,
+body.dark-mode .enterprise-card .text-slate-900,
+body.dark-mode .enterprise-card .text-sm {
+  color: #f5f0eb;
+}
+
+body.dark-mode .pro-card h3,
+body.dark-mode .pro-card p,
+body.dark-mode .pro-card .font-bold,
+body.dark-mode .pro-card .text-slate-900 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .id-card .font-bold,
+body.dark-mode .id-card .text-slate-900,
+body.dark-mode .id-card p {
+  color: #f5f0eb;
+}
+
+body.dark-mode .material-card h3,
+body.dark-mode .material-card p,
+body.dark-mode .material-card .font-bold,
+body.dark-mode .material-card .text-slate-900 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .glass-card h3,
+body.dark-mode .glass-card p,
+body.dark-mode .glass-card .font-bold,
+body.dark-mode .glass-card .text-slate-900 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .firm-grid + h3,
+body.dark-mode h3.text-xl,
+body.dark-mode .firm-grid ~ h3 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .plv-pin-stat-value {
+  color: #e07b3a;
+}
+
+body.dark-mode .plv-pin-subtitle {
+  color: #e07b3a;
+}
+
+/* Dark mode text color overrides */
+
+body.dark-mode .enterprise-card p,
+body.dark-mode .enterprise-card .text-slate-900,
+body.dark-mode .enterprise-card .text-sm {
+  color: #f5f0eb;
+}
+
+body.dark-mode .pro-card h3,
+body.dark-mode .pro-card p,
+body.dark-mode .pro-card .font-bold,
+body.dark-mode .pro-card .text-slate-900 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .id-card .font-bold,
+body.dark-mode .id-card .text-slate-900,
+body.dark-mode .id-card p {
+  color: #f5f0eb;
+}
+
+body.dark-mode .material-card h3,
+body.dark-mode .material-card p,
+body.dark-mode .material-card .font-bold,
+body.dark-mode .material-card .text-slate-900 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .glass-card h3,
+body.dark-mode .glass-card p,
+body.dark-mode .glass-card .font-bold,
+body.dark-mode .glass-card .text-slate-900 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .firm-grid + h3,
+body.dark-mode h3.text-xl,
+body.dark-mode .firm-grid ~ h3 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .plv-pin-stat-value {
+  color: #e07b3a;
+}
+
+body.dark-mode .plv-pin-subtitle {
+  color: #e07b3a;
+}
+
+/* Dark mode text color overrides */
+
+body.dark-mode .enterprise-card p,
+body.dark-mode .enterprise-card .text-slate-900,
+body.dark-mode .enterprise-card .text-sm {
+  color: #f5f0eb;
+}
+
+body.dark-mode .pro-card h3,
+body.dark-mode .pro-card p,
+body.dark-mode .pro-card .font-bold,
+body.dark-mode .pro-card .text-slate-900 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .id-card .font-bold,
+body.dark-mode .id-card .text-slate-900,
+body.dark-mode .id-card p {
+  color: #f5f0eb;
+}
+
+body.dark-mode .material-card h3,
+body.dark-mode .material-card p,
+body.dark-mode .material-card .font-bold,
+body.dark-mode .material-card .text-slate-900 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .glass-card h3,
+body.dark-mode .glass-card p,
+body.dark-mode .glass-card .font-bold,
+body.dark-mode .glass-card .text-slate-900 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .firm-grid + h3,
+body.dark-mode h3.text-xl,
+body.dark-mode .firm-grid ~ h3 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .plv-pin-stat-value {
+  color: #e07b3a;
+}
+
+body.dark-mode .plv-pin-subtitle {
+  color: #e07b3a;
+}
+
+/* ============================================
+   Dark Mode — Additional Text Color Fixes
+   ============================================ */
+
+/* Enterprise card paragraph text */
+body.dark-mode .enterprise-card p,
+body.dark-mode .enterprise-card .text-lg,
+body.dark-mode .enterprise-card .text-slate-900,
+body.dark-mode .enterprise-card .font-medium {
+  color: #f5f0eb;
+}
+
+body.dark-mode .enterprise-card .border-slate-100 {
+  border-color: rgba(224, 123, 58, 0.1);
+}
+
+/* Pro cards text */
+body.dark-mode .pro-card h3,
+body.dark-mode .pro-card .font-bold,
+body.dark-mode .pro-card .text-slate-900 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .pro-card p,
+body.dark-mode .pro-card .text-sm {
+  color: #8a7e72;
+}
+
+/* Student names and details */
+body.dark-mode .id-card .font-bold,
+body.dark-mode .id-card .text-lg,
+body.dark-mode .id-card .text-slate-900 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .id-card .text-xs,
+body.dark-mode .id-card .font-medium,
+body.dark-mode .id-card .font-mono,
+body.dark-mode .id-card .text-slate-600 {
+  color: #8a7e72;
+}
+
+body.dark-mode .id-card .border-slate-100 {
+  border-color: rgba(224, 123, 58, 0.08);
+}
+
+/* Material cards text */
+body.dark-mode .material-card h3,
+body.dark-mode .material-card .font-bold,
+body.dark-mode .material-card .text-slate-900 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .material-card p,
+body.dark-mode .material-card .text-sm {
+  color: #8a7e72;
+}
+
+/* CTA / Glass card text */
+body.dark-mode .glass-card h3,
+body.dark-mode .glass-card .font-bold,
+body.dark-mode .glass-card .text-slate-900,
+body.dark-mode .glass-card .text-2xl {
+  color: #f5f0eb;
+}
+
+body.dark-mode .glass-card p,
+body.dark-mode .glass-card .leading-relaxed {
+  color: #8a7e72;
+}
+
+/* "Featured HR Firms in Valenzuela" heading */
+body.dark-mode .mt-14 h3,
+body.dark-mode .mt-14 .text-xl,
+body.dark-mode .mt-14 .font-bold {
+  color: #f5f0eb;
+}
+
+/* PLV stats — make ORANGE */
+body.dark-mode .plv-pin-stat-value {
+  color: #e07b3a;
+}
+
+body.dark-mode .plv-pin-stat-label {
+  color: #8a7e72;
+}
+
+/* PLV address subtitle */
+body.dark-mode .plv-pin-subtitle {
+  color: #8a7e72;
+}
+
+/* Footer text */
+body.dark-mode .site-footer p {
+  color: #8a7e72;
+}
+
+/* ---- Additional Dark Mode Text Colors ---- */
+
+/* Enterprise card paragraph and bottom text */
+body.dark-mode .enterprise-card p,
+body.dark-mode .enterprise-card .text-lg,
+body.dark-mode .enterprise-card .text-sm,
+body.dark-mode .enterprise-card div[class*="text-slate"] {
+  color: #f5f0eb;
+}
+
+/* Pro cards - all text */
+body.dark-mode .pro-card h3,
+body.dark-mode .pro-card p,
+body.dark-mode .pro-card div,
+body.dark-mode .pro-card .font-bold,
+body.dark-mode .pro-card .text-sm,
+body.dark-mode .pro-card .text-slate-900,
+body.dark-mode .pro-card [class*="text-slate"] {
+  color: #f5f0eb;
+}
+
+/* Student stories - names and all text */
+body.dark-mode .id-card .font-bold,
+body.dark-mode .id-card p,
+body.dark-mode .id-card span,
+body.dark-mode .id-card div,
+body.dark-mode .id-card .text-lg,
+body.dark-mode .id-card .text-xs,
+body.dark-mode .id-card .text-slate-900,
+body.dark-mode .id-card .text-slate-600,
+body.dark-mode .id-card [class*="text-slate"] {
+  color: #f5f0eb;
+}
+
+/* Student batch badge */
+body.dark-mode .id-card-batch {
+  color: #e07b3a;
+}
+
+/* Material cards - all text */
+body.dark-mode .material-card h3,
+body.dark-mode .material-card p,
+body.dark-mode .material-card div,
+body.dark-mode .material-card .font-bold,
+body.dark-mode .material-card .text-lg,
+body.dark-mode .material-card .text-sm,
+body.dark-mode .material-card .text-slate-900,
+body.dark-mode .material-card [class*="text-slate"] {
+  color: #f5f0eb;
+}
+
+/* Glass card / CTA section text */
+body.dark-mode .glass-card h3,
+body.dark-mode .glass-card p,
+body.dark-mode .glass-card div,
+body.dark-mode .glass-card .font-bold,
+body.dark-mode .glass-card .text-2xl,
+body.dark-mode .glass-card .text-slate-900,
+body.dark-mode .glass-card [class*="text-slate"] {
+  color: #f5f0eb;
+}
+
+/* Featured HR Firms heading */
+body.dark-mode .firm-grid ~ h3,
+body.dark-mode h3.text-xl,
+body.dark-mode h3.font-bold,
+body.dark-mode [class*="firm-grid"] ~ h3 {
+  color: #f5f0eb;
+}
+
+/* PLV stats - make orange */
+body.dark-mode .plv-pin-stat-value {
+  color: #e07b3a;
+}
+
+body.dark-mode .plv-pin-stat-label {
+  color: #8a7e72;
+}
+
+/* PLV address/subtitle */
+body.dark-mode .plv-pin-subtitle {
+  color: #8a7e72;
+}
+
+/* Section headings that use text-slate */
+body.dark-mode h3.text-xl,
+body.dark-mode h3.font-bold,
+body.dark-mode [class*="text-slate-900"] {
+  color: #f5f0eb;
+}
+
+/* Catch-all for any remaining slate text */
+body.dark-mode [class*="text-slate"] {
+  color: #f5f0eb;
+}
+
+/* But keep muted text muted */
+body.dark-mode .text-slate-600,
+body.dark-mode .text-slate-500,
+body.dark-mode .text-slate-400 {
+  color: #8a7e72;
+}
+
+
+/* Career card badges in dark mode */
+body.dark-mode .career-card-badge {
+  color: #e07b3a;
+  background: rgba(224, 123, 58, 0.12);
+}
+/* ============================================
+   Company Cards — Infinite Marquee Carousel
+   ============================================ */
+
+.firm-marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  mask: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  -webkit-mask: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+}
+
+.firm-marquee {
+  display: flex;
+  width: max-content;
+  animation: firmScroll 60s linear infinite;
+}
+
+.firm-marquee-wrapper:hover .firm-marquee {
+  animation-play-state: paused;
+}
+
+.firm-marquee-track {
+  display: flex;
+  gap: 1.25rem;
+  padding: 0.5rem 0;
+  flex-shrink: 0;
+}
+
+@keyframes firmScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Firm card adjustments for marquee */
+.firm-marquee-track .firm-card {
+  width: 320px;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+/* Dark mode support */
+body.dark-mode .firm-marquee-wrapper {
+  mask: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  -webkit-mask: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .firm-marquee {
+    animation: none;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .firm-marquee-track .firm-card {
+    width: 280px;
+  }
+  .firm-marquee {
+    animation-duration: 40s;
+  }
+}
+
+/* ============================================
+   Recruitment Tips — 3D FlipBook
+   ============================================ */
+
+.flipbook-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+  perspective: 1200px;
+  margin-top: 3rem;
+  padding: 2rem 0;
+}
+
+.flipbook {
+  position: relative;
+  display: flex;
+  width: 42cqmin;
+  min-width: 380px;
+  max-width: 520px;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  transition: translate 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  translate: calc(min(var(--c), 1) * 50%) 0%;
+  rotate: 1 0 0 25deg;
+}
+
+.flip-page {
+  --thickness: 3;
+  flex: none;
+  display: flex;
+  width: 100%;
+  font-size: 1.6cqmin;
+  pointer-events: all;
+  user-select: none;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    rotate 0.8s ease-in calc((min(var(--i), var(--c)) - max(var(--i), var(--c))) * 40ms);
+  translate: calc(var(--i) * -100%) 0px 0px;
+  transform: translateZ(calc((var(--c) - var(--i) - 0.5) * calc(var(--thickness) * .18cqmin)));
+  rotate: 0 1 0 calc(clamp(0, var(--c) - var(--i), 1) * -180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: relative;
+  flex: none;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background-color: #ffffff;
+  translate: 0px;
+  border-radius: 0.3em 0.8em 0.8em 0.3em;
+  box-shadow: 0 0.3em 1em -0.2em rgba(0, 0, 0, 0.15);
+}
+
+.flip-back {
+  translate: -100% 0;
+  rotate: 0 1 0 180deg;
+  border-radius: 0.8em 0.3em 0.3em 0.8em;
+}
+
+/* Page content styling */
+.flip-page-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.8em;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.flip-page-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.flip-page-content::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.3);
+  border-radius: 2px;
+}
+
+.flip-page-number {
+  font-family: 'Fraunces', serif;
+  font-size: 3.5em;
+  font-weight: 900;
+  color: rgba(37, 99, 235, 0.08);
+  line-height: 1;
+  margin-bottom: 0.3em;
+  align-self: flex-end;
+}
+
+.flip-front .flip-page-number {
+  color: rgba(37, 99, 235, 0.08);
+}
+
+.flip-back .flip-page-number {
+  color: rgba(37, 99, 235, 0.08);
+}
+
+.flip-page-content h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.6em;
+  line-height: 1.2;
+}
+
+.flip-page-content p {
+  font-size: 1em;
+  line-height: 1.7;
+  color: #475569;
+  margin-bottom: 1em;
+}
+
+.flip-page-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 0.5em;
+  margin: 0.8em 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.flip-key-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  padding: 0.8em 1em;
+  background: #f1f5f9;
+  border-radius: 0.5em;
+  margin-top: auto;
+  font-size: 0.85em;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.flip-key-point i {
+  color: #2563eb;
+  flex-shrink: 0;
+  margin-top: 0.1em;
+}
+
+/* Cover styling */
+.flip-cover {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #1d4ed8 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2.5em;
+}
+
+.flip-cover-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.flip-cover-badge {
+  display: inline-block;
+  padding: 0.4em 1.2em;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  font-size: 0.75em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.flip-cover-title {
+  font-family: 'Fraunces', serif;
+  font-size: 3em;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #ffffff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.flip-cover-subtitle {
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  max-width: 80%;
+}
+
+.flip-cover-year {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 1em;
+  letter-spacing: 0.1em;
+}
+
+/* Back cover */
+.flip-cover-back {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #1d4ed8 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2.5em;
+}
+
+.flip-cover-back .flip-cover-title {
+  font-size: 2.2em;
+}
+
+.flip-cover-footer {
+  display: flex;
+  gap: 2em;
+  margin-top: 1.5em;
+  padding-top: 1.5em;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.flip-cover-stat {
+  text-align: center;
+}
+
+.flip-cover-stat-value {
+  font-family: 'Fraunces', serif;
+  font-size: 2em;
+  font-weight: 900;
+  color: #ffffff;
+  display: block;
+}
+
+.flip-cover-stat-label {
+  font-size: 0.7em;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Back page content (first page back) */
+.flip-back-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.8em;
+  overflow-y: auto;
+}
+
+.flip-back-content h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.6em;
+}
+
+.flip-back-content p {
+  font-size: 1em;
+  line-height: 1.7;
+  color: #475569;
+  margin-bottom: 1em;
+}
+
+.flip-tip-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
+  padding: 1em 1.2em;
+  background: #dbeafe;
+  border-radius: 0.6em;
+  margin-top: auto;
+  font-size: 0.9em;
+  color: #1e40af;
+  font-weight: 500;
+}
+
+.flip-tip-box i {
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+/* Page counter */
+.flipbook {
+  counter-reset: flip-page -1;
+}
+
+.flip-front::after,
+.flip-back::after {
+  position: absolute;
+  bottom: 1em;
+  counter-increment: flip-page;
+  content: counter(flip-page) ".";
+  font-size: 0.75em;
+  color: #94a3b8;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.flip-front::after {
+  right: 1.2em;
+}
+
+.flip-back::after {
+  left: 1.2em;
+}
+
+.flip-cover::after,
+.flip-cover-back::after {
+  content: "";
+}
+
+/* Hover effects */
+.flip-page:hover .flip-front,
+.flip-page:hover .flip-back {
+  box-shadow: 0 0.5em 1.5em -0.2em rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .flipbook-wrapper {
+    min-height: 450px;
+    padding: 1rem 0;
+  }
+
+  .flipbook {
+    min-width: 280px;
+    max-width: 380px;
+    rotate: 1 0 0 15deg;
+  }
+
+  .flip-page-content,
+  .flip-back-content {
+    padding: 1.2em;
+  }
+
+  .flip-cover-title {
+    font-size: 2em;
+  }
+
+  .flip-cover-back .flip-cover-title {
+    font-size: 1.6em;
+  }
+
+  .flip-page-content h2,
+  .flip-back-content h2 {
+    font-size: 1.4em;
+  }
+
+  .flip-page-img {
+    height: 120px;
+  }
+
+  .flip-page-number {
+    font-size: 2.5em;
+  }
+
+  .flip-cover-footer {
+    gap: 1em;
+  }
+
+  .flip-cover-stat-value {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .flipbook {
+    min-width: 240px;
+    max-width: 320px;
+  }
+
+  .flip-page-content,
+  .flip-back-content {
+    padding: 1em;
+  }
+
+  .flip-cover {
+    padding: 1.5em;
+  }
+
+  .flip-cover-title {
+    font-size: 1.6em;
+  }
+
+  .flip-page-content h2,
+  .flip-back-content h2 {
+    font-size: 1.2em;
+  }
+}
+
+/* Dark mode support */
+body.dark-mode .flip-front,
+body.dark-mode .flip-back {
+  background-color: rgba(26, 20, 16, 0.9);
+  border-color: rgba(224, 123, 58, 0.08);
+}
+
+body.dark-mode .flip-page-content h2,
+body.dark-mode .flip-back-content h2 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .flip-page-content p,
+body.dark-mode .flip-back-content p {
+  color: #8a7e72;
+}
+
+body.dark-mode .flip-key-point {
+  background: rgba(224, 123, 58, 0.08);
+  color: #f5f0eb;
+}
+
+body.dark-mode .flip-key-point i {
+  color: #e07b3a;
+}
+
+body.dark-mode .flip-tip-box {
+  background: rgba(224, 123, 58, 0.12);
+  color: #e07b3a;
+}
+
+body.dark-mode .flip-tip-box i {
+  color: #e07b3a;
+}
+
+body.dark-mode .flip-front::after,
+body.dark-mode .flip-back::after {
+  color: #8a7e72;
+}
+
+body.dark-mode .flip-cover {
+  background: linear-gradient(135deg, #1a1208 0%, #2d1f0f 50%, #1a1208 100%);
+}
+
+body.dark-mode .flip-cover-back {
+  background: linear-gradient(135deg, #1a1208 0%, #2d1f0f 50%, #1a1208 100%);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .flip-page {
+    transition: none;
+  }
+  .flipbook {
+    transition: none;
+  }
+}
+
+
+
+/* ============================================
+   FlipBook Image Pages
+   ============================================ */
+
+.flip-page .flip-front img,
+.flip-page .flip-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Ensure image pages don't have text content padding */
+.flip-page .flip-front[style*="background:#ffffff"],
+.flip-page .flip-back[style*="background:#ffffff"] {
+  padding: 0 !important;
+}
+
+/* Dark mode support for image backgrounds */
+body.dark-mode .flip-page .flip-front[style*="background:#ffffff"],
+body.dark-mode .flip-page .flip-back[style*="background:#ffffff"] {
+  background: rgba(26, 20, 16, 0.9) !important;
+}
+
+/* ============================================
+   Student Guide — Tri-Fold Brochure (Image-Based)
+   ============================================ */
+
+.brochure-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 2rem 0;
+}
+
+.brochure-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1.2rem;
+  background: var(--bg-alt);
+  border-radius: 100px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.brochure-header i {
+  color: var(--accent);
+}
+
+/* Tri-Fold Container */
+.tri-fold-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 650px;
+  perspective: 1500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* All panels */
+.tf-left,
+.tf-right,
+.tf-center {
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.tf-left,
+.tf-right {
+  width: 33.333%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tf-center {
+  width: 33.333%;
+  z-index: 0;
+}
+
+/* Faces */
+.tf-front,
+.tf-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.tf-front {
+  z-index: 2;
+}
+
+.tf-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* Images fill panels */
+.tf-front img,
+.tf-back img,
+.tf-center-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Left panel — folds from right edge */
+.tf-left {
+  transform-origin: right center;
+  transform: rotateY(180deg);
+  z-index: 2;
+}
+
+/* Right panel — folds from left edge */
+.tf-right {
+  transform-origin: left center;
+  transform: rotateY(-180deg);
+  z-index: 2;
+}
+
+/* Center panel content */
+.tf-center-content {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* ===== STATES ===== */
+
+/* CLOSED — shows front cover (0.png) + back cover (1.png) */
+/* Left and right are folded inward, hiding inside panels */
+
+/* HALF OPEN — right panel opens slightly */
+.tri-fold-container.half .tf-right {
+  transform: rotateY(-20deg);
+}
+
+/* FULLY OPEN — both panels open, reveals inside */
+.tri-fold-container.open .tf-left {
+  transform: rotateY(20deg);
+}
+
+.tri-fold-container.open .tf-right {
+  transform: rotateY(-20deg);
+}
+
+.tri-fold-container.open .tf-center-content {
+  opacity: 1;
+}
+
+/* ===== DARK MODE ===== */
+body.dark-mode .brochure-header {
+  background: rgba(26, 20, 16, 0.8);
+  border-color: rgba(224, 123, 58, 0.12);
+  color: #8a7e72;
+}
+
+body.dark-mode .brochure-header i {
+  color: #e07b3a;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .tri-fold-container {
+    height: 350px;
+    transform: scale(0.85);
+    transform-origin: center top;
+  }
+}
+
+@media (max-width: 480px) {
+  .tri-fold-container {
+    height: 280px;
+    transform: scale(0.7);
+    transform-origin: center top;
+  }
+
+  .brochure-header {
+    font-size: 0.8rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tf-left,
+  .tf-right,
+  .tf-center-content {
+    transition: none;
+  }
+}
+
+/* ============================================
+   FlipBook View Toggle
+   ============================================ */
+
+.flipbook-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.flipbook-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-alt);
+  border-radius: 100px;
+  padding: 4px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-sm);
+}
+
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  color: var(--text-main);
+}
+
+.toggle-btn.active {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+}
+
+body.dark-mode .flipbook-toggle {
+  background: rgba(26, 20, 16, 0.8);
+  border-color: rgba(224, 123, 58, 0.12);
+}
+
+body.dark-mode .toggle-btn {
+  color: #8a7e72;
+}
+
+body.dark-mode .toggle-btn:hover {
+  color: #f5f0eb;
+}
+
+body.dark-mode .toggle-btn.active {
+  background: #e07b3a;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(224, 123, 58, 0.25);
+}
+
+/* ============================================
+   Single Page View
+   ============================================ */
+
+.single-page-wrapper {
+  margin-top: 2rem;
+}
+
+.single-page-wrapper.hidden {
+  display: none;
+}
+
+.single-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  min-height: 600px;
+}
+
+.single-page-display {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: #ffffff;
+}
+
+.single-page-display img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.single-page-number {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(0,0,0,0.6);
+  color: #ffffff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.single-nav {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-alt);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.single-nav:hover {
+  background: var(--accent);
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+}
+
+.single-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.single-nav:disabled:hover {
+  background: var(--bg-alt);
+  color: var(--text-main);
+}
+
+/* Thumbnails */
+.single-page-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+}
+
+.thumb-btn {
+  width: 60px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+  background: transparent;
+}
+
+.thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumb-btn:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+.thumb-btn.active {
+  opacity: 1;
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.2);
+}
+
+body.dark-mode .single-page-display {
+  background: rgba(26, 20, 16, 0.9);
+}
+
+body.dark-mode .single-nav {
+  background: rgba(26, 20, 16, 0.8);
+  color: #f5f0eb;
+  border: 1px solid rgba(224, 123, 58, 0.12);
+}
+
+body.dark-mode .single-nav:hover {
+  background: #e07b3a;
+  color: #ffffff;
+}
+
+body.dark-mode .single-nav:disabled:hover {
+  background: rgba(26, 20, 16, 0.8);
+  color: #f5f0eb;
+}
+
+body.dark-mode .thumb-btn.active {
+  border-color: #e07b3a;
+  box-shadow: 0 4px 12px rgba(224, 123, 58, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .single-page-container {
+    min-height: 400px;
+    gap: 0.75rem;
+  }
+
+  .single-page-display {
+    max-width: 320px;
+  }
+
+  .single-nav {
+    width: 40px;
+    height: 40px;
+  }
+
+  .thumb-btn {
+    width: 45px;
+    height: 60px;
+  }
+
+  .single-page-thumbnails {
+    gap: 0.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .single-page-container {
+    min-height: 320px;
+  }
+
+  .single-page-display {
+    max-width: 260px;
+  }
+
+  .toggle-btn span {
+    display: none;
+  }
+
+  .toggle-btn {
+    padding: 0.6rem;
+  }
+}
+  </style>
+<base target="_blank">
 </head>
 <body class="w-full animated-gradient min-h-screen">
 
-  <!-- Sections will be loaded here -->
-  <div id="nav-container"></div>
-  
-  <header id="hero-container"></header>
-  
-  <main>
-    <div id="enterprise-container"></div>
-    <div id="why-hrm-container"></div>
-    <div id="career-paths-container"></div>
-    <div id="student-stories-container"></div>
-    <div id="curriculum-container"></div>
-    <div id="program-materials-container"></div>
-    <div id="future-trends-container"></div>
-    <div id="recruitment-tips-container"></div>
-    <div id="student-guide-container"></div>
-    <div id="food-companies-container"></div>
-  </main>
-  
-  <div id="footer-container"></div>
+nav class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" aria-label="Home">
+      <i data-lucide="gem" class="nav-diamond"></i>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#career-section">Careers</a></li>
+      <li><a href="#learn-section">Curriculum</a></li>
+      <li><a href="#stories-section">Stories</a></li>
+      <li><a href="#firms-section">Firms</a></li>
+    </ul>
+    <button class="nav-theme-toggle" id="navThemeToggle" aria-label="Toggle dark mode">
+      <i data-lucide="sun" class="theme-icon-light"></i>
+      <i data-lucide="moon" class="theme-icon-dark"></i>
+    </button>
+    <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Toggle menu">
+      <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
+  </div>
+  <div class="nav-mobile-menu" id="navMobileMenu">
+    <a href="#career-section">Careers</a>
+    <a href="#learn-section">Curriculum</a>
+    <a href="#stories-section">Stories</a>
+    <a href="#firms-section">Firms</a>
+  </div>
+</nav>
 
-  <!-- Scripts -->
-  <script src="scripts/scripts.js"></script>
-  
-  <!-- Section Loader -->
-  <script>
-    async function loadSection(containerId, filePath) {
-      const container = document.getElementById(containerId);
-      if (!container) return;
-      
-      try {
-        const response = await fetch(filePath);
-        if (!response.ok) throw new Error(`Failed to load ${filePath}`);
-        const html = await response.text();
-        container.innerHTML = html;
+header class="hero px-6 md:px-16">
+  <div class="hero-content">
+    <h1 class="hero-title">Shape the Future of Work with HRM</h1>
+    <p class="hero-subtitle">
+      Build a career that unites people, strategy, and success. Our program equips you to lead, inspire, and transform workplaces worldwide.
+    </p>
+    <button class="hero-cta" onclick="document.getElementById('career-section').scrollIntoView({behavior:'smooth'})">
+      <span>Explore Programs</span>
+      <i data-lucide="arrow-right" class="w-5 h-5"></i>
+    </button>
+  </div>
+
+  <!-- Hero Portrait Carousel -->
+  <div class="hero-carousel-wrapper">
+    <div class="scene">
+      <div class="a3d" style="--n: 10">
+        <img class="card" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face" style="--i: 0" alt="HR Professional" loading="lazy">
+        <img class="card" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop&crop=face" style="--i: 1" alt="HR Professional" loading="lazy">
+        <img class="card" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face" style="--i: 2" alt="HR Professional" loading="lazy">
+        <img class="card" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face" style="--i: 3" alt="HR Professional" loading="lazy">
+        <img class="card" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face" style="--i: 4" alt="HR Professional" loading="lazy">
+        <img class="card" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face" style="--i: 5" alt="HR Professional" loading="lazy">
+        <img class="card" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=500&fit=crop&crop=face" style="--i: 6" alt="HR Professional" loading="lazy">
+        <img class="card" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop&crop=face" style="--i: 7" alt="HR Professional" loading="lazy">
+        <img class="card" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face" style="--i: 8" alt="HR Professional" loading="lazy">
+        <img class="card" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop&crop=face" style="--i: 9" alt="HR Professional" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Features -->
+  <div class="hero-features">
+    <div class="hero-feature">
+      <div class="hero-feature-icon">
+        <i data-lucide="message-circle" class="w-5 h-5"></i>
+      </div>
+      <h3 class="hero-feature-title">Real-Time Collaboration</h3>
+      <p class="hero-feature-desc">Communicate seamlessly and keep everyone in sync with built-in messaging, file sharing, and live updates.</p>
+    </div>
+    <div class="hero-feature">
+      <div class="hero-feature-icon">
+        <i data-lucide="layout-list" class="w-5 h-5"></i>
+      </div>
+      <h3 class="hero-feature-title">Task & Project Tracking</h3>
+      <p class="hero-feature-desc">Assign tasks, set deadlines, and visualize progress with boards, lists, and timelines tailored to your team's style.</p>
+    </div>
+    <div class="hero-feature">
+      <div class="hero-feature-icon">
+        <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+      </div>
+      <h3 class="hero-feature-title">Performance Insights</h3>
+      <p class="hero-feature-desc">Make smarter decisions with analytics that show productivity trends, bottlenecks, and team workload balance.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="enterprise-section py-24 px-6 md:px-16">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="reveal">
+      <div class="section-label">The Challenge</div>
+      <h2 class="section-title">The Enterprise Reality</h2>
+      <p class="section-subtitle mx-auto">
+        Bridging the competency divide between certified HR professionals and emerging cross-functional talent.
+      </p>
+    </div>
+    <div class="enterprise-card mt-12 reveal reveal-delay-2">
+      <p class="text-lg leading-relaxed text-slate-900">
+        Enterprise ecosystems today face a critical talent infrastructure challenge: certified HR professionals bring deep structural compliance expertise and labor analytics frameworks, while emerging cross-functional talent brings agile adaptability and transferable skillsets. The gap between these distinct talent pipelines creates operational friction, delays strategic initiatives, and leaves organizations vulnerable to workforce readiness gaps.
+      </p>
+      <div class="mt-6 pt-6 border-t border-slate-100 flex items-center justify-center gap-2 text-sm font-medium text-slate-900">
+        <i data-lucide="lightbulb" class="w-4 h-4 text-amber-500"></i>
+        Mapping and integrating these competency models is the foundation for scaling organizations and maximizing talent utilization.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 px-6 md:px-16">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center">
+      <div class="section-label">Why HRM?</div>
+      <h2 class="section-title">Strategic Advantages That Set You Apart</h2>
+      <p class="section-subtitle mx-auto">
+        A career in Human Resource Management opens doors to leadership, impact, and growth across every industry.
+      </p>
+    </div>
+    <div class="mt-12 grid md:grid-cols-2 gap-5">
+      <div class="pro-card reveal reveal-delay-1">
+        <div class="pro-icon"><i data-lucide="trending-up" class="w-5 h-5"></i></div>
+        <div>
+          <h3 class="font-bold text-slate-900">High Demand Across Every Industry</h3>
+          <p class="text-sm text-slate-900 mt-1">Every organization needs HR expertise — from startups to Fortune 500 companies.</p>
+        </div>
+      </div>
+      <div class="pro-card reveal reveal-delay-2">
+        <div class="pro-icon"><i data-lucide="heart-handshake" class="w-5 h-5"></i></div>
+        <div>
+          <h3 class="font-bold text-slate-900">Direct Impact on Culture & Wellbeing</h3>
+          <p class="text-sm text-slate-900 mt-1">Shape company culture, improve employee wellbeing, and drive retention strategies.</p>
+        </div>
+      </div>
+      <div class="pro-card reveal reveal-delay-3">
+        <div class="pro-icon"><i data-lucide="git-branch" class="w-5 h-5"></i></div>
+        <div>
+          <h3 class="font-bold text-slate-900">Diverse Career Paths</h3>
+          <p class="text-sm text-slate-900 mt-1">From recruitment to organizational development — choose your specialization.</p>
+        </div>
+      </div>
+      <div class="pro-card reveal reveal-delay-4">
+        <div class="pro-icon"><i data-lucide="coins" class="w-5 h-5"></i></div>
+        <div>
+          <h3 class="font-bold text-slate-900">Growing Salaries & Leadership</h3>
+          <p class="text-sm text-slate-900 mt-1">Businesses are investing more in talent — and HR professionals are at the center of it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="career-section" class="py-24 px-6 md:px-16">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center reveal">
+      <div class="section-label light">Career Paths</div>
+      <h2 class="section-title light">Where Will HRM Take You?</h2>
+      <p class="section-subtitle light mx-auto">
+        Explore the many directions your HR career can take — each path offers unique challenges and rewards.
+      </p>
+    </div>
+    <div class="relative mt-14">
+      <div class="overflow-x-auto scrollbar-hide">
+        <div id="career-track" class="carousel-track py-4 px-1">
+          <div class="career-card">
+            <div class="career-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=640&h=400&fit=crop" alt="Talent Acquisition" class="career-card-image" loading="lazy">
+              <span class="career-card-badge">In-Demand</span>
+            </div>
+            <div class="career-card-body">
+              <h3 class="career-card-title">Talent Acquisition Specialist</h3>
+              <p class="career-card-desc">Source, attract, and hire top talent. Build employer branding strategies and manage end-to-end recruitment pipelines.</p>
+            </div>
+          </div>
+          <div class="career-card">
+            <div class="career-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=640&h=400&fit=crop" alt="Learning & Development" class="career-card-image" loading="lazy">
+              <span class="career-card-badge">Growing</span>
+            </div>
+            <div class="career-card-body">
+              <h3 class="career-card-title">Learning & Development Manager</h3>
+              <p class="career-card-desc">Design training programs, upskill workforces, and create continuous learning cultures within organizations.</p>
+            </div>
+          </div>
+          <div class="career-card">
+            <div class="career-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=640&h=400&fit=crop" alt="Compensation & Benefits" class="career-card-image" loading="lazy">
+              <span class="career-card-badge">Strategic</span>
+            </div>
+            <div class="career-card-body">
+              <h3 class="career-card-title">Compensation & Benefits Analyst</h3>
+              <p class="career-card-desc">Develop competitive pay structures, manage benefits programs, and ensure equitable compensation practices.</p>
+            </div>
+          </div>
+          <div class="career-card">
+            <div class="career-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=640&h=400&fit=crop" alt="Employee Relations" class="career-card-image" loading="lazy">
+              <span class="career-card-badge">Essential</span>
+            </div>
+            <div class="career-card-body">
+              <h3 class="career-card-title">Employee Relations Manager</h3>
+              <p class="career-card-desc">Mediate workplace conflicts, ensure labor law compliance, and foster positive employee-employer relationships.</p>
+            </div>
+          </div>
+          <div class="career-card">
+            <div class="career-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=640&h=400&fit=crop" alt="HRIS Analyst" class="career-card-image" loading="lazy">
+              <span class="career-card-badge">Tech-Forward</span>
+            </div>
+            <div class="career-card-body">
+              <h3 class="career-card-title">HRIS Analyst</h3>
+              <p class="career-card-desc">Manage HR technology systems, optimize people data analytics, and drive digital transformation in HR.</p>
+            </div>
+          </div>
+          <div class="career-card">
+            <div class="career-card-image-wrap">
+              <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=640&h=400&fit=crop" alt="Organizational Development" class="career-card-image" loading="lazy">
+              <span class="career-card-badge">Leadership</span>
+            </div>
+            <div class="career-card-body">
+              <h3 class="career-card-title">Organizational Development Consultant</h3>
+              <p class="career-card-desc">Drive change management, design organizational structures, and align culture with business strategy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="career-dots" class="carousel-dots"></div>
+    </div>
+  </div>
+</section>
+
+<section id="stories-section" class="py-24 px-6 md:px-16">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center reveal">
+      <div class="section-label">Testimonials</div>
+      <h2 class="section-title">Student Stories</h2>
+      <p class="section-subtitle mx-auto">
+        Hear from our graduates who are now making a real impact in the world of HR.
+      </p>
+    </div>
+    <div class="relative mt-14">
+      <div class="overflow-x-auto scrollbar-hide">
+        <div id="stories-track" class="carousel-track py-4 px-1">
+          <div class="id-card">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=144&h=144&fit=crop&crop=face" alt="Maria Angela Santos" class="id-card-photo" loading="lazy">
+              <div>
+                <p class="font-bold text-slate-900 text-lg">Maria Angela Santos</p>
+                <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · Cum Laude</p>
+              </div>
+            </div>
+            <div class="mt-5 pt-5 border-t border-slate-100">
+              <p class="id-card-quote text-sm">HRM taught me that people are the most valuable asset. Now I lead talent acquisition for a Fortune 500 company.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="id-card-batch">Batch 2023</span>
+              <span class="font-mono text-xs text-slate-600">HRM-2023-0147</span>
+            </div>
+          </div>
+          <div class="id-card">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=144&h=144&fit=crop&crop=face" alt="James Reyes" class="id-card-photo" loading="lazy">
+              <div>
+                <p class="font-bold text-slate-900 text-lg">James Reyes</p>
+                <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · Dean's Lister</p>
+              </div>
+            </div>
+            <div class="mt-5 pt-5 border-t border-slate-100">
+              <p class="id-card-quote text-sm">The program gave me real-world exposure through internships. I landed my dream role in employee engagement before graduation.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="id-card-batch">Batch 2024</span>
+              <span class="font-mono text-xs text-slate-600">HRM-2024-0089</span>
+            </div>
+          </div>
+          <div class="id-card">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=144&h=144&fit=crop&crop=face" alt="Kathleen Lim" class="id-card-photo" loading="lazy">
+              <div>
+                <p class="font-bold text-slate-900 text-lg">Kathleen Lim</p>
+                <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · With Honors</p>
+              </div>
+            </div>
+            <div class="mt-5 pt-5 border-t border-slate-100">
+              <p class="id-card-quote text-sm">From classroom case studies to actual HR consulting — this program prepared me for the complexities of modern workforce management.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="id-card-batch">Batch 2022</span>
+              <span class="font-mono text-xs text-slate-600">HRM-2022-0231</span>
+            </div>
+          </div>
+          <div class="id-card">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=144&h=144&fit=crop&crop=face" alt="David Cruz" class="id-card-photo" loading="lazy">
+              <div>
+                <p class="font-bold text-slate-900 text-lg">David Cruz</p>
+                <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · Magna Cum Laude</p>
+              </div>
+            </div>
+            <div class="mt-5 pt-5 border-t border-slate-100">
+              <p class="id-card-quote text-sm">I specialize in HR analytics now. The data-driven approach I learned here gave me an edge no one else had.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="id-card-batch">Batch 2023</span>
+              <span class="font-mono text-xs text-slate-600">HRM-2023-0312</span>
+            </div>
+          </div>
+          <div class="id-card">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=144&h=144&fit=crop&crop=face" alt="Sophia Mendoza" class="id-card-photo" loading="lazy">
+              <div>
+                <p class="font-bold text-slate-900 text-lg">Sophia Mendoza</p>
+                <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · With Honors</p>
+              </div>
+            </div>
+            <div class="mt-5 pt-5 border-t border-slate-100">
+              <p class="id-card-quote text-sm">The hands-on training in labor law and compliance gave me the confidence to handle complex workplace issues from day one.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="id-card-batch">Batch 2024</span>
+              <span class="font-mono text-xs text-slate-600">HRM-2024-0156</span>
+            </div>
+          </div>
+          <div class="id-card">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=144&h=144&fit=crop&crop=face" alt="Rafael Torres" class="id-card-photo" loading="lazy">
+              <div>
+                <p class="font-bold text-slate-900 text-lg">Rafael Torres</p>
+                <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · Dean's Lister</p>
+              </div>
+            </div>
+            <div class="mt-5 pt-5 border-t border-slate-100">
+              <p class="id-card-quote text-sm">I never imagined I'd be managing payroll for 500+ employees at 24. The practical simulations in class made all the difference.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="id-card-batch">Batch 2023</span>
+              <span class="font-mono text-xs text-slate-600">HRM-2023-0284</span>
+            </div>
+          </div>
+          <div class="id-card">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=144&h=144&fit=crop&crop=face" alt="Isabella Garcia" class="id-card-photo" loading="lazy">
+              <div>
+                <p class="font-bold text-slate-900 text-lg">Isabella Garcia</p>
+                <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · Cum Laude</p>
+              </div>
+            </div>
+            <div class="mt-5 pt-5 border-t border-slate-100">
+              <p class="id-card-quote text-sm">The mentorship from industry professionals helped me build a network that landed me a role at a top multinational firm.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="id-card-batch">Batch 2022</span>
+              <span class="font-mono text-xs text-slate-600">HRM-2022-0198</span>
+            </div>
+          </div>
+          <div class="id-card">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=144&h=144&fit=crop&crop=face" alt="Marcus Dela Cruz" class="id-card-photo" loading="lazy">
+              <div>
+                <p class="font-bold text-slate-900 text-lg">Marcus Dela Cruz</p>
+                <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · Magna Cum Laude</p>
+              </div>
+            </div>
+            <div class="mt-5 pt-5 border-t border-slate-100">
+              <p class="id-card-quote text-sm">From classroom debates on labor relations to negotiating union contracts — the program prepared me for every challenge.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="id-card-batch">Batch 2023</span>
+              <span class="font-mono text-xs text-slate-600">HRM-2023-0341</span>
+            </div>
+          </div>
+          <div class="id-card">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=144&h=144&fit=crop&crop=face" alt="Camille Tan" class="id-card-photo" loading="lazy">
+              <div>
+                <p class="font-bold text-slate-900 text-lg">Camille Tan</p>
+                <p class="text-xs uppercase tracking-wider text-slate-600 font-medium">BS HRM · With Honors</p>
+              </div>
+            </div>
+            <div class="mt-5 pt-5 border-t border-slate-100">
+              <p class="id-card-quote text-sm">The diversity and inclusion workshops opened my eyes. Now I lead DEI initiatives that impact thousands of employees.</p>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+              <span class="id-card-batch">Batch 2024</span>
+              <span class="font-mono text-xs text-slate-600">HRM-2024-0217</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="stories-dots" class="carousel-dots"></div>
+    </div>
+  </div>
+</section>
+
+<section id="learn-section" class="py-24 px-6 md:px-16">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center reveal">
+      <div class="section-label">Curriculum</div>
+      <h2 class="section-title">What You'll Learn</h2>
+      <p class="section-subtitle mx-auto">
+        A comprehensive curriculum designed to prepare you for the real challenges of modern HR.
+      </p>
+    </div>
+
+    <!-- Desktop: Hover Accordion | Mobile: Click Accordion -->
+    <div class="mt-14 reveal reveal-delay-1">
+      <div class="learn-accordion" id="learnAccordion">
+
+        <div class="learn-option" data-index="0" style="--optionBackground:url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop);">
+          <div class="learn-shadow"></div>
+          <div class="learn-label">
+            <div class="learn-icon">
+              <i data-lucide="users"></i>
+            </div>
+            <div class="learn-info">
+              <div class="learn-main">Talent Management</div>
+              <div class="learn-sub">Workforce planning, succession management, and strategic talent pipelines that drive organizational growth.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="learn-option" data-index="1" style="--optionBackground:url(https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop);">
+          <div class="learn-shadow"></div>
+          <div class="learn-label">
+            <div class="learn-icon">
+              <i data-lucide="shield-check"></i>
+            </div>
+            <div class="learn-info">
+              <div class="learn-main">Labor Law & Compliance</div>
+              <div class="learn-sub">Philippine labor code, DOLE regulations, and international employment standards mastery.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="learn-option" data-index="2" style="--optionBackground:url(https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop);">
+          <div class="learn-shadow"></div>
+          <div class="learn-label">
+            <div class="learn-icon">
+              <i data-lucide="bar-chart-3"></i>
+            </div>
+            <div class="learn-info">
+              <div class="learn-main">HR Analytics</div>
+              <div class="learn-sub">People data, predictive modeling, and evidence-based decision making for strategic advantage.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="learn-option" data-index="3" style="--optionBackground:url(https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop);">
+          <div class="learn-shadow"></div>
+          <div class="learn-label">
+            <div class="learn-icon">
+              <i data-lucide="brain"></i>
+            </div>
+            <div class="learn-info">
+              <div class="learn-main">Organizational Behavior</div>
+              <div class="learn-sub">Motivation theories, team dynamics, leadership models, and culture building frameworks.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="learn-option" data-index="4" style="--optionBackground:url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop);">
+          <div class="learn-shadow"></div>
+          <div class="learn-label">
+            <div class="learn-icon">
+              <i data-lucide="globe"></i>
+            </div>
+            <div class="learn-info">
+              <div class="learn-main">Global HR Practices</div>
+              <div class="learn-sub">Cross-cultural management, expatriate programs, and international staffing strategies.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="learn-option" data-index="5" style="--optionBackground:url(https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop);">
+          <div class="learn-shadow"></div>
+          <div class="learn-label">
+            <div class="learn-icon">
+              <i data-lucide="target"></i>
+            </div>
+            <div class="learn-info">
+              <div class="learn-main">Strategic HR Planning</div>
+              <div class="learn-sub">Aligning HR initiatives with business objectives and driving measurable organizational growth.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 px-6 md:px-16">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center reveal">
+      <div class="section-label">Resources</div>
+      <h2 class="section-title">Program Materials</h2>
+      <p class="section-subtitle mx-auto">
+        Download our resources to learn more about the HRM program, upcoming events, and alumni success.
+      </p>
+    </div>
+    <div class="mt-14 grid sm:grid-cols-3 gap-8">
+      <div class="material-card reveal reveal-delay-1">
+        <div class="material-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=640&h=400&fit=crop" alt="Program Brochure" class="material-card-img" loading="lazy">
+          <button class="material-card-download" aria-label="Download Program Brochure">
+            <i data-lucide="download" class="w-4 h-4"></i>
+          </button>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-slate-900 text-lg">Program Brochure</h3>
+          <p class="text-sm text-slate-900 mt-2 leading-relaxed">Complete overview of curriculum, faculty profiles, and admission requirements.</p>
+        </div>
+      </div>
+      <div class="material-card reveal reveal-delay-2">
+        <div class="material-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=640&h=400&fit=crop" alt="Event Poster" class="material-card-img" loading="lazy">
+          <button class="material-card-download" aria-label="Download Event Poster">
+            <i data-lucide="download" class="w-4 h-4"></i>
+          </button>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-slate-900 text-lg">Event Poster</h3>
+          <p class="text-sm text-slate-900 mt-2 leading-relaxed">Upcoming open days, career fairs, and guest speaker events you won't want to miss.</p>
+        </div>
+      </div>
+      <div class="material-card reveal reveal-delay-3">
+        <div class="material-card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&h=400&fit=crop" alt="Market Insert" class="material-card-img" loading="lazy">
+          <button class="material-card-download" aria-label="Download Market Insert">
+            <i data-lucide="download" class="w-4 h-4"></i>
+          </button>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-slate-900 text-lg">Market Insert</h3>
+          <p class="text-sm text-slate-900 mt-2 leading-relaxed">Industry partnerships, placement rates, and alumni success data at a glance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="relative py-24 px-6 md:px-16 overflow-hidden">
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="text-center reveal">
+      <div class="section-label light">Looking Ahead</div>
+      <h2 class="section-title light">Future Trends in HR</h2>
+      <p class="section-subtitle light mx-auto">
+        The landscape is evolving rapidly. Here's what's shaping the future of human resources.
+      </p>
+    </div>
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="trend-card reveal reveal-delay-1">
+        <span class="trend-number">01</span>
+        <h3 class="trend-card-title">AI-Powered Recruitment</h3>
+        <p class="trend-card-desc">Machine learning algorithms screening candidates, reducing bias, and predicting job fit with unprecedented accuracy.</p>
+      </div>
+      <div class="trend-card reveal reveal-delay-2">
+        <span class="trend-number">02</span>
+        <h3 class="trend-card-title">Remote-First Culture</h3>
+        <p class="trend-card-desc">Hybrid and fully remote models require new approaches to engagement, performance management, and team cohesion.</p>
+      </div>
+      <div class="trend-card reveal reveal-delay-3">
+        <span class="trend-number">03</span>
+        <h3 class="trend-card-title">People Analytics</h3>
+        <p class="trend-card-desc">Data-driven insights on turnover, engagement, and productivity transforming HR from reactive to predictive.</p>
+      </div>
+      <div class="trend-card reveal reveal-delay-1">
+        <span class="trend-number">04</span>
+        <h3 class="trend-card-title">Employee Wellbeing</h3>
+        <p class="trend-card-desc">Mental health programs, flexible benefits, and holistic wellness initiatives becoming non-negotiable.</p>
+      </div>
+      <div class="trend-card reveal reveal-delay-2">
+        <span class="trend-number">05</span>
+        <h3 class="trend-card-title">Skills-Based Hiring</h3>
+        <p class="trend-card-desc">Moving beyond degrees to competency mapping, micro-credentials, and demonstrable skills portfolios.</p>
+      </div>
+      <div class="trend-card reveal reveal-delay-3">
+        <span class="trend-number">06</span>
+        <h3 class="trendcard-title">DEI Integration</h3>
+        <p class="trend-card-desc">Diversity, equity, and inclusion woven into every HR process from hiring to leadership development.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="recruitment-section" class="py-24 px-6 md:px-16">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center reveal">
+      <div class="section-label">Career Guide</div>
+      <h2 class="section-title">Recruitment Tips</h2>
+      <p class="section-subtitle mx-auto">
+        Essential strategies and insights to help you land your dream role in Human Resource Management.
+      </p>
+    </div>
+
+    <!-- View Toggle -->
+    <div class="flipbook-toggle-wrapper reveal reveal-delay-1">
+      <div class="flipbook-toggle">
+        <button class="toggle-btn active" data-view="flipbook" id="btnFlipbook">
+          <i data-lucide="book-open" class="w-4 h-4"></i>
+          <span>Flipbook</span>
+        </button>
+        <button class="toggle-btn" data-view="single" id="btnSingle">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+          <span>Single Page</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- FlipBook View (Default) -->
+    <div class="flipbook-wrapper reveal reveal-delay-1" id="flipbookView">
+      <div class="flipbook" id="flipbook">
+        <!-- Page 1: Cover (0.png) / Back (1.png) -->
+        <div class="flip-page">
+          <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+            <img src="public/0.png" alt="Cover" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+          </div>
+          <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+            <img src="public/1.png" alt="Page 1" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+          </div>
+        </div>
+        <!-- Page 2: Front (2.png) / Back (3.png) -->
+        <div class="flip-page">
+          <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+            <img src="public/2.png" alt="Page 2" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+          </div>
+          <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+            <img src="public/3.png" alt="Page 2 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+          </div>
+        </div>
+        <!-- Page 3: Front (4.png) / Back (5.png) -->
+        <div class="flip-page">
+          <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+            <img src="public/4.png" alt="Page 3" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+          </div>
+          <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+            <img src="public/5.png" alt="Page 3 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+          </div>
+        </div>
+        <!-- Page 4: Front (6.png) / Back (7.png) -->
+        <div class="flip-page">
+          <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+            <img src="public/6.png" alt="Page 4" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+          </div>
+          <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+            <img src="public/7.png" alt="Page 4 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+          </div>
+        </div>
+        <!-- Page 5: Front (8.png) / Back Cover (9.png) -->
+        <div class="flip-page">
+          <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+            <img src="public/8.png" alt="Page 5" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+          </div>
+          <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+            <img src="public/9.png" alt="Back Cover" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Single Page View (Hidden by default) -->
+    <div class="single-page-wrapper reveal reveal-delay-1 hidden" id="singlePageView">
+      <div class="single-page-container">
+        <button class="single-nav single-nav-prev" id="singlePrev" aria-label="Previous page">
+          <i data-lucide="chevron-left" class="w-6 h-6"></i>
+        </button>
         
-        // Re-initialize Lucide icons for newly loaded content
+        <div class="single-page-display" id="singlePageDisplay">
+          <img src="public/0.png" alt="Page 1" id="singlePageImg">
+          <div class="single-page-number" id="singlePageNum">1 / 10</div>
+        </div>
+        
+        <button class="single-nav single-nav-next" id="singleNext" aria-label="Next page">
+          <i data-lucide="chevron-right" class="w-6 h-6"></i>
+        </button>
+      </div>
+      
+      <!-- Page thumbnails for quick navigation -->
+      <div class="single-page-thumbnails" id="singleThumbnails">
+        <button class="thumb-btn active" data-page="0">
+          <img src="public/0.png" alt="Page 1">
+        </button>
+        <button class="thumb-btn" data-page="1">
+          <img src="public/1.png" alt="Page 2">
+        </button>
+        <button class="thumb-btn" data-page="2">
+          <img src="public/2.png" alt="Page 3">
+        </button>
+        <button class="thumb-btn" data-page="3">
+          <img src="public/3.png" alt="Page 4">
+        </button>
+        <button class="thumb-btn" data-page="4">
+          <img src="public/4.png" alt="Page 5">
+        </button>
+        <button class="thumb-btn" data-page="5">
+          <img src="public/5.png" alt="Page 6">
+        </button>
+        <button class="thumb-btn" data-page="6">
+          <img src="public/6.png" alt="Page 7">
+        </button>
+        <button class="thumb-btn" data-page="7">
+          <img src="public/7.png" alt="Page 8">
+        </button>
+        <button class="thumb-btn" data-page="8">
+          <img src="public/8.png" alt="Page 9">
+        </button>
+        <button class="thumb-btn" data-page="9">
+          <img src="public/9.png" alt="Page 10">
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="student-guide-section" class="py-24 px-6 md:px-16">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center reveal">
+      <div class="section-label">Resources</div>
+      <h2 class="section-title">Student Guide</h2>
+      <p class="section-subtitle mx-auto">
+        Food Industry Career & OJT Readiness Guide — Everything you need to land your role in Valenzuela's thriving food manufacturing sector.
+      </p>
+    </div>
+
+    <!-- Tri-Fold Brochure -->
+    <div class="brochure-wrapper reveal reveal-delay-1">
+      <div class="brochure-header">
+        <i data-lucide="hand-click" class="w-5 h-5"></i>
+        <span>Click the brochure to unfold it</span>
+      </div>
+
+      <div class="tri-fold-container" id="triFoldBrochure">
+        <!-- Left Panel (folds right, front cover) -->
+        <div class="tf-left">
+          <div class="tf-front">
+            <img src="public/b2.png" alt="Front Cover" loading="lazy">
+          </div>
+          <div class="tf-back">
+            <img src="public/b0.png" alt="Inside Left" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Center Panel (fixed) -->
+        <div class="tf-center">
+          <div class="tf-center-content">
+            <img src="public/b3.png" alt="Inside Center" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Right Panel (folds left, back cover) -->
+        <div class="tf-right">
+          <div class="tf-front">
+            <img src="public/b4.png" alt="Back Cover" loading="lazy">
+          </div>
+          <div class="tf-back">
+            <img src="public/b1.png" alt="Inside Right" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="map-section py-24 px-6 md:px-16" id="firms-section">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center reveal">
+      <div class="section-label">Industry Partners</div>
+      <h2 class="section-title">Food Manufacturing Companies in Valenzuela City</h2>
+      <p class="section-subtitle mx-auto">
+        Valenzuela City is home to a thriving food manufacturing ecosystem — providing HRM students with direct access to internship opportunities, plant tours, mock interviews, HR shadowing programs, and professional networking that prepares them for careers in workforce management.
+      </p>
+    </div>
+
+    <!-- PLV Pin Card -->
+    <div class="mt-12 reveal reveal-delay-1">
+      <div class="plv-pin">
+        <div class="plv-pin-header">
+          <div class="plv-pin-icon">
+            <i data-lucide="graduation-cap" class="w-7 h-7 text-white"></i>
+          </div>
+          <div>
+            <div class="plv-pin-title">Pamantasang Lungsod ng Valenzuela</div>
+            <div class="plv-pin-subtitle">Tongco St., Barangay Maysan, Valenzuela City</div>
+          </div>
+        </div>
+        <div class="plv-pin-body">
+          PLV is a local government-funded public university with over 13,000 students. Its strategic location in northern Metro Manila places graduates within easy reach of food manufacturing companies, employment agencies, and corporate offices across Valenzuela and neighboring cities.
+        </div>
+        <div class="plv-pin-stats">
+          <div class="plv-pin-stat">
+            <div class="plv-pin-stat-value">13K+</div>
+            <div class="plv-pin-stat-label">Students</div>
+          </div>
+          <div class="plv-pin-stat">
+            <div class="plv-pin-stat-value">400+</div>
+            <div class="plv-pin-stat-label">Faculty</div>
+          </div>
+          <div class="plv-pin-stat">
+            <div class="plv-pin-stat-value">2002</div>
+            <div class="plv-pin-stat-label">Established</div>
+          </div>
+          <div class="plv-pin-stat">
+            <div class="plv-pin-stat-value">3</div>
+            <div class="plv-pin-stat-label">Campuses</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Map -->
+    <div class="mt-10 reveal reveal-delay-2">
+      <div class="map-container" id="foodMapContainer">
+        <div id="foodMap" style="width:100%;height:500px;border-radius:24px;"></div>
+        <div class="map-overlay">
+          <div class="map-overlay-content">
+            <h3>Explore the Valenzuela Food Manufacturing Hub</h3>
+            <p>Click on any marker to see food manufacturing companies, processing plants, and production facilities within commuting distance of PLV.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Company Cards Marquee -->
+    <div class="mt-14">
+      <h3 class="text-xl font-bold text-slate-900 mb-6 reveal">Featured Food Manufacturing Companies</h3>
+      <div class="firm-marquee-wrapper reveal reveal-delay-1">
+        <div class="firm-marquee">
+          <div class="firm-marquee-track">
+            <!-- First set of cards -->
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Newton Food Products Mfg.</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>84 Ramon Delfin Street, Marulas, Valenzuela City, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 291-6793</span>
+                <span class="firm-badge established"><i data-lucide="calendar" class="w-3 h-3"></i> Established</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">M&T Food Industries</div>
+                  <div class="firm-type">Food Processing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>136 Kabatuhan Road, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Ecco Food Corporation</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>262 Urrutia, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Lembest Foods Corporation</div>
+                  <div class="firm-type">Food Production</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>2069 Kadon, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Go Tian Food Industries</div>
+                  <div class="firm-type">Food Processing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>161 A. Mariano, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">MGP Food Products</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>Antonio Compound, 80 Padrigal Street, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Prime Supreme King Company</div>
+                  <div class="firm-type">Food Production</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>940 Sta. Monica Street, St Jude Subdivision, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Pure Snack Food House</div>
+                  <div class="firm-type">Snack Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>59 ITC Compound Road, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Hoc Guan Manufacturing Corporation</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>130 Marcelo H. Del Pilar Street, Malabon, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Malabon</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Nearby</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                                   <div class="firm-name">CDO Foodsphere</div>
+                  <div class="firm-type">Food Processing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>560 W Service Road, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge established"><i data-lucide="calendar" class="w-3 h-3"></i> Major</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Josie Food Industry</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>6011 A. Del Mundo Street, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Newborn Food Products Inc.</div>
+                  <div class="firm-type">Food Production</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>Serafia Street, 9 Balubaran, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Silver Swan Manufacturing</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>164 Panghulo Road, Bo. Panghulo, Malabon, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Malabon</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Nearby</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">MCT Food Inc.</div>
+                  <div class="firm-type">Food Processing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>Fortune Village, 168 Alicia, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">CBY Foods</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>8 Dalisay Street, Serrano Subdivision, Marulas, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Santory</div>
+                  <div class="firm-type">Food Production</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>8 M. Antonio, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge established"><i data-lucide="calendar" class="w-3 h-3"></i> Est. 1978</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Donutification Corporation</div>
+                  <div class="firm-type">Bakery Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>888 East Cantillion, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Greenbelt Food Products</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>383 C. Santiago Street, Dalandanan, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Sionci Bihon Factory</div>
+                  <div class="firm-type">Noodle Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>67 A. Marcelo Street, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Centrum Enterprise</div>
+                  <div class="firm-type">Food Trading</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>47 Maysan Road, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+          </div>
+          <!-- Duplicate for seamless loop -->
+          <div class="firm-marquee-track" aria-hidden="true">
+            <!-- Same cards duplicated for infinite loop -->
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Newton Food Products Mfg.</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>84 Ramon Delfin Street, Marulas, Valenzuela City, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="phone" class="w-3.5 h-3.5"></i> (02) 291-6793</span>
+                <span class="firm-badge established"><i data-lucide="calendar" class="w-3 h-3"></i> Established</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">M&T Food Industries</div>
+                  <div class="firm-type">Food Processing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>136 Kabatuhan Road, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Ecco Food Corporation</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>262 Urrutia, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Lembest Foods Corporation</div>
+                  <div class="firm-type">Food Production</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>2069 Kadon, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Go Tian Food Industries</div>
+                  <div class="firm-type">Food Processing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>161 A. Mariano, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">MGP Food Products</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>Antonio Compound, 80 Padrigal Street, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Prime Supreme King Company</div>
+                  <div class="firm-type">Food Production</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>940 Sta. Monica Street, St Jude Subdivision, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Pure Snack Food House</div>
+                  <div class="firm-type">Snack Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>59 ITC Compound Road, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Hoc Guan Manufacturing Corporation</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>130 Marcelo H. Del Pilar Street, Malabon, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Malabon</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Nearby</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">CDO Foodsphere</div>
+                  <div class="firm-type">Food Processing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>560 W Service Road, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge established"><i data-lucide="calendar" class="w-3 h-3"></i> Major</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Josie Food Industry</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>6011 A. Del Mundo Street, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Newborn Food Products Inc.</div>
+                  <div class="firm-type">Food Production</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>Serafia Street, 9 Balubaran, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Silver Swan Manufacturing</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>164 Panghulo Road, Bo. Panghulo, Malabon, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Malabon</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Nearby</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">MCT Food Inc.</div>
+                  <div class="firm-type">Food Processing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>Fortune Village, 168 Alicia, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">CBY Foods</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>8 Dalisay Street, Serrano Subdivision, Marulas, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Santory</div>
+                  <div class="firm-type">Food Production</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>8 M. Antonio, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge established"><i data-lucide="calendar" class="w-3 h-3"></i> Est. 1978</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Donutification Corporation</div>
+                  <div class="firm-type">Bakery Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>888 East Cantillion, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Greenbelt Food Products</div>
+                  <div class="firm-type">Food Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>383 C. Santiago Street, Dalandanan, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Sionci Bihon Factory</div>
+                  <div class="firm-type">Noodle Manufacturing</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>67 A. Marcelo Street, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+
+            <div class="firm-card">
+              <div class="firm-card-header">
+                <div class="firm-icon"><i data-lucide="utensils" class="w-5 h-5"></i></div>
+                <div>
+                  <div class="firm-name">Centrum Enterprise</div>
+                  <div class="firm-type">Food Trading</div>
+                </div>
+              </div>
+              <div class="firm-address">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+                <span>47 Maysan Road, Valenzuela, Metro Manila</span>
+              </div>
+              <div class="firm-meta">
+                <span><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Valenzuela</span>
+                <span class="firm-badge"><i data-lucide="users" class="w-3 h-3"></i> Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="mt-14 text-center reveal">
+      <div class="glass-card inline-block max-w-2xl">
+        <div class="section-label">Your Network Starts Here</div>
+        <h3 class="text-2xl font-bold text-slate-900 mt-2 mb-3" style="font-family:'Fraunces',serif;">
+          Build Connections Before You Graduate
+        </h3>
+        <p class="text-slate-900 leading-relaxed">
+          With 20+ food manufacturing companies within Valenzuela City and neighboring areas, PLV students have direct access to internship opportunities, plant tours, mock interviews, HR shadowing programs, and professional networking — right at their doorstep.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+footer class="site-footer">
+  <p>© 2026 HRM Program Showcase. Empowering the future of work.</p>
+</footer>
+
+<script>
+/* ============================================
+   HRM Interactive Showcase — Scripts
+   ============================================ */
+
+(function() {
+  'use strict';
+
+  // ---- Carousel State ----
+  const carouselState = {};
+  const carouselConfig = {
+    'career-track':  { dotsId: 'career-dots',  count: 6, autoScroll: false },
+    'stories-track': { dotsId: 'stories-dots', count: 9, autoScroll: true, interval: 6000 }
+  };
+  let autoScrollIntervals = {};
+  let isPaused = {};
+  let initialized = false;
+
+  // ---- Initialize on DOM Ready OR when sections load ----
+  function initAll() {
+    if (initialized) return;
+    initialized = true;
+
+    initCarousels();
+    initScrollReveal();
+    initLucideIcons();
+    initSmoothScroll();
+    initHeroParallax();
+    initCounterAnimation();
+    initFlipBooks();
+    initBrochure();
+    initAccordionMobile();
+    initStickyNav();
+    initMapWithRetry();
+  }
+
+  // Try immediate init (for non-modular fallback)
+  document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('career-track')) {
+      initAll();
+    }
+  });
+
+  // Listen for sectionsLoaded event from modular loader
+  window.addEventListener('sectionsLoaded', () => {
+    initAll();
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  });
+
+  // ---- Lucide Icons ----
+  function initLucideIcons() {
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  }
+
+  // ---- Carousels ----
+  function initCarousels() {
+    Object.entries(carouselConfig).forEach(([trackId, config]) => {
+      const track = document.getElementById(trackId);
+      const dotsContainer = document.getElementById(config.dotsId);
+      if (!track || !dotsContainer) return;
+
+      // Build dots
+      for (let i = 0; i < config.count; i++) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot' + (trackId === 'stories-track' ? ' light' : '');
+        dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(trackId, i));
+        dotsContainer.appendChild(dot);
+      }
+
+      carouselState[trackId] = 0;
+
+      // Touch / swipe support
+      let startX = 0;
+      let isDragging = false;
+
+      track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        pauseAutoScroll(trackId);
+      }, { passive: true });
+
+      track.addEventListener('touchmove', () => {
+        if (!isDragging) return;
+      }, { passive: true });
+
+      track.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = startX - e.changedTouches[0].clientX;
+        const cardWidth = track.children[0]?.offsetWidth + 24 || 344;
+        const maxOffset = Math.max(0, track.scrollWidth - track.parentElement.offsetWidth);
+
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            const next = Math.min(carouselState[trackId] + cardWidth, maxOffset);
+            carouselState[trackId] = next;
+          } else {
+            const prev = Math.max(carouselState[trackId] - cardWidth, 0);
+            carouselState[trackId] = prev;
+          }
+          track.style.transform = `translateX(-${carouselState[trackId]}px)`;
+          updateDots(trackId, Math.round(carouselState[trackId] / cardWidth));
+        }
+        resumeAutoScroll(trackId);
+      }, { passive: true });
+
+      // Hover pause
+      track.parentElement.addEventListener('mouseenter', () => pauseAutoScroll(trackId));
+      track.parentElement.addEventListener('mouseleave', () => resumeAutoScroll(trackId));
+
+      if (config.autoScroll) setupAutoScroll(trackId);
+    });
+  }
+
+  function setupAutoScroll(trackId) {
+    const config = carouselConfig[trackId];
+    autoScrollIntervals[trackId] = setInterval(() => {
+      if (isPaused[trackId]) return;
+      const track = document.getElementById(trackId);
+      if (!track || !track.children[0]) return;
+      const cardWidth = track.children[0].offsetWidth + 24;
+      const maxOffset = Math.max(0, track.scrollWidth - track.parentElement.offsetWidth);
+
+      if (carouselState[trackId] >= maxOffset - 10) {
+        carouselState[trackId] = 0;
+      } else {
+        carouselState[trackId] = Math.min(carouselState[trackId] + cardWidth, maxOffset);
+      }
+      track.style.transform = `translateX(-${carouselState[trackId]}px)`;
+      updateDots(trackId, Math.round(carouselState[trackId] / cardWidth));
+    }, config.interval || 5000);
+  }
+
+  function pauseAutoScroll(trackId) {
+    isPaused[trackId] = true;
+  }
+
+  function resumeAutoScroll(trackId) {
+    isPaused[trackId] = false;
+  }
+
+  function goToSlide(trackId, slideIndex) {
+    const track = document.getElementById(trackId);
+    if (!track || !track.children[0]) return;
+    const cardWidth = track.children[0].offsetWidth + 24;
+    carouselState[trackId] = slideIndex * cardWidth;
+    track.style.transform = `translateX(-${carouselState[trackId]}px)`;
+    updateDots(trackId, slideIndex);
+  }
+
+  function updateDots(trackId, currentSlide) {
+    const config = carouselConfig[trackId];
+    const dotsContainer = document.getElementById(config.dotsId);
+    if (!dotsContainer) return;
+    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentSlide);
+    });
+  }
+
+  // ---- Scroll Reveal Animation ----
+  function initScrollReveal() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
+
+  // ---- Smooth Scroll for Anchor Links ----
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }
+
+  // ---- Hero Parallax ----
+  function initHeroParallax() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    const shapes = hero.querySelectorAll('.hero-shape');
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const heroHeight = hero.offsetHeight;
+          const progress = Math.min(scrollY / heroHeight, 1);
+
+          shapes.forEach((shape, i) => {
+            const speed = (i + 1) * 0.15;
+            shape.style.transform = `translateY(${scrollY * speed}px) scale(${1 - progress * 0.1})`;
+          });
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // ---- Counter Animation ----
+  function initCounterAnimation() {
+    const counters = document.querySelectorAll('[data-count]');
+    if (!counters.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.count, 10);
+          const duration = 2000;
+          const start = performance.now();
+
+          function update(currentTime) {
+            const elapsed = currentTime - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(eased * target);
+            el.textContent = current.toLocaleString();
+            if (progress < 1) requestAnimationFrame(update);
+          }
+
+          requestAnimationFrame(update);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => observer.observe(counter));
+  }
+
+    // ---- FlipBook & Single Page View ----
+  function initFlipBooks() {
+    const flipbookView = document.getElementById('flipbookView');
+    const singlePageView = document.getElementById('singlePageView');
+    if (!flipbookView && !singlePageView) return;
+
+    // ===== FLIPBOOK VIEW =====
+    const flipBooks = document.querySelectorAll('.flipbook');
+    flipBooks.forEach((elBook) => {
+      elBook.style.setProperty("--c", 0);
+
+      const pages = elBook.querySelectorAll(".flip-page");
+      pages.forEach((page, idx) => {
+        page.style.setProperty("--i", idx);
+
+        page.addEventListener("click", (evt) => {
+          if (evt.target.closest("a")) return;
+          const curr = evt.target.closest(".flip-back") ? idx : idx + 1;
+          elBook.style.setProperty("--c", curr);
+        });
+      });
+    });
+
+    // ===== SINGLE PAGE VIEW =====
+    const pages = [
+      'public/0.png',
+      'public/1.png',
+      'public/2.png',
+      'public/3.png',
+      'public/4.png',
+      'public/5.png',
+      'public/6.png',
+      'public/7.png',
+      'public/8.png',
+      'public/9.png'
+    ];
+    
+    let currentPage = 0;
+    const singlePageImg = document.getElementById('singlePageImg');
+    const singlePageNum = document.getElementById('singlePageNum');
+    const btnPrev = document.getElementById('singlePrev');
+    const btnNext = document.getElementById('singleNext');
+    const thumbnails = document.querySelectorAll('.thumb-btn');
+
+    function updateSinglePage() {
+      if (!singlePageImg) return;
+      
+      singlePageImg.src = pages[currentPage];
+      singlePageNum.textContent = `${currentPage + 1} / ${pages.length}`;
+      
+      // Update nav buttons
+      if (btnPrev) btnPrev.disabled = currentPage === 0;
+      if (btnNext) btnNext.disabled = currentPage === pages.length - 1;
+      
+      // Update thumbnails
+      thumbnails.forEach((thumb, idx) => {
+        thumb.classList.toggle('active', idx === currentPage);
+      });
+    }
+
+    if (btnPrev) {
+      btnPrev.addEventListener('click', () => {
+        if (currentPage > 0) {
+          currentPage--;
+          updateSinglePage();
+        }
+      });
+    }
+
+    if (btnNext) {
+      btnNext.addEventListener('click', () => {
+        if (currentPage < pages.length - 1) {
+          currentPage++;
+          updateSinglePage();
+        }
+      });
+    }
+
+    // Thumbnail clicks
+    thumbnails.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        currentPage = parseInt(thumb.dataset.page, 10);
+        updateSinglePage();
+      });
+    });
+
+    // Keyboard navigation for single page view
+    document.addEventListener('keydown', (e) => {
+      if (singlePageView && !singlePageView.classList.contains('hidden')) {
+        if (e.key === 'ArrowLeft' && currentPage > 0) {
+          currentPage--;
+          updateSinglePage();
+        } else if (e.key === 'ArrowRight' && currentPage < pages.length - 1) {
+          currentPage++;
+          updateSinglePage();
+        }
+      }
+    });
+
+    // Initialize single page state
+    updateSinglePage();
+
+    // ===== VIEW TOGGLE =====
+    const btnFlipbook = document.getElementById('btnFlipbook');
+    const btnSingle = document.getElementById('btnSingle');
+
+    if (btnFlipbook && btnSingle) {
+      btnFlipbook.addEventListener('click', () => {
+        flipbookView.classList.remove('hidden');
+        singlePageView.classList.add('hidden');
+        btnFlipbook.classList.add('active');
+        btnSingle.classList.remove('active');
+        
+        // Re-init lucide icons
         if (typeof lucide !== 'undefined') {
           lucide.createIcons();
         }
-      } catch (err) {
-        console.error('Error loading section:', err);
-        container.innerHTML = `<p style="padding:2rem;text-align:center;color:#ef4444;">Error loading section. Please refresh.</p>`;
+      });
+
+      btnSingle.addEventListener('click', () => {
+        flipbookView.classList.add('hidden');
+        singlePageView.classList.remove('hidden');
+        btnSingle.classList.add('active');
+        btnFlipbook.classList.remove('active');
+        
+        // Re-init lucide icons
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      });
+    }
+  }
+
+    // ---- Tri-Fold Brochure Interaction ----
+  function initBrochure() {
+    const container = document.getElementById('triFoldBrochure');
+    if (!container) return;
+
+    let state = 'closed'; // closed → half → open → closed
+
+    container.addEventListener('click', () => {
+      if (state === 'closed') {
+        // First click: open right panel slightly
+        container.classList.remove('open');
+        container.classList.add('half');
+        state = 'half';
+      } else if (state === 'half') {
+        // Second click: open both panels, reveal center
+        container.classList.remove('half');
+        container.classList.add('open');
+        state = 'open';
+      } else {
+        // Third click: close everything
+        container.classList.remove('open', 'half');
+        state = 'closed';
       }
+    });
+  }
+
+    // ---- Curriculum Accordion — Hover (Desktop) / Click (Mobile) ----
+  function initAccordionMobile() {
+    const accordion = document.getElementById('learnAccordion');
+    if (!accordion) return;
+
+    const options = accordion.querySelectorAll('.learn-option');
+    let activeIndex = -1;
+
+    // Detect if device supports hover
+    const hasHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    // Only add click handlers for touch/mobile devices
+    if (!hasHover) {
+      options.forEach((option, index) => {
+        option.addEventListener('click', (e) => {
+          e.stopPropagation();
+
+          // If clicking already active, close it
+          if (activeIndex === index) {
+            option.classList.remove('active');
+            accordion.classList.remove('has-active');
+            activeIndex = -1;
+            return;
+          }
+
+          // Remove active from all
+          options.forEach(opt => opt.classList.remove('active'));
+          
+          // Add active to clicked
+          option.classList.add('active');
+          accordion.classList.add('has-active');
+          activeIndex = index;
+        });
+      });
+
+      // Click outside to close
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('#learnAccordion')) {
+          options.forEach(opt => opt.classList.remove('active'));
+          accordion.classList.remove('has-active');
+          activeIndex = -1;
+        }
+      });
     }
 
-    // Load all sections
-    document.addEventListener('DOMContentLoaded', () => {
-      const sections = [
-        ['nav-container', 'nav.html'],
-        ['hero-container', 'hero.html'],
-        ['enterprise-container', 'enterprise.html'],
-        ['why-hrm-container', 'why-hrm.html'],
-        ['career-paths-container', 'career-paths.html'],
-        ['student-stories-container', 'student-stories.html'],
-        ['curriculum-container', 'curriculum.html'],
-        ['program-materials-container', 'program-materials.html'],
-        ['future-trends-container', 'future-trends.html'],
-        ['recruitment-tips-container', 'recruitment-tips.html'],
-        ['student-guide-container', 'student-guide.html'],
-        ['food-companies-container', 'food-companies.html'],
-        ['footer-container', 'footer.html']
-      ];
-
-      // Load all sections in parallel
-      Promise.all(sections.map(([id, path]) => loadSection(id, path)))
-        .then(() => {
-          // After all sections load, re-initialize any scripts that depend on DOM
-          console.log('All sections loaded');
-          
-          // Dispatch custom event so scripts.js knows DOM is ready
-          window.dispatchEvent(new CustomEvent('sectionsLoaded'));
-        });
+    // Touch support for smoother mobile experience
+    options.forEach((option) => {
+      option.addEventListener('touchstart', (e) => {
+        // Prevent default only if we're handling it as a tap
+        if (!hasHover) {
+          // Let the click handler above deal with it
+        }
+      }, { passive: true });
     });
-  </script>
+  }
 
-  <!-- Google Maps -->
-  <!-- Google Maps JavaScript API -->
+  // ---- Sticky Navigation ----
+  function initStickyNav() {
+    const nav = document.getElementById('siteNav');
+    const mobileToggle = document.getElementById('navMobileToggle');
+    const mobileMenu = document.getElementById('navMobileMenu');
+
+    // Scroll effect
+    if (nav) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }, { passive: true });
+    }
+
+    // Mobile menu toggle
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        const icon = mobileToggle.querySelector('i');
+        if (mobileMenu.classList.contains('active')) {
+          icon.setAttribute('data-lucide', 'x');
+        } else {
+          icon.setAttribute('data-lucide', 'menu');
+        }
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          const icon = mobileToggle.querySelector('i');
+          icon.setAttribute('data-lucide', 'menu');
+          if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+          }
+        });
+      });
+    }
+
+    // Theme toggle
+    const themeToggle = document.getElementById('navThemeToggle');
+    if (themeToggle) {
+      const savedTheme = localStorage.getItem('hrm-theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+      } else if (savedTheme === 'light') {
+        document.body.classList.remove('dark-mode');
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark-mode');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('hrm-theme', isDark ? 'dark' : 'light');
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      });
+    }
+
+    // Smooth scroll for nav anchor links
+    document.querySelectorAll('.nav-links a[href^="#"], .nav-mobile-menu a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const navHeight = nav ? nav.offsetHeight : 0;
+          const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+      });
+    });
+  }
+
+  // ---- Google Maps Retry ----
+  function initMapWithRetry() {
+    if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+      console.log('Google Maps API not loaded yet, retrying in 500ms...');
+      setTimeout(initMapWithRetry, 500);
+      return;
+    }
+
+    const success = window.initFoodMap();
+    
+    if (!success) {
+      console.log('Map container not ready, retrying in 300ms...');
+      setTimeout(initMapWithRetry, 300);
+    }
+  }
+
+})();
+</script>
+
 <script>
-  // Global map init function — checks if container exists
-  window.initFoodMap = function() {
+window.initFoodMap = function() {
     const mapEl = document.getElementById('foodMap');
     if (!mapEl || typeof google === 'undefined') {
       console.log('Map container not ready yet, will retry...');
@@ -194,8 +5297,8 @@
     return true; // Signal success
   };
 </script>
+</script>
 
-<!-- Load Google Maps API -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8rUpk63_RlZPGfPLc08EaV29AsQ3bbQM&loading=async&callback=initFoodMap" async></script>
 
 </body>
