@@ -277,16 +277,16 @@
 
     // ===== SINGLE PAGE VIEW =====
     const pages = [
-      'public/Recruitment/0.png',
-      'public/Recruitment/1.png',
-      'public/Recruitment/2.png',
-      'public/Recruitment/3.png',
-      'public/Recruitment/4.png',
-      'public/Recruitment/5.png',
-      'public/Recruitment/6.png',
-      'public/Recruitment/7.png',
-      'public/Recruitment/8.png',
-      'public/Recruitment/9.png'
+      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/0.png',
+      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/1.png',
+      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/2.png',
+      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/3.png',
+      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/4.png',
+      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/5.png',
+      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/6.png',
+      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/7.png',
+      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/8.png',
+      'https://raw.githubusercontent.com/orlanznaluz/HRM-Showcase-Website/main/public/Recruitment/9.png'
     ];
     
     let currentPage = 0;
