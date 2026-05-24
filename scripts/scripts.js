@@ -351,3 +351,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+/* ============================================
+   Recruitment Tips — FlipBook Interaction
+   ============================================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const flipBooks = document.querySelectorAll('.flipbook');
+
+  flipBooks.forEach((elBook) => {
+    elBook.style.setProperty("--c", 0);
+
+    const pages = elBook.querySelectorAll(".flip-page");
+    pages.forEach((page, idx) => {
+      page.style.setProperty("--i", idx);
+
+      page.addEventListener("click", (evt) => {
+        // Don't flip if clicking on a link
+        if (evt.target.closest("a")) return;
+
+        const curr = evt.target.closest(".flip-back") ? idx : idx + 1;
+        elBook.style.setProperty("--c", curr);
+      });
+    });
+  });
+});

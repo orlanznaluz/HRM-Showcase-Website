@@ -2040,3 +2040,522 @@ body.dark-mode .career-card-badge {
   color: #e07b3a;
   background: rgba(224, 123, 58, 0.12);
 }
+/* ============================================
+   Company Cards — Infinite Marquee Carousel
+   ============================================ */
+
+.firm-marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  mask: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  -webkit-mask: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+}
+
+.firm-marquee {
+  display: flex;
+  width: max-content;
+  animation: firmScroll 60s linear infinite;
+}
+
+.firm-marquee-wrapper:hover .firm-marquee {
+  animation-play-state: paused;
+}
+
+.firm-marquee-track {
+  display: flex;
+  gap: 1.25rem;
+  padding: 0.5rem 0;
+  flex-shrink: 0;
+}
+
+@keyframes firmScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Firm card adjustments for marquee */
+.firm-marquee-track .firm-card {
+  width: 320px;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+/* Dark mode support */
+body.dark-mode .firm-marquee-wrapper {
+  mask: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  -webkit-mask: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .firm-marquee {
+    animation: none;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .firm-marquee-track .firm-card {
+    width: 280px;
+  }
+  .firm-marquee {
+    animation-duration: 40s;
+  }
+}
+
+/* ============================================
+   Recruitment Tips — 3D FlipBook
+   ============================================ */
+
+.flipbook-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+  perspective: 1200px;
+  margin-top: 3rem;
+  padding: 2rem 0;
+}
+
+.flipbook {
+  position: relative;
+  display: flex;
+  width: 42cqmin;
+  min-width: 380px;
+  max-width: 520px;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  transition: translate 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  translate: calc(min(var(--c), 1) * 50%) 0%;
+  rotate: 1 0 0 25deg;
+}
+
+.flip-page {
+  --thickness: 3;
+  flex: none;
+  display: flex;
+  width: 100%;
+  font-size: 1.6cqmin;
+  pointer-events: all;
+  user-select: none;
+  transform-style: preserve-3d;
+  transform-origin: left center;
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    rotate 0.8s ease-in calc((min(var(--i), var(--c)) - max(var(--i), var(--c))) * 40ms);
+  translate: calc(var(--i) * -100%) 0px 0px;
+  transform: translateZ(calc((var(--c) - var(--i) - 0.5) * calc(var(--thickness) * .18cqmin)));
+  rotate: 0 1 0 calc(clamp(0, var(--c) - var(--i), 1) * -180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: relative;
+  flex: none;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  backface-visibility: hidden;
+  overflow: hidden;
+  background-color: #ffffff;
+  translate: 0px;
+  border-radius: 0.3em 0.8em 0.8em 0.3em;
+  box-shadow: 0 0.3em 1em -0.2em rgba(0, 0, 0, 0.15);
+}
+
+.flip-back {
+  translate: -100% 0;
+  rotate: 0 1 0 180deg;
+  border-radius: 0.8em 0.3em 0.3em 0.8em;
+}
+
+/* Page content styling */
+.flip-page-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.8em;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.flip-page-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.flip-page-content::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.3);
+  border-radius: 2px;
+}
+
+.flip-page-number {
+  font-family: 'Fraunces', serif;
+  font-size: 3.5em;
+  font-weight: 900;
+  color: rgba(37, 99, 235, 0.08);
+  line-height: 1;
+  margin-bottom: 0.3em;
+  align-self: flex-end;
+}
+
+.flip-front .flip-page-number {
+  color: rgba(37, 99, 235, 0.08);
+}
+
+.flip-back .flip-page-number {
+  color: rgba(37, 99, 235, 0.08);
+}
+
+.flip-page-content h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.6em;
+  line-height: 1.2;
+}
+
+.flip-page-content p {
+  font-size: 1em;
+  line-height: 1.7;
+  color: #475569;
+  margin-bottom: 1em;
+}
+
+.flip-page-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 0.5em;
+  margin: 0.8em 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.flip-key-point {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  padding: 0.8em 1em;
+  background: #f1f5f9;
+  border-radius: 0.5em;
+  margin-top: auto;
+  font-size: 0.85em;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.flip-key-point i {
+  color: #2563eb;
+  flex-shrink: 0;
+  margin-top: 0.1em;
+}
+
+/* Cover styling */
+.flip-cover {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #1d4ed8 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2.5em;
+}
+
+.flip-cover-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.flip-cover-badge {
+  display: inline-block;
+  padding: 0.4em 1.2em;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 100px;
+  font-size: 0.75em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.flip-cover-title {
+  font-family: 'Fraunces', serif;
+  font-size: 3em;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #ffffff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.flip-cover-subtitle {
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  max-width: 80%;
+}
+
+.flip-cover-year {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 1em;
+  letter-spacing: 0.1em;
+}
+
+/* Back cover */
+.flip-cover-back {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #1d4ed8 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2.5em;
+}
+
+.flip-cover-back .flip-cover-title {
+  font-size: 2.2em;
+}
+
+.flip-cover-footer {
+  display: flex;
+  gap: 2em;
+  margin-top: 1.5em;
+  padding-top: 1.5em;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.flip-cover-stat {
+  text-align: center;
+}
+
+.flip-cover-stat-value {
+  font-family: 'Fraunces', serif;
+  font-size: 2em;
+  font-weight: 900;
+  color: #ffffff;
+  display: block;
+}
+
+.flip-cover-stat-label {
+  font-size: 0.7em;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Back page content (first page back) */
+.flip-back-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.8em;
+  overflow-y: auto;
+}
+
+.flip-back-content h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.6em;
+}
+
+.flip-back-content p {
+  font-size: 1em;
+  line-height: 1.7;
+  color: #475569;
+  margin-bottom: 1em;
+}
+
+.flip-tip-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
+  padding: 1em 1.2em;
+  background: #dbeafe;
+  border-radius: 0.6em;
+  margin-top: auto;
+  font-size: 0.9em;
+  color: #1e40af;
+  font-weight: 500;
+}
+
+.flip-tip-box i {
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+/* Page counter */
+.flipbook {
+  counter-reset: flip-page -1;
+}
+
+.flip-front::after,
+.flip-back::after {
+  position: absolute;
+  bottom: 1em;
+  counter-increment: flip-page;
+  content: counter(flip-page) ".";
+  font-size: 0.75em;
+  color: #94a3b8;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.flip-front::after {
+  right: 1.2em;
+}
+
+.flip-back::after {
+  left: 1.2em;
+}
+
+.flip-cover::after,
+.flip-cover-back::after {
+  content: "";
+}
+
+/* Hover effects */
+.flip-page:hover .flip-front,
+.flip-page:hover .flip-back {
+  box-shadow: 0 0.5em 1.5em -0.2em rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .flipbook-wrapper {
+    min-height: 450px;
+    padding: 1rem 0;
+  }
+
+  .flipbook {
+    min-width: 280px;
+    max-width: 380px;
+    rotate: 1 0 0 15deg;
+  }
+
+  .flip-page-content,
+  .flip-back-content {
+    padding: 1.2em;
+  }
+
+  .flip-cover-title {
+    font-size: 2em;
+  }
+
+  .flip-cover-back .flip-cover-title {
+    font-size: 1.6em;
+  }
+
+  .flip-page-content h2,
+  .flip-back-content h2 {
+    font-size: 1.4em;
+  }
+
+  .flip-page-img {
+    height: 120px;
+  }
+
+  .flip-page-number {
+    font-size: 2.5em;
+  }
+
+  .flip-cover-footer {
+    gap: 1em;
+  }
+
+  .flip-cover-stat-value {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .flipbook {
+    min-width: 240px;
+    max-width: 320px;
+  }
+
+  .flip-page-content,
+  .flip-back-content {
+    padding: 1em;
+  }
+
+  .flip-cover {
+    padding: 1.5em;
+  }
+
+  .flip-cover-title {
+    font-size: 1.6em;
+  }
+
+  .flip-page-content h2,
+  .flip-back-content h2 {
+    font-size: 1.2em;
+  }
+}
+
+/* Dark mode support */
+body.dark-mode .flip-front,
+body.dark-mode .flip-back {
+  background-color: rgba(26, 20, 16, 0.9);
+  border-color: rgba(224, 123, 58, 0.08);
+}
+
+body.dark-mode .flip-page-content h2,
+body.dark-mode .flip-back-content h2 {
+  color: #f5f0eb;
+}
+
+body.dark-mode .flip-page-content p,
+body.dark-mode .flip-back-content p {
+  color: #8a7e72;
+}
+
+body.dark-mode .flip-key-point {
+  background: rgba(224, 123, 58, 0.08);
+  color: #f5f0eb;
+}
+
+body.dark-mode .flip-key-point i {
+  color: #e07b3a;
+}
+
+body.dark-mode .flip-tip-box {
+  background: rgba(224, 123, 58, 0.12);
+  color: #e07b3a;
+}
+
+body.dark-mode .flip-tip-box i {
+  color: #e07b3a;
+}
+
+body.dark-mode .flip-front::after,
+body.dark-mode .flip-back::after {
+  color: #8a7e72;
+}
+
+body.dark-mode .flip-cover {
+  background: linear-gradient(135deg, #1a1208 0%, #2d1f0f 50%, #1a1208 100%);
+}
+
+body.dark-mode .flip-cover-back {
+  background: linear-gradient(135deg, #1a1208 0%, #2d1f0f 50%, #1a1208 100%);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .flip-page {
+    transition: none;
+  }
+  .flipbook {
+    transition: none;
+  }
+}
