@@ -1018,7 +1018,7 @@ h1, h2, h3, h4 {
 
 
 /* ============================================
-   What You'll Learn — Hover Accordion Cards
+   What You'll Learn — Hover/Click Accordion Cards
    ============================================ */
 
 .learn-accordion {
@@ -1055,17 +1055,64 @@ h1, h2, h3, h4 {
 .learn-accordion .learn-option:nth-child(5) { --defaultBackground: #dc2626; }
 .learn-accordion .learn-option:nth-child(6) { --defaultBackground: #0891b2; }
 
-.learn-accordion:hover .learn-option {
-   flex: 1;
-   border-radius: 30px;
-   margin: 0;
+/* DESKTOP: Hover effect */
+@media (hover: hover) and (pointer: fine) {
+   .learn-accordion:hover .learn-option {
+      flex: 1;
+      border-radius: 30px;
+      margin: 0;
+   }
+
+   .learn-accordion .learn-option:hover {
+      flex: 8;
+      border-radius: 40px;
+      background-size: auto 100%;
+      margin: 0;
+   }
+
+   .learn-accordion .learn-option:hover .learn-shadow {
+      box-shadow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+   }
+
+   .learn-accordion .learn-option:hover .learn-label {
+      bottom: 20px;
+      left: 20px;
+   }
+
+   .learn-accordion .learn-option:hover .learn-info .learn-main,
+   .learn-accordion .learn-option:hover .learn-info .learn-sub {
+      opacity: 1;
+      transform: translateX(0);
+   }
 }
 
-.learn-accordion .learn-option:hover {
+/* MOBILE: Click/tap active state */
+.learn-accordion .learn-option.active {
    flex: 8;
    border-radius: 40px;
    background-size: auto 100%;
    margin: 0;
+}
+
+.learn-accordion .learn-option.active .learn-shadow {
+   box-shadow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+}
+
+.learn-accordion .learn-option.active .learn-label {
+   bottom: 20px;
+   left: 20px;
+}
+
+.learn-accordion .learn-option.active .learn-info .learn-main,
+.learn-accordion .learn-option.active .learn-info .learn-sub {
+   opacity: 1;
+   transform: translateX(0);
+}
+
+/* Reset others when one is active on mobile */
+.learn-accordion.has-active .learn-option:not(.active) {
+   flex: 1;
+   border-radius: 30px;
 }
 
 .learn-accordion .learn-option .learn-shadow {
@@ -1078,10 +1125,6 @@ h1, h2, h3, h4 {
    box-shadow: inset 0 -120px 0px -120px black, inset 0 -120px 0px -100px black;
 }
 
-.learn-accordion .learn-option:hover .learn-shadow {
-   box-shadow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
-}
-
 .learn-accordion .learn-option .learn-label {
    display: flex;
    position: absolute;
@@ -1091,11 +1134,6 @@ h1, h2, h3, h4 {
    height: 60px;
    transition: .5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
    align-items: center;
-}
-
-.learn-accordion .learn-option:hover .learn-label {
-   bottom: 20px;
-   left: 20px;
 }
 
 .learn-accordion .learn-option .learn-icon {
@@ -1147,12 +1185,6 @@ h1, h2, h3, h4 {
    margin-top: 4px;
 }
 
-.learn-accordion .learn-option:hover .learn-info .learn-main,
-.learn-accordion .learn-option:hover .learn-info .learn-sub {
-   opacity: 1;
-   transform: translateX(0);
-}
-
 @media screen and (max-width: 768px) {
    .learn-accordion {
       min-width: auto;
@@ -1185,33 +1217,11 @@ h1, h2, h3, h4 {
       bottom: 8px;
       left: 8px;
    }
-   .learn-accordion .learn-option:hover .learn-label {
+   .learn-accordion .learn-option.active .learn-label {
       bottom: 12px;
       left: 12px;
    }
 }
-
-@media (hover: none) and (pointer: coarse) {
-   .learn-accordion .learn-option.mobile-active {
-      flex: 8;
-      border-radius: 40px;
-      background-size: auto 100%;
-      margin: 0;
-   }
-   .learn-accordion .learn-option.mobile-active .learn-shadow {
-      box-shadow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
-   }
-   .learn-accordion .learn-option.mobile-active .learn-label {
-      bottom: 20px;
-      left: 20px;
-   }
-   .learn-accordion .learn-option.mobile-active .learn-info .learn-main,
-   .learn-accordion .learn-option.mobile-active .learn-info .learn-sub {
-      opacity: 1;
-      transform: translateX(0);
-   }
-}
-
 
 /* ============================================
    Sticky Top Navigation
@@ -2557,5 +2567,476 @@ body.dark-mode .flip-cover-back {
   }
   .flipbook {
     transition: none;
+  }
+}
+
+
+
+/* ============================================
+   FlipBook Image Pages
+   ============================================ */
+
+.flip-page .flip-front img,
+.flip-page .flip-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Ensure image pages don't have text content padding */
+.flip-page .flip-front[style*="background:#ffffff"],
+.flip-page .flip-back[style*="background:#ffffff"] {
+  padding: 0 !important;
+}
+
+/* Dark mode support for image backgrounds */
+body.dark-mode .flip-page .flip-front[style*="background:#ffffff"],
+body.dark-mode .flip-page .flip-back[style*="background:#ffffff"] {
+  background: rgba(26, 20, 16, 0.9) !important;
+}
+
+/* ============================================
+   Student Guide — Tri-Fold Brochure (Image-Based)
+   ============================================ */
+
+.brochure-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 2rem 0;
+}
+
+.brochure-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1.2rem;
+  background: var(--bg-alt);
+  border-radius: 100px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.brochure-header i {
+  color: var(--accent);
+}
+
+/* Tri-Fold Container */
+.tri-fold-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 650px;
+  perspective: 1500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* All panels */
+.tf-left,
+.tf-right,
+.tf-center {
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.tf-left,
+.tf-right {
+  width: 33.333%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tf-center {
+  width: 33.333%;
+  z-index: 0;
+}
+
+/* Faces */
+.tf-front,
+.tf-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.tf-front {
+  z-index: 2;
+}
+
+.tf-back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+/* Images fill panels */
+.tf-front img,
+.tf-back img,
+.tf-center-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Left panel — folds from right edge */
+.tf-left {
+  transform-origin: right center;
+  transform: rotateY(180deg);
+  z-index: 2;
+}
+
+/* Right panel — folds from left edge */
+.tf-right {
+  transform-origin: left center;
+  transform: rotateY(-180deg);
+  z-index: 2;
+}
+
+/* Center panel content */
+.tf-center-content {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* ===== STATES ===== */
+
+/* CLOSED — shows front cover (0.png) + back cover (1.png) */
+/* Left and right are folded inward, hiding inside panels */
+
+/* HALF OPEN — right panel opens slightly */
+.tri-fold-container.half .tf-right {
+  transform: rotateY(-20deg);
+}
+
+/* FULLY OPEN — both panels open, reveals inside */
+.tri-fold-container.open .tf-left {
+  transform: rotateY(20deg);
+}
+
+.tri-fold-container.open .tf-right {
+  transform: rotateY(-20deg);
+}
+
+.tri-fold-container.open .tf-center-content {
+  opacity: 1;
+}
+
+/* ===== DARK MODE ===== */
+body.dark-mode .brochure-header {
+  background: rgba(26, 20, 16, 0.8);
+  border-color: rgba(224, 123, 58, 0.12);
+  color: #8a7e72;
+}
+
+body.dark-mode .brochure-header i {
+  color: #e07b3a;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .tri-fold-container {
+    height: 350px;
+    transform: scale(0.85);
+    transform-origin: center top;
+  }
+}
+
+@media (max-width: 480px) {
+  .tri-fold-container {
+    height: 280px;
+    transform: scale(0.7);
+    transform-origin: center top;
+  }
+
+  .brochure-header {
+    font-size: 0.8rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tf-left,
+  .tf-right,
+  .tf-center-content {
+    transition: none;
+  }
+}
+
+/* ============================================
+   FlipBook View Toggle
+   ============================================ */
+
+.flipbook-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.flipbook-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-alt);
+  border-radius: 100px;
+  padding: 4px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-sm);
+}
+
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  color: var(--text-main);
+}
+
+.toggle-btn.active {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+}
+
+body.dark-mode .flipbook-toggle {
+  background: rgba(26, 20, 16, 0.8);
+  border-color: rgba(224, 123, 58, 0.12);
+}
+
+body.dark-mode .toggle-btn {
+  color: #8a7e72;
+}
+
+body.dark-mode .toggle-btn:hover {
+  color: #f5f0eb;
+}
+
+body.dark-mode .toggle-btn.active {
+  background: #e07b3a;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(224, 123, 58, 0.25);
+}
+
+/* ============================================
+   Single Page View
+   ============================================ */
+
+.single-page-wrapper {
+  margin-top: 2rem;
+}
+
+.single-page-wrapper.hidden {
+  display: none;
+}
+
+.single-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  min-height: 600px;
+}
+
+.single-page-display {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 3 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: #ffffff;
+}
+
+.single-page-display img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.single-page-number {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(0,0,0,0.6);
+  color: #ffffff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.single-nav {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-alt);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.single-nav:hover {
+  background: var(--accent);
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+}
+
+.single-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.single-nav:disabled:hover {
+  background: var(--bg-alt);
+  color: var(--text-main);
+}
+
+/* Thumbnails */
+.single-page-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+}
+
+.thumb-btn {
+  width: 60px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+  background: transparent;
+}
+
+.thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumb-btn:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+}
+
+.thumb-btn.active {
+  opacity: 1;
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.2);
+}
+
+body.dark-mode .single-page-display {
+  background: rgba(26, 20, 16, 0.9);
+}
+
+body.dark-mode .single-nav {
+  background: rgba(26, 20, 16, 0.8);
+  color: #f5f0eb;
+  border: 1px solid rgba(224, 123, 58, 0.12);
+}
+
+body.dark-mode .single-nav:hover {
+  background: #e07b3a;
+  color: #ffffff;
+}
+
+body.dark-mode .single-nav:disabled:hover {
+  background: rgba(26, 20, 16, 0.8);
+  color: #f5f0eb;
+}
+
+body.dark-mode .thumb-btn.active {
+  border-color: #e07b3a;
+  box-shadow: 0 4px 12px rgba(224, 123, 58, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .single-page-container {
+    min-height: 400px;
+    gap: 0.75rem;
+  }
+
+  .single-page-display {
+    max-width: 320px;
+  }
+
+  .single-nav {
+    width: 40px;
+    height: 40px;
+  }
+
+  .thumb-btn {
+    width: 45px;
+    height: 60px;
+  }
+
+  .single-page-thumbnails {
+    gap: 0.35rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .single-page-container {
+    min-height: 320px;
+  }
+
+  .single-page-display {
+    max-width: 260px;
+  }
+
+  .toggle-btn span {
+    display: none;
+  }
+
+  .toggle-btn {
+    padding: 0.6rem;
   }
 }

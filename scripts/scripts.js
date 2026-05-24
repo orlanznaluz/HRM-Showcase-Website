@@ -13,14 +13,39 @@
   };
   let autoScrollIntervals = {};
   let isPaused = {};
+  let initialized = false;
 
-  // ---- Initialize on DOM Ready ----
-  document.addEventListener('DOMContentLoaded', () => {
+  // ---- Initialize on DOM Ready OR when sections load ----
+  function initAll() {
+    if (initialized) return;
+    initialized = true;
+
     initCarousels();
     initScrollReveal();
     initLucideIcons();
     initSmoothScroll();
     initHeroParallax();
+    initCounterAnimation();
+    initFlipBooks();
+    initBrochure();
+    initAccordionMobile();
+    initStickyNav();
+    initMapWithRetry();
+  }
+
+  // Try immediate init (for non-modular fallback)
+  document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('career-track')) {
+      initAll();
+    }
+  });
+
+  // Listen for sectionsLoaded event from modular loader
+  window.addEventListener('sectionsLoaded', () => {
+    initAll();
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
   });
 
   // ---- Lucide Icons ----
@@ -73,11 +98,9 @@
 
         if (Math.abs(diff) > 50) {
           if (diff > 0) {
-            // Swipe left -> next
             const next = Math.min(carouselState[trackId] + cardWidth, maxOffset);
             carouselState[trackId] = next;
           } else {
-            // Swipe right -> prev
             const prev = Math.max(carouselState[trackId] - cardWidth, 0);
             carouselState[trackId] = prev;
           }
@@ -214,7 +237,6 @@
           function update(currentTime) {
             const elapsed = currentTime - start;
             const progress = Math.min(elapsed / duration, 1);
-            // Ease out cubic
             const eased = 1 - Math.pow(1 - progress, 3);
             const current = Math.round(eased * target);
             el.textContent = current.toLocaleString();
@@ -230,149 +252,315 @@
     counters.forEach(counter => observer.observe(counter));
   }
 
+    // ---- FlipBook & Single Page View ----
+  function initFlipBooks() {
+    const flipbookView = document.getElementById('flipbookView');
+    const singlePageView = document.getElementById('singlePageView');
+    if (!flipbookView && !singlePageView) return;
 
+    // ===== FLIPBOOK VIEW =====
+    const flipBooks = document.querySelectorAll('.flipbook');
+    flipBooks.forEach((elBook) => {
+      elBook.style.setProperty("--c", 0);
 
-})();
+      const pages = elBook.querySelectorAll(".flip-page");
+      pages.forEach((page, idx) => {
+        page.style.setProperty("--i", idx);
 
+        page.addEventListener("click", (evt) => {
+          if (evt.target.closest("a")) return;
+          const curr = evt.target.closest(".flip-back") ? idx : idx + 1;
+          elBook.style.setProperty("--c", curr);
+        });
+      });
+    });
 
-/* ============================================
-   Learn Accordion — Hover Interaction
-   ============================================ */
+    // ===== SINGLE PAGE VIEW =====
+    const pages = [
+      'public/Recruitment/0.png',
+      'public/Recruitment/1.png',
+      'public/Recruitment/2.png',
+      'public/Recruitment/3.png',
+      'public/Recruitment/4.png',
+      'public/Recruitment/5.png',
+      'public/Recruitment/6.png',
+      'public/Recruitment/7.png',
+      'public/Recruitment/8.png',
+      'public/Recruitment/9.png'
+    ];
+    
+    let currentPage = 0;
+    const singlePageImg = document.getElementById('singlePageImg');
+    const singlePageNum = document.getElementById('singlePageNum');
+    const btnPrev = document.getElementById('singlePrev');
+    const btnNext = document.getElementById('singleNext');
+    const thumbnails = document.querySelectorAll('.thumb-btn');
 
-// Mobile tap support for accordion cards
-document.addEventListener('DOMContentLoaded', () => {
-  const accordion = document.querySelector('.learn-accordion');
-  if (!accordion) return;
-
-  const options = accordion.querySelectorAll('.learn-option');
-
-  // For mobile: tap to expand, tap again to collapse
-  options.forEach(option => {
-    option.addEventListener('touchstart', (e) => {
-      // On mobile, we rely on CSS hover via the parent :hover
-      // But we can add a class for better mobile support
-      options.forEach(opt => opt.classList.remove('mobile-active'));
-      option.classList.add('mobile-active');
-    }, { passive: true });
-  });
-
-  // Remove mobile-active when tapping outside
-  document.addEventListener('touchstart', (e) => {
-    if (!e.target.closest('.learn-option')) {
-      options.forEach(opt => opt.classList.remove('mobile-active'));
+    function updateSinglePage() {
+      if (!singlePageImg) return;
+      
+      singlePageImg.src = pages[currentPage];
+      singlePageNum.textContent = `${currentPage + 1} / ${pages.length}`;
+      
+      // Update nav buttons
+      if (btnPrev) btnPrev.disabled = currentPage === 0;
+      if (btnNext) btnNext.disabled = currentPage === pages.length - 1;
+      
+      // Update thumbnails
+      thumbnails.forEach((thumb, idx) => {
+        thumb.classList.toggle('active', idx === currentPage);
+      });
     }
-  }, { passive: true });
-});
 
+    if (btnPrev) {
+      btnPrev.addEventListener('click', () => {
+        if (currentPage > 0) {
+          currentPage--;
+          updateSinglePage();
+        }
+      });
+    }
 
-/* ============================================
-   Sticky Navigation — Scroll & Mobile Toggle
-   ============================================ */
+    if (btnNext) {
+      btnNext.addEventListener('click', () => {
+        if (currentPage < pages.length - 1) {
+          currentPage++;
+          updateSinglePage();
+        }
+      });
+    }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const nav = document.getElementById('siteNav');
-  const mobileToggle = document.getElementById('navMobileToggle');
-  const mobileMenu = document.getElementById('navMobileMenu');
+    // Thumbnail clicks
+    thumbnails.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        currentPage = parseInt(thumb.dataset.page, 10);
+        updateSinglePage();
+      });
+    });
 
-  // Scroll effect — add .scrolled class when scrolled past 50px
-  if (nav) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-    }, { passive: true });
-  }
-
-  // Mobile menu toggle
-  if (mobileToggle && mobileMenu) {
-    mobileToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-      // Update icon
-      const icon = mobileToggle.querySelector('i');
-      if (mobileMenu.classList.contains('active')) {
-        icon.setAttribute('data-lucide', 'x');
-      } else {
-        icon.setAttribute('data-lucide', 'menu');
-      }
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
+    // Keyboard navigation for single page view
+    document.addEventListener('keydown', (e) => {
+      if (singlePageView && !singlePageView.classList.contains('hidden')) {
+        if (e.key === 'ArrowLeft' && currentPage > 0) {
+          currentPage--;
+          updateSinglePage();
+        } else if (e.key === 'ArrowRight' && currentPage < pages.length - 1) {
+          currentPage++;
+          updateSinglePage();
+        }
       }
     });
 
-    // Close mobile menu when clicking a link
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        const icon = mobileToggle.querySelector('i');
-        icon.setAttribute('data-lucide', 'menu');
+    // Initialize single page state
+    updateSinglePage();
+
+    // ===== VIEW TOGGLE =====
+    const btnFlipbook = document.getElementById('btnFlipbook');
+    const btnSingle = document.getElementById('btnSingle');
+
+    if (btnFlipbook && btnSingle) {
+      btnFlipbook.addEventListener('click', () => {
+        flipbookView.classList.remove('hidden');
+        singlePageView.classList.add('hidden');
+        btnFlipbook.classList.add('active');
+        btnSingle.classList.remove('active');
+        
+        // Re-init lucide icons
         if (typeof lucide !== 'undefined') {
           lucide.createIcons();
+        }
+      });
+
+      btnSingle.addEventListener('click', () => {
+        flipbookView.classList.add('hidden');
+        singlePageView.classList.remove('hidden');
+        btnSingle.classList.add('active');
+        btnFlipbook.classList.remove('active');
+        
+        // Re-init lucide icons
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      });
+    }
+  }
+
+    // ---- Tri-Fold Brochure Interaction ----
+  function initBrochure() {
+    const container = document.getElementById('triFoldBrochure');
+    if (!container) return;
+
+    let state = 'closed'; // closed → half → open → closed
+
+    container.addEventListener('click', () => {
+      if (state === 'closed') {
+        // First click: open right panel slightly
+        container.classList.remove('open');
+        container.classList.add('half');
+        state = 'half';
+      } else if (state === 'half') {
+        // Second click: open both panels, reveal center
+        container.classList.remove('half');
+        container.classList.add('open');
+        state = 'open';
+      } else {
+        // Third click: close everything
+        container.classList.remove('open', 'half');
+        state = 'closed';
+      }
+    });
+  }
+
+    // ---- Curriculum Accordion — Hover (Desktop) / Click (Mobile) ----
+  function initAccordionMobile() {
+    const accordion = document.getElementById('learnAccordion');
+    if (!accordion) return;
+
+    const options = accordion.querySelectorAll('.learn-option');
+    let activeIndex = -1;
+
+    // Detect if device supports hover
+    const hasHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    // Only add click handlers for touch/mobile devices
+    if (!hasHover) {
+      options.forEach((option, index) => {
+        option.addEventListener('click', (e) => {
+          e.stopPropagation();
+
+          // If clicking already active, close it
+          if (activeIndex === index) {
+            option.classList.remove('active');
+            accordion.classList.remove('has-active');
+            activeIndex = -1;
+            return;
+          }
+
+          // Remove active from all
+          options.forEach(opt => opt.classList.remove('active'));
+          
+          // Add active to clicked
+          option.classList.add('active');
+          accordion.classList.add('has-active');
+          activeIndex = index;
+        });
+      });
+
+      // Click outside to close
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('#learnAccordion')) {
+          options.forEach(opt => opt.classList.remove('active'));
+          accordion.classList.remove('has-active');
+          activeIndex = -1;
+        }
+      });
+    }
+
+    // Touch support for smoother mobile experience
+    options.forEach((option) => {
+      option.addEventListener('touchstart', (e) => {
+        // Prevent default only if we're handling it as a tap
+        if (!hasHover) {
+          // Let the click handler above deal with it
+        }
+      }, { passive: true });
+    });
+  }
+
+  // ---- Sticky Navigation ----
+  function initStickyNav() {
+    const nav = document.getElementById('siteNav');
+    const mobileToggle = document.getElementById('navMobileToggle');
+    const mobileMenu = document.getElementById('navMobileMenu');
+
+    // Scroll effect
+    if (nav) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }, { passive: true });
+    }
+
+    // Mobile menu toggle
+    if (mobileToggle && mobileMenu) {
+      mobileToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        const icon = mobileToggle.querySelector('i');
+        if (mobileMenu.classList.contains('active')) {
+          icon.setAttribute('data-lucide', 'x');
+        } else {
+          icon.setAttribute('data-lucide', 'menu');
+        }
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          const icon = mobileToggle.querySelector('i');
+          icon.setAttribute('data-lucide', 'menu');
+          if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+          }
+        });
+      });
+    }
+
+    // Theme toggle
+    const themeToggle = document.getElementById('navThemeToggle');
+    if (themeToggle) {
+      const savedTheme = localStorage.getItem('hrm-theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+      } else if (savedTheme === 'light') {
+        document.body.classList.remove('dark-mode');
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark-mode');
+      }
+
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('hrm-theme', isDark ? 'dark' : 'light');
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      });
+    }
+
+    // Smooth scroll for nav anchor links
+    document.querySelectorAll('.nav-links a[href^="#"], .nav-mobile-menu a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const navHeight = nav ? nav.offsetHeight : 0;
+          const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
         }
       });
     });
   }
 
-  // Theme toggle
-  const themeToggle = document.getElementById('navThemeToggle');
-  if (themeToggle) {
-    // Check saved preference
-    const savedTheme = localStorage.getItem('hrm-theme');
-    if (savedTheme === 'dark') {
-      document.body.classList.add('dark-mode');
-    } else if (savedTheme === 'light') {
-      document.body.classList.remove('dark-mode');
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.body.classList.add('dark-mode');
+  // ---- Google Maps Retry ----
+  function initMapWithRetry() {
+    if (typeof google === 'undefined' || typeof google.maps === 'undefined') {
+      console.log('Google Maps API not loaded yet, retrying in 500ms...');
+      setTimeout(initMapWithRetry, 500);
+      return;
     }
 
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      localStorage.setItem('hrm-theme', isDark ? 'dark' : 'light');
-      // Re-render lucide icons to pick up color changes
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-      }
-    });
+    const success = window.initFoodMap();
+    
+    if (!success) {
+      console.log('Map container not ready, retrying in 300ms...');
+      setTimeout(initMapWithRetry, 300);
+    }
   }
 
-  // Smooth scroll for nav anchor links
-  document.querySelectorAll('.nav-links a[href^="#"], .nav-mobile-menu a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        const navHeight = nav ? nav.offsetHeight : 0;
-        const targetPosition = target.getBoundingClientRect().top + window.scrollY - navHeight;
-        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-      }
-    });
-  });
-});
-
-/* ============================================
-   Recruitment Tips — FlipBook Interaction
-   ============================================ */
-
-document.addEventListener('DOMContentLoaded', () => {
-  const flipBooks = document.querySelectorAll('.flipbook');
-
-  flipBooks.forEach((elBook) => {
-    elBook.style.setProperty("--c", 0);
-
-    const pages = elBook.querySelectorAll(".flip-page");
-    pages.forEach((page, idx) => {
-      page.style.setProperty("--i", idx);
-
-      page.addEventListener("click", (evt) => {
-        // Don't flip if clicking on a link
-        if (evt.target.closest("a")) return;
-
-        const curr = evt.target.closest(".flip-back") ? idx : idx + 1;
-        elBook.style.setProperty("--c", curr);
-      });
-    });
-  });
-});
+})();
