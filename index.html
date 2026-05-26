@@ -18,6 +18,8 @@
 <base target="_blank">
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
+<base target="_blank">
 </head>
 <body class="w-full animated-gradient min-h-screen">
 
@@ -85,24 +87,24 @@
   <div class="hero-features">
     <div class="hero-feature">
       <div class="hero-feature-icon">
-        <i data-lucide="message-circle" class="w-5 h-5"></i>
+        <i data-lucide="book-open" class="w-5 h-5"></i>
       </div>
-      <h3 class="hero-feature-title">Real-Time Collaboration</h3>
-      <p class="hero-feature-desc">Communicate seamlessly and keep everyone in sync with built-in messaging, file sharing, and live updates.</p>
+      <h3 class="hero-feature-title">Career Paths & Curriculum</h3>
+      <p class="hero-feature-desc">Explore diverse HR specializations from talent acquisition to organizational development, with a comprehensive curriculum covering recruitment, training, compensation, and labor relations.</p>
     </div>
     <div class="hero-feature">
       <div class="hero-feature-icon">
-        <i data-lucide="layout-list" class="w-5 h-5"></i>
+        <i data-lucide="map-pin" class="w-5 h-5"></i>
       </div>
-      <h3 class="hero-feature-title">Task & Project Tracking</h3>
-      <p class="hero-feature-desc">Assign tasks, set deadlines, and visualize progress with boards, lists, and timelines tailored to your team's style.</p>
+      <h3 class="hero-feature-title">Industry Connections</h3>
+      <p class="hero-feature-desc">Discover 20+ food manufacturing companies in Valenzuela City with internship opportunities, plant tours, and professional networking right at your doorstep.</p>
     </div>
     <div class="hero-feature">
       <div class="hero-feature-icon">
-        <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+        <i data-lucide="graduation-cap" class="w-5 h-5"></i>
       </div>
-      <h3 class="hero-feature-title">Performance Insights</h3>
-      <p class="hero-feature-desc">Make smarter decisions with analytics that show productivity trends, bottlenecks, and team workload balance.</p>
+      <h3 class="hero-feature-title">Student Success Stories</h3>
+      <p class="hero-feature-desc">Hear from PLV HRM students building their careers through hands-on case studies, mentorship from industry practitioners, and real-world HR simulations.</p>
     </div>
   </div>
 </header>
@@ -632,128 +634,142 @@
 
 <section id="recruitment-section" class="py-24 px-6 md:px-16">
   <div class="max-w-6xl mx-auto">
-    <div class="text-center reveal">
-      <div class="section-label">Career Guide</div>
-      <h2 class="section-title">Recruitment Tips</h2>
-      <p class="section-subtitle mx-auto">
-        Essential strategies and insights to help you land your dream role in Human Resource Management.
-      </p>
-    </div>
+    <!-- Two Column Layout -->
+    <div class="student-guides-grid">
+      <!-- Left Column: Title, Description, Download Button, View Toggle -->
+      <div class="student-guides-left reveal">
+        <div class="section-label">Career Guide</div>
+        <h2 class="section-title student-guides-title">Recruitment Tips</h2>
+        <p class="student-guides-desc">
+          Essential strategies and insights to help you land your dream role in Human Resource Management.
+        </p>
 
-    <!-- View Toggle -->
-    <div class="flipbook-toggle-wrapper reveal reveal-delay-1">
-      <div class="flipbook-toggle">
-        <button class="toggle-btn active" data-view="flipbook" id="btnFlipbook">
-          <i data-lucide="book-open" class="w-4 h-4"></i>
-          <span>Flipbook</span>
-        </button>
-        <button class="toggle-btn" data-view="single" id="btnSingle">
-          <i data-lucide="file-text" class="w-4 h-4"></i>
-          <span>Single Page</span>
-        </button>
-      </div>
-    </div>
+        <!-- View Toggle -->
+        <div class="flipbook-toggle-wrapper" style="margin-top: 1.5rem; margin-bottom: 0;">
+          <div class="flipbook-toggle">
+            <button class="toggle-btn active" data-view="flipbook" id="btnFlipbook">
+              <i data-lucide="book-open" class="w-4 h-4"></i>
+              <span>Flipbook</span>
+            </button>
+            <button class="toggle-btn" data-view="single" id="btnSingle">
+              <i data-lucide="file-text" class="w-4 h-4"></i>
+              <span>Single Page</span>
+            </button>
+          </div>
+        </div>
 
-    <!-- FlipBook View (Default) -->
-    <div class="flipbook-wrapper reveal reveal-delay-1" id="flipbookView">
-      <div class="flipbook" id="flipbook">
-        <!-- Page 1: Cover (0.png) / Back (1.png) -->
-        <div class="flip-page">
-          <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="comics/0.png" alt="Cover" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
-          </div>
-          <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="comics/1.png" alt="Page 1" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
-          </div>
-        </div>
-        <!-- Page 2: Front (2.png) / Back (3.png) -->
-        <div class="flip-page">
-          <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="comics/2.png" alt="Page 2" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
-          </div>
-          <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="comics/3.png" alt="Page 2 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
-          </div>
-        </div>
-        <!-- Page 3: Front (4.png) / Back (5.png) -->
-        <div class="flip-page">
-          <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="comics/4.png" alt="Page 3" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
-          </div>
-          <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="comics/5.png" alt="Page 3 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
-          </div>
-        </div>
-        <!-- Page 4: Front (6.png) / Back (7.png) -->
-        <div class="flip-page">
-          <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="comics/6.png" alt="Page 4" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
-          </div>
-          <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="comics/7.png" alt="Page 4 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
-          </div>
-        </div>
-        <!-- Page 5: Front (8.png) / Back Cover (9.png) -->
-        <div class="flip-page">
-          <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="comics/8.png" alt="Page 5" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
-          </div>
-          <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="comics/9.png" alt="Back Cover" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
-          </div>
-        </div>
+        <!-- Download Button -->
+        <a href="Comics.pdf" class="recruitment-download-btn" download>
+          <i data-lucide="file-down" class="w-5 h-5"></i>
+          <span>Download Comics PDF</span>
+          <i data-lucide="download" class="w-4 h-4"></i>
+        </a>
       </div>
-    </div>
 
-    <!-- Single Page View (Hidden by default) -->
-    <div class="single-page-wrapper reveal reveal-delay-1 hidden" id="singlePageView">
-      <div class="single-page-container">
-        <button class="single-nav single-nav-prev" id="singlePrev" aria-label="Previous page">
-          <i data-lucide="chevron-left" class="w-6 h-6"></i>
-        </button>
-        
-        <div class="single-page-display" id="singlePageDisplay">
-          <img src="comics/0.png" alt="Page 1" id="singlePageImg">
-          <div class="single-page-number" id="singlePageNum">1 / 10</div>
+      <!-- Right Column: FlipBook / Single Page Viewer -->
+      <div class="student-guides-right reveal reveal-delay-1">
+        <!-- FlipBook View (Default) -->
+        <div class="flipbook-wrapper reveal reveal-delay-1" id="flipbookView">
+          <div class="flipbook" id="flipbook">
+            <!-- Page 1: Cover (0.png) / Back (1.png) -->
+            <div class="flip-page">
+              <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+                <img src="comics/0.png" alt="Cover" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+              </div>
+              <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+                <img src="comics/1.png" alt="Page 1" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+              </div>
+            </div>
+            <!-- Page 2: Front (2.png) / Back (3.png) -->
+            <div class="flip-page">
+              <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+                <img src="comics/2.png" alt="Page 2" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+              </div>
+              <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+                <img src="comics/3.png" alt="Page 2 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+              </div>
+            </div>
+            <!-- Page 3: Front (4.png) / Back (5.png) -->
+            <div class="flip-page">
+              <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+                <img src="comics/4.png" alt="Page 3" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+              </div>
+              <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+                <img src="comics/5.png" alt="Page 3 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+              </div>
+            </div>
+            <!-- Page 4: Front (6.png) / Back (7.png) -->
+            <div class="flip-page">
+              <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+                <img src="comics/6.png" alt="Page 4" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+              </div>
+              <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+                <img src="comics/7.png" alt="Page 4 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+              </div>
+            </div>
+            <!-- Page 5: Front (8.png) / Back Cover (9.png) -->
+            <div class="flip-page">
+              <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+                <img src="comics/8.png" alt="Page 5" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+              </div>
+              <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
+                <img src="comics/9.png" alt="Back Cover" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <button class="single-nav single-nav-next" id="singleNext" aria-label="Next page">
-          <i data-lucide="chevron-right" class="w-6 h-6"></i>
-        </button>
-      </div>
-      
-      <!-- Page thumbnails for quick navigation -->
-      <div class="single-page-thumbnails" id="singleThumbnails">
-        <button class="thumb-btn active" data-page="0">
-          <img src="comics/0.png" alt="Page 1">
-        </button>
-        <button class="thumb-btn" data-page="1">
-          <img src="comics/1.png" alt="Page 2">
-        </button>
-        <button class="thumb-btn" data-page="2">
-          <img src="comics/2.png" alt="Page 3">
-        </button>
-        <button class="thumb-btn" data-page="3">
-          <img src="comics/3.png" alt="Page 4">
-        </button>
-        <button class="thumb-btn" data-page="4">
-          <img src="comics/4.png" alt="Page 5">
-        </button>
-        <button class="thumb-btn" data-page="5">
-          <img src="comics/5.png" alt="Page 6">
-        </button>
-        <button class="thumb-btn" data-page="6">
-          <img src="comics/6.png" alt="Page 7">
-        </button>
-        <button class="thumb-btn" data-page="7">
-          <img src="comics/7.png" alt="Page 8">
-        </button>
-        <button class="thumb-btn" data-page="8">
-          <img src="comics/8.png" alt="Page 9">
-        </button>
-        <button class="thumb-btn" data-page="9">
-          <img src="comics/9.png" alt="Page 10">
-        </button>
+
+        <!-- Single Page View (Hidden by default) -->
+        <div class="single-page-wrapper reveal reveal-delay-1 hidden" id="singlePageView">
+          <div class="single-page-container">
+            <button class="single-nav single-nav-prev" id="singlePrev" aria-label="Previous page">
+              <i data-lucide="chevron-left" class="w-6 h-6"></i>
+            </button>
+
+            <div class="single-page-display" id="singlePageDisplay">
+              <img src="comics/0.png" alt="Page 1" id="singlePageImg">
+              <div class="single-page-number" id="singlePageNum">1 / 10</div>
+            </div>
+
+            <button class="single-nav single-nav-next" id="singleNext" aria-label="Next page">
+              <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </button>
+          </div>
+
+          <!-- Page thumbnails for quick navigation -->
+          <div class="single-page-thumbnails" id="singleThumbnails">
+            <button class="thumb-btn active" data-page="0">
+              <img src="comics/0.png" alt="Page 1">
+            </button>
+            <button class="thumb-btn" data-page="1">
+              <img src="comics/1.png" alt="Page 2">
+            </button>
+            <button class="thumb-btn" data-page="2">
+              <img src="comics/2.png" alt="Page 3">
+            </button>
+            <button class="thumb-btn" data-page="3">
+              <img src="comics/3.png" alt="Page 4">
+            </button>
+            <button class="thumb-btn" data-page="4">
+              <img src="comics/4.png" alt="Page 5">
+            </button>
+            <button class="thumb-btn" data-page="5">
+              <img src="comics/5.png" alt="Page 6">
+            </button>
+            <button class="thumb-btn" data-page="6">
+              <img src="comics/6.png" alt="Page 7">
+            </button>
+            <button class="thumb-btn" data-page="7">
+              <img src="comics/7.png" alt="Page 8">
+            </button>
+            <button class="thumb-btn" data-page="8">
+              <img src="comics/8.png" alt="Page 9">
+            </button>
+            <button class="thumb-btn" data-page="9">
+              <img src="comics/9.png" alt="Page 10">
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -761,91 +777,126 @@
 
 <section id="student-guide-section" class="py-24 px-6 md:px-16">
   <div class="max-w-6xl mx-auto">
-    <div class="text-center reveal">
-      <div class="section-label">Resources</div>
-      <h2 class="section-title">Student Guides</h2>
-      <p class="section-subtitle mx-auto">
-        Explore our collection of career readiness guides — everything you need to land your role in Valenzuela's thriving industries.
-      </p>
-    </div>
+    <!-- Two Column Layout -->
+    <div class="student-guides-grid">
+      <!-- Left Column: Title, Description, Toggles, Downloads -->
+      <div class="student-guides-left reveal">
+        <div class="section-label">Resources</div>
+        <h2 class="section-title student-guides-title">Student Guides</h2>
+        <p class="student-guides-desc">
+          Explore our collection of career readiness guides — everything you need to land your role in Valenzuela's thriving industries.
+        </p>
 
-    <!-- Brochure Selector Toggle -->
-    <div class="brochure-selector-wrapper reveal reveal-delay-1">
-      <div class="brochure-selector">
-        <button class="brochure-select-btn active" data-brochure="0">
-          <i data-lucide="utensils" class="w-4 h-4"></i>
-          <span>Food Industry</span>
-        </button>
-        <button class="brochure-select-btn" data-brochure="1">
-          <i data-lucide="building-2" class="w-4 h-4"></i>
-          <span>Manufacturing</span>
-        </button>
-        <button class="brochure-select-btn" data-brochure="2">
-          <i data-lucide="briefcase" class="w-4 h-4"></i>
-          <span>HR Career</span>
-        </button>
-      </div>
-    </div>
+        <!-- Brochure Selector Toggle -->
+        <div class="brochure-selector-wrapper">
+          <div class="brochure-selector">
+            <button class="brochure-select-btn active" data-brochure="0">
+              <i data-lucide="utensils" class="w-4 h-4"></i>
+              <span>Food Industry</span>
+            </button>
+            <button class="brochure-select-btn" data-brochure="1">
+              <i data-lucide="building-2" class="w-4 h-4"></i>
+              <span>Manufacturing</span>
+            </button>
+            <button class="brochure-select-btn" data-brochure="2">
+              <i data-lucide="briefcase" class="w-4 h-4"></i>
+              <span>HR Career</span>
+            </button>
+          </div>
+        </div>
 
-    <!-- Brochure 1: Food Industry (default) -->
-    <div class="brochure-wrapper reveal reveal-delay-1" data-brochure-content="0">
-      <div class="brochure-header">
-        <i data-lucide="hand-click" class="w-5 h-5"></i>
-        <span>Click the brochure to unfold it</span>
+        <!-- Download Buttons -->
+        <div class="student-guides-downloads">
+          <a href="HR-excellence.pdf" class="download-btn" download>
+            <i data-lucide="file-down" class="w-5 h-5"></i>
+            <div class="download-btn-text">
+              <span class="download-btn-label">HR Excellence Guide</span>
+              <span class="download-btn-meta">PDF • Career readiness</span>
+            </div>
+            <i data-lucide="download" class="w-4 h-4 download-icon"></i>
+          </a>
+          <a href="student-guide.pdf" class="download-btn" download>
+            <i data-lucide="file-down" class="w-5 h-5"></i>
+            <div class="download-btn-text">
+              <span class="download-btn-label">Student Guide</span>
+              <span class="download-btn-meta">PDF • Food industry focus</span>
+            </div>
+            <i data-lucide="download" class="w-4 h-4 download-icon"></i>
+          </a>
+          <a href="workers-guide.pdf" class="download-btn" download>
+            <i data-lucide="file-down" class="w-5 h-5"></i>
+            <div class="download-btn-text">
+              <span class="download-btn-label">Workers Guide</span>
+              <span class="download-btn-meta">PDF • Manufacturing focus</span>
+            </div>
+            <i data-lucide="download" class="w-4 h-4 download-icon"></i>
+          </a>
+        </div>
       </div>
-      <div class="tri-fold-container" id="triFoldBrochure0">
-        <div class="tf-left">
-          <div class="tf-front"><img src="studentguide/b2.png" alt="Front Cover" loading="lazy"></div>
-          <div class="tf-back"><img src="studentguide/b0.png" alt="Inside Left" loading="lazy"></div>
-        </div>
-        <div class="tf-center">
-          <div class="tf-center-content"><img src="studentguide/b3.png" alt="Inside Center" loading="lazy"></div>
-        </div>
-        <div class="tf-right">
-          <div class="tf-front"><img src="studentguide/b4.png" alt="Back Cover" loading="lazy"></div>
-          <div class="tf-back"><img src="studentguide/b1.png" alt="Inside Right" loading="lazy"></div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Brochure 2: Manufacturing -->
-    <div class="brochure-wrapper reveal reveal-delay-1 hidden" data-brochure-content="1">
-      <div class="brochure-header">
-        <i data-lucide="hand-click" class="w-5 h-5"></i>
-        <span>Click the brochure to unfold it</span>
-      </div>
-      <div class="tri-fold-container" id="triFoldBrochure1">
-        <div class="tf-left">
-          <div class="tf-front"><img src="workersguide/w2.png" alt="Front Cover" loading="lazy"></div>
-          <div class="tf-back"><img src="workersguide/w0.png" alt="Inside Left" loading="lazy"></div>
+      <!-- Right Column: Brochures -->
+      <div class="student-guides-right reveal reveal-delay-1">
+        <!-- Brochure 1: Food Industry (default) -->
+        <div class="brochure-wrapper" data-brochure-content="0">
+          <div class="brochure-header">
+            <i data-lucide="hand-click" class="w-5 h-5"></i>
+            <span>Click the brochure to unfold it</span>
+          </div>
+          <div class="tri-fold-container" id="triFoldBrochure0">
+            <div class="tf-left">
+              <div class="tf-front"><img src="studentguide/b2.png" alt="Front Cover" loading="lazy"></div>
+              <div class="tf-back"><img src="studentguide/b0.png" alt="Inside Left" loading="lazy"></div>
+            </div>
+            <div class="tf-center">
+              <div class="tf-center-content"><img src="studentguide/b3.png" alt="Inside Center" loading="lazy"></div>
+            </div>
+            <div class="tf-right">
+              <div class="tf-front"><img src="studentguide/b4.png" alt="Back Cover" loading="lazy"></div>
+              <div class="tf-back"><img src="studentguide/b1.png" alt="Inside Right" loading="lazy"></div>
+            </div>
+          </div>
         </div>
-        <div class="tf-center">
-          <div class="tf-center-content"><img src="workersguide/w3.png" alt="Inside Center" loading="lazy"></div>
-        </div>
-        <div class="tf-right">
-          <div class="tf-front"><img src="workersguide/w4.png" alt="Back Cover" loading="lazy"></div>
-          <div class="tf-back"><img src="workersguide/w1.png" alt="Inside Right" loading="lazy"></div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Brochure 3: HR Career -->
-    <div class="brochure-wrapper reveal reveal-delay-1 hidden" data-brochure-content="2">
-      <div class="brochure-header">
-        <i data-lucide="hand-click" class="w-5 h-5"></i>
-        <span>Click the brochure to unfold it</span>
-      </div>
-      <div class="tri-fold-container" id="triFoldBrochure2">
-        <div class="tf-left">
-          <div class="tf-front"><img src="hrguide/h2.png" alt="Front Cover" loading="lazy"></div>
-          <div class="tf-back"><img src="hrguide/h0.png" alt="Inside Left" loading="lazy"></div>
+        <!-- Brochure 2: Manufacturing -->
+        <div class="brochure-wrapper hidden" data-brochure-content="1">
+          <div class="brochure-header">
+            <i data-lucide="hand-click" class="w-5 h-5"></i>
+            <span>Click the brochure to unfold it</span>
+          </div>
+          <div class="tri-fold-container" id="triFoldBrochure1">
+            <div class="tf-left">
+              <div class="tf-front"><img src="workersguide/w2.png" alt="Front Cover" loading="lazy"></div>
+              <div class="tf-back"><img src="workersguide/w0.png" alt="Inside Left" loading="lazy"></div>
+            </div>
+            <div class="tf-center">
+              <div class="tf-center-content"><img src="workersguide/w3.png" alt="Inside Center" loading="lazy"></div>
+            </div>
+            <div class="tf-right">
+              <div class="tf-front"><img src="workersguide/w4.png" alt="Back Cover" loading="lazy"></div>
+              <div class="tf-back"><img src="workersguide/w1.png" alt="Inside Right" loading="lazy"></div>
+            </div>
+          </div>
         </div>
-        <div class="tf-center">
-          <div class="tf-center-content"><img src="hrguide/h3.png" alt="Inside Center" loading="lazy"></div>
-        </div>
-        <div class="tf-right">
-          <div class="tf-front"><img src="hrguide/h4.png" alt="Back Cover" loading="lazy"></div>
-          <div class="tf-back"><img src="hrguide/h1.png" alt="Inside Right" loading="lazy"></div>
+
+        <!-- Brochure 3: HR Career -->
+        <div class="brochure-wrapper hidden" data-brochure-content="2">
+          <div class="brochure-header">
+            <i data-lucide="hand-click" class="w-5 h-5"></i>
+            <span>Click the brochure to unfold it</span>
+          </div>
+          <div class="tri-fold-container" id="triFoldBrochure2">
+            <div class="tf-left">
+              <div class="tf-front"><img src="hrguide/h2.png" alt="Front Cover" loading="lazy"></div>
+              <div class="tf-back"><img src="hrguide/h0.png" alt="Inside Left" loading="lazy"></div>
+            </div>
+            <div class="tf-center">
+              <div class="tf-center-content"><img src="hrguide/h3.png" alt="Inside Center" loading="lazy"></div>
+            </div>
+            <div class="tf-right">
+              <div class="tf-front"><img src="hrguide/h4.png" alt="Back Cover" loading="lazy"></div>
+              <div class="tf-back"><img src="hrguide/h1.png" alt="Inside Right" loading="lazy"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

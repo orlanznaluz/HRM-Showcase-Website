@@ -277,16 +277,16 @@
 
     // ===== SINGLE PAGE VIEW =====
     const pages = [
-      '0.png',
-      '1.png',
-      '2.png',
-      '3.png',
-      '4.png',
-      '5.png',
-      '6.png',
-      '7.png',
-      '8.png',
-      '9.png'
+      'comics/0.png',
+      'comics/1.png',
+      'comics/2.png',
+      'comics/3.png',
+      'comics/4.png',
+      'comics/5.png',
+      'comics/6.png',
+      'comics/7.png',
+      'comics/8.png',
+      'comics/9.png'
     ];
     
     let currentPage = 0;
