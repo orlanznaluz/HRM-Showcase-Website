@@ -6,6 +6,8 @@
   <title>HRM Interactive Showcase — Shape the Future of Work</title>
   <meta name="description" content="Discover a career in Human Resource Management. Explore programs, career paths, and student success stories.">
 
+  <link rel="icon" href="browser-icon.svg" type="image/svg+xml">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +28,8 @@
   <nav class="site-nav" id="siteNav">
   <div class="nav-inner">
     <a href="#" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" aria-label="Home">
-      <i data-lucide="gem" class="nav-diamond"></i>
+      <img src="browser-icon.svg" alt="Mind Ventures" class="nav-logo-img" width="32" height="32">
+      <span class="nav-brand-text">Mind Ventures</span>
     </a>
     <ul class="nav-links">
       <li><a href="#career-section">Careers</a></li>
@@ -669,7 +672,7 @@
       <!-- Right Column: FlipBook / Single Page Viewer -->
       <div class="student-guides-right reveal reveal-delay-1">
         <!-- FlipBook View (Default) -->
-        <div class="flipbook-wrapper reveal reveal-delay-1" id="flipbookView">
+        <div class="flipbook-wrapper" id="flipbookView">
           <div class="flipbook" id="flipbook">
             <!-- Page 1: Cover (0.png) / Back (1.png) -->
             <div class="flip-page">
@@ -720,7 +723,7 @@
         </div>
 
         <!-- Single Page View (Hidden by default) -->
-        <div class="single-page-wrapper reveal reveal-delay-1 hidden" id="singlePageView">
+        <div class="single-page-wrapper hidden" id="singlePageView">
           <div class="single-page-container">
             <button class="single-nav single-nav-prev" id="singlePrev" aria-label="Previous page">
               <i data-lucide="chevron-left" class="w-6 h-6"></i>
@@ -1773,7 +1776,7 @@ window.initFoodMap = function() {
       icon: {
         path: google.maps.SymbolPath.CIRCLE,
         scale: 12,
-        fillColor: '#2563eb',
+        fillColor: '#16a34a',
         fillOpacity: 1,
         strokeColor: '#ffffff',
         strokeWeight: 2
@@ -1789,7 +1792,7 @@ window.initFoodMap = function() {
         icon: {
           path: google.maps.SymbolPath.CIRCLE,
           scale: 8,
-          fillColor: '#e07b3a',
+          fillColor: '#16a34a',
           fillOpacity: 1,
           strokeColor: '#ffffff',
           strokeWeight: 2
@@ -1797,7 +1800,7 @@ window.initFoodMap = function() {
       });
 
       const infoWindow = new google.maps.InfoWindow({
-        content: '<div style="padding:8px;font-family:DM Sans,sans-serif;max-width:220px;"><strong style="color:#e07b3a;">' + company.name + '</strong><br><span style="color:#666;font-size:0.85rem;">' + company.address + '</span></div>'
+        content: '<div style="padding:8px;font-family:DM Sans,sans-serif;max-width:220px;"><strong style="color:#16a34a;">' + company.name + '</strong><br><span style="color:#666;font-size:0.85rem;">' + company.address + '</span></div>'
       });
 
       marker.addListener('click', () => {
