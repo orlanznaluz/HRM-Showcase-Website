@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HRM Learning Notes — Comprehensive HR Guides</title>
+  <meta name="description" content="Detailed learning notes on Recruitment, Training, Compensation, and Administrative HR practices.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .notes-hero {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #1d4ed8 100%);
+      color: #ffffff;
+      padding: 6rem 1.5rem 4rem;
+      text-align: center;
+    }
+    .notes-hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+    .notes-hero p {
+      font-size: 1.1rem;
+      opacity: 0.85;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .notes-toc {
+      background: var(--bg-alt);
+      padding: 2rem 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      position: sticky;
+      top: 64px;
+      z-index: 100;
+    }
+    .notes-toc-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .notes-toc a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      background: #ffffff;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+    .notes-toc a:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+    }
+    .notes-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    .notes-section + .notes-section {
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .notes-section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .notes-section h2 i {
+      color: var(--accent);
+    }
+    .notes-section h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+    .notes-section h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .notes-section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .notes-section ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+    .notes-section ul li {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .notes-section .highlight-box {
+      background: #dbeafe;
+      border-left: 4px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 12px 12px 0;
+      margin: 1.5rem 0;
+    }
+    .notes-section .highlight-box p {
+      margin: 0;
+      color: #1e40af;
+      font-weight: 500;
+    }
+    .notes-section table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    .notes-section table th,
+    .notes-section table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .notes-section table th {
+      background: var(--bg-alt);
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .notes-section table td {
+      color: var(--text-muted);
+    }
+    .back-to-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #ffffff;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      text-decoration: none;
+      border: 1px solid rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      margin-top: 2rem;
+    }
+    .back-to-home:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+    .notes-footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: var(--bg-alt);
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    /* Dark mode overrides */
+    body.dark-mode .notes-hero {
+      background: linear-gradient(135deg, #1a1208 0%, #2d1f0f 50%, #1a1208 100%);
+    }
+    body.dark-mode .notes-toc {
+      background: #12100e;
+      border-bottom-color: rgba(224, 123, 58, 0.08);
+    }
+    body.dark-mode .notes-toc a {
+      background: rgba(26, 20, 16, 0.8);
+      color: #f5f0eb;
+      border-color: rgba(224, 123, 58, 0.12);
+    }
+    body.dark-mode .notes-toc a:hover {
+      background: #e07b3a;
+      color: #ffffff;
+      border-color: #e07b3a;
+    }
+    body.dark-mode .notes-section + .notes-section {
+      border-top-color: rgba(224, 123, 58, 0.08);
+    }
+    body.dark-mode .notes-section h2 {
+      color: #f5f0eb;
+    }
+    body.dark-mode .notes-section h3 {
+      color: #f5f0eb;
+    }
+    body.dark-mode .notes-section h4 {
+      color: #e07b3a;
+    }
+    body.dark-mode .notes-section p,
+    body.dark-mode .notes-section ul li {
+      color: #8a7e72;
+    }
+    body.dark-mode .highlight-box {
+      background: rgba(224, 123, 58, 0.08);
+      border-left-color: #e07b3a;
+    }
+    body.dark-mode .highlight-box p {
+      color: #f5f0eb;
+    }
+    body.dark-mode .notes-section table th {
+      background: rgba(26, 20, 16, 0.8);
+      color: #f5f0eb;
+    }
+    body.dark-mode .notes-section table td {
+      color: #8a7e72;
+      border-color: rgba(224, 123, 58, 0.08);
+    }
+    body.dark-mode .back-to-home {
+      background: rgba(26, 20, 16, 0.8);
+      color: #f5f0eb;
+      border-color: rgba(224, 123, 58, 0.12);
+    }
+    body.dark-mode .back-to-home:hover {
+      background: #e07b3a;
+      color: #ffffff;
+    }
+    body.dark-mode .notes-footer {
+      background: #12100e;
+      border-top-color: rgba(224, 123, 58, 0.08);
+    }
+  </style>
+<base target="_blank">
+</head>
+<body class="w-full animated-gradient min-h-screen">
+
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Home">
+        <i data-lucide="gem" class="nav-diamond"></i>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#career-section">Careers</a></li>
+        <li><a href="index.html#learn-section">Curriculum</a></li>
+        <li><a href="index.html#stories-section">Stories</a></li>
+        <li><a href="index.html#recruitment-section">Recruitment</a></li>
+        <li><a href="index.html#student-guide-section">Guides</a></li>
+        <li><a href="index.html#firms-section">Firms</a></li>
+      </ul>
+      <button class="nav-theme-toggle" id="navThemeToggle" aria-label="Toggle dark mode">
+        <i data-lucide="sun" class="theme-icon-light"></i>
+        <i data-lucide="moon" class="theme-icon-dark"></i>
+      </button>
+      <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <div class="nav-mobile-menu" id="navMobileMenu">
+      <a href="index.html#career-section">Careers</a>
+      <a href="index.html#learn-section">Curriculum</a>
+      <a href="index.html#stories-section">Stories</a>
+      <a href="index.html#recruitment-section">Recruitment</a>
+      <a href="index.html#student-guide-section">Guides</a>
+      <a href="index.html#firms-section">Firms</a>
+    </div>
+  </nav>
+
+  <div class="notes-hero">
+    <h1>HRM Learning Notes</h1>
+    <p>Comprehensive guides covering recruitment, training, compensation, and administrative HR practices for the modern workplace.</p>
+  </div>
+
+  <div class="notes-toc">
+    <div class="notes-toc-inner">
+      <a href="#recruitment"><i data-lucide="users" class="w-4 h-4"></i> Recruitment & Selection</a>
+      <a href="#training"><i data-lucide="graduation-cap" class="w-4 h-4"></i> Training & Development</a>
+      <a href="#salary"><i data-lucide="banknote" class="w-4 h-4"></i> Salary & Benefits</a>
+      <a href="#admin"><i data-lucide="shield-check" class="w-4 h-4"></i> Admin & Relations</a>
+    </div>
+  </div>
+
+  <section id="recruitment" class="notes-section">
+    <h2><i data-lucide="users" class="w-7 h-7"></i> I. Recruitment and Selection</h2>
+
+    <h3>Best Practices for Recruitment and Selection</h3>
+
+    <h4>Strategy 1: Localized Sourcing</h4>
+    <p><strong>The Strategy:</strong></p>
+    <p>Utilize the Valenzuela City Public Employment Service Office (PESO) and the Valenzuela Trabaho platform. For specialized roles (e.g., Food Technologists, QA Managers), leverage LinkedIn and JobStreet.</p>
+    <p><strong>Objective:</strong></p>
+    <p>Reduce the cost-per-hire and support the local economy by prioritizing qualified Valenzuela residents.</p>
+    <div class="highlight-box">
+      <p><i data-lucide="lightbulb" class="w-4 h-4 inline-block mr-1"></i> <strong>Quick Tip:</strong> Always check PESO first before posting on paid job sites. Many qualified local candidates are already registered there for free.</p>
+    </div>
+
+    <h4>Strategy 2: Candidate Filtering & Screening</h4>
+    <p><strong>Resume Triage:</strong></p>
+    <p>Filter applicants based on mandatory manufacturing prerequisites:</p>
+    <ul>
+      <li>Availability for shifting schedules</li>
+      <li>Mechanical/technical aptitude</li>
+      <li>Prior experience in assembly or production lines</li>
+    </ul>
+    <p><strong>Initial Phone Screening (15 minutes):</strong></p>
+    <p>A diagnostic call to verify:</p>
+    <ul>
+      <li>Salary expectations</li>
+      <li>Commuting distance to Valenzuela</li>
+      <li>Willingness to work night differentials</li>
+    </ul>
+    <div class="highlight-box">
+      <p><i data-lucide="message-circle" class="w-4 h-4 inline-block mr-1"></i> <strong>Sample phone screening question:</strong> "This role requires shifting schedules including night shifts. Is that something you are comfortable with?"</p>
+    </div>
+
+    <h4>Strategy 3: Multi-Tiered Evaluation</h4>
+    <p>Two stages of evaluation ensure you hire the right person for both culture and technical skills.</p>
+    <p><strong>Tier 1: The Competency Interview (Conducted by HR)</strong></p>
+    <ul>
+      <li>Behavioral and situational interviews</li>
+      <li>Assesses: stress tolerance, attention to detail, cultural fit</li>
+    </ul>
+    <div class="highlight-box">
+      <p><i data-lucide="message-circle" class="w-4 h-4 inline-block mr-1"></i> <strong>Sample behavioral question:</strong> "Tell me about a time you made a mistake on the production line. What happened and how did you fix it?"</p>
+    </div>
+    <p><strong>Tier 2: The Technical Assessment (Conducted by Plant Manager or QA Supervisor)</strong></p>
+    <ul>
+      <li>Tests domain-specific skills</li>
+      <li>Examples: machine operation, chemical titration, laboratory testing</li>
+    </ul>
+    <p><strong>Why this matters:</strong> HR knows the person. The plant manager knows the job. Both must agree.</p>
+
+    <h4>Strategy 4: Mandatory Medical and Pre-Employment Clearing</h4>
+    <p><strong>The Mandate:</strong> Because this is a food-handling industry, candidates must undergo strict medical screening before a contract is issued.</p>
+    <table>
+      <thead>
+        <tr><th>Required Clearances</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Stool Examination</td><td>To rule out food-borne pathogens</td></tr>
+        <tr><td>Chest X-ray</td><td>To check for respiratory illnesses</td></tr>
+        <tr><td>Physical Health Check</td><td>General fitness for factory work</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Final Step:</strong> Secure the necessary Sanitary and Health Permits from the Valenzuela City Health Office.</p>
+    <div class="highlight-box">
+      <p><i data-lucide="alert-triangle" class="w-4 h-4 inline-block mr-1"></i> <strong>No medical clearance = No job offer.</strong> This is non-negotiable in food manufacturing.</p>
+    </div>
+    <p><em>About this content:</em> "This recruitment and selection guide is based on best practices observed in Valenzuela City's manufacturing industry, particularly in food handling companies."</p>
+  </section>
+
+  <section id="training" class="notes-section">
+    <h2><i data-lucide="graduation-cap" class="w-7 h-7"></i> II. Training and Development</h2>
+    <p>In the world of Human Resources, Training and Development is no longer just a nice-to-have benefit; it is a critical strategy for retaining top talent and maintaining a competitive edge. Effective learning programs bridge the gap between an employee's current capabilities and the future goals of the organization.</p>
+    <p>These are the key tips and foundational concepts that can help HR professionals design, implement, and measure impactful development initiatives.</p>
+
+    <h3>1. Match Training with Company Goals</h3>
+    <p>Before creating any class or lesson, look at what the company wants to achieve. Training should not just be a task to cross off a list. It needs to fix a real problem or help employees learn a specific skill they are missing. For example, if a company wants to improve its online sales, the training should focus on teaching employees how to use online sales tools.</p>
+
+    <h3>2. Find Out What Skills Are Missing First</h3>
+    <p>Do not start a training program just because it seems popular or exciting. Talk to team leaders, ask employees what they need help with, and look at work performance to find out what people actually need to learn. This step makes sure you spend your budget on lessons that truly help the team.</p>
+
+    <h3>3. Keep Lessons Short and Easy to Reach</h3>
+    <p>Workers are busy and have limited time to focus. Instead of making them sit through day-long presentations, break the information down into very small pieces. You can use five-minute videos, short readings, or quick quizzes. Make sure employees can view these lessons on their phones so they can learn whenever they have a free moment.</p>
+
+    <h3>4. Build a Habit of Daily Learning</h3>
+    <p>Learning should not stop after an employee gets a certificate. HR should make it easy for workers to keep growing every day. You can do this by offering online library access, helping pay for classes, or matching newer workers with experienced partners. When company leaders show that they care about learning, employees will care too.</p>
+
+    <h3>5. Use the 70-20-10 Rule for Growth</h3>
+    <p>Remember that people learn most of their job skills by actually doing the work, not by sitting in a classroom. A simple way to understand this is the 70-20-10 guide:</p>
+    <ul>
+      <li><strong>70%</strong> of learning comes from everyday hands-on experience and fixing daily work problems.</li>
+      <li><strong>20%</strong> comes from working with others, getting feedback, and talking with coworkers.</li>
+      <li><strong>10%</strong> comes from formal classes, presentation slides, and workshops.</li>
+    </ul>
+    <p>Try to set up opportunities for employees to try new tasks and work with coaches, rather than just sending them to classrooms.</p>
+
+    <h3>6. Track the Real Impact of the Lessons</h3>
+    <p>A common mistake is only counting how many people finished a training or asking if they liked the instructor. To prove that the training is worth the money, you need to measure deeper results. You can use a simple four-level tracking system:</p>
+    <table>
+      <thead>
+        <tr><th>Level</th><th>What you measure</th><th>How you measure it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Level 1: Reaction</strong></td><td>Did they like the training?</td><td>Short surveys after the class</td></tr>
+        <tr><td><strong>Level 2: Learning</strong></td><td>Did they actually learn the information?</td><td>Simple tests before and after the class</td></tr>
+        <tr><td><strong>Level 3: Behavior</strong></td><td>Are they using the skills at work?</td><td>Managers watching them work over time</td></tr>
+        <tr><td><strong>Level 4: Results</strong></td><td>Did it help the business?</td><td>Checking if sales went up or mistakes went down</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="salary" class="notes-section">
+    <h2><i data-lucide="banknote" class="w-7 h-7"></i> III. Salary, Wages, and Benefits</h2>
+
+    <h3>Core Terminologies</h3>
+    <p>Ready to master the complex world of compensation administration? You have to learn the basics first, before diving into computations, taxation, and compliance reports.</p>
+    <ul>
+      <li><strong>Salary</strong> — A fixed compensation paid regularly (weekly, bi-weekly, or monthly), typically given to managerial, supervisory, or professional roles.</li>
+      <li><strong>Wages</strong> — Compensation paid on an hourly, daily or piece-work basis, usually for rank-and-file or manual laborers.</li>
+      <li><strong>Benefits</strong> — Non-wage compensation provided to employees. It is divided into statutory (legally required) and fringe/voluntary (company perks to attract talent).</li>
+    </ul>
+
+    <h3>Minimum Wage & Working Hours</h3>
+    <p>Republic Act No. 6727 or the "Wage Rationalization Act" mandates the fixing of the minimum wages applicable to different industrial sectors, namely, non-agriculture, agriculture plantation, and non-plantation, cottage/handicraft, and retail/service, depending on the number of workers or capitalization or annual gross sales in some sectors.</p>
+    <ul>
+      <li><strong>Standard Work Hours:</strong> Maximum of 8 hours per day. Anything beyond is subject to Premium Pay.</li>
+      <li><strong>Meal Break:</strong> At least 60 minutes of uninterrupted, unpaid meal break.</li>
+    </ul>
+    <h4>Current Regional Minimum Wage</h4>
+    <table>
+      <thead>
+        <tr><th>Region</th><th>Daily Rate</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>National Capital Region (NCR)</td><td>₱658.00 to ₱695.00 per day</td></tr>
+        <tr><td>CALABARZON (Region IV-A)</td><td>₱485.00 to ₱600.00 per day</td></tr>
+        <tr><td>Central Visayas (Region VII)</td><td>₱500.00 to ₱540.00 per day</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Premium Pay Calculations</h3>
+    <p>Premium pay refers to the additional compensation for work performed within eight hours on rest days and special days.</p>
+    <h4>Standard Premium Rates</h4>
+    <ul>
+      <li><strong>Overtime (OT) Pay:</strong> Regular hourly rate + 25% (on an ordinary day). If done on a holiday/rest day, it is regular hourly rate + 30%.</li>
+      <li><strong>Night Shift Differential (NSD):</strong> An additional 10% of the regular hourly rate for work performed between 10:00 PM and 6:00 AM.</li>
+      <li><strong>Regular Holidays:</strong> 200% of the basic daily wage if worked (e.g., New Year's Day, Independence Day). 100% if unworked (paid rest day).</li>
+      <li><strong>Special Non-Working Days:</strong> 130% of the basic daily wage if worked. No work, no pay if unworked.</li>
+    </ul>
+
+    <h3>Mandatory Statutory Benefits</h3>
+    <p>Every registered company in the Philippines must provide these five core benefits to qualified employees:</p>
+
+    <h4>Government Remittances (Social Insurance)</h4>
+    <ul>
+      <li><strong>Social Security System (SSS):</strong> Mandated social insurance for private-sector employees. The total contribution rate is 14% of the employee's monthly salary credit (MSC), capped at a ₱30,000 ceiling. The cost is split: 9.5% Employer and 4.5% Employee.</li>
+      <li><strong>PhilHealth:</strong> National health insurance. The premium rate sits at 5% of the basic monthly salary (split equally at 2.5% Employer and 2.5% Employee), with an income ceiling of ₱100,000.</li>
+      <li><strong>Pag-IBIG Fund (HDMF):</strong> Provident savings and housing loans. For employees earning above ₱1,500/month, the contribution is 2% Employee and 2% Employer (capped at a maximum of ₱100 per party for the standard mandatory program).</li>
+    </ul>
+
+    <h4>Statutory Cash Bonuses & Leaves</h4>
+    <ul>
+      <li><strong>13th-Month Pay:</strong> Legally mandated for all rank-and-file employees who have worked for at least 30 calendar days. It is calculated as Total Basic Salary Earned ÷ 12. It must be distributed on or before December 24 annually.</li>
+      <li><strong>Service Incentive Leave (SIL):</strong> 5 days of paid leave per year for employees who have completed one year of continuous service. Unused SIL must be converted to cash at the end of the year.</li>
+    </ul>
+
+    <h3>Specialized Leaves</h3>
+    <table>
+      <thead>
+        <tr><th>Leave Type</th><th>Duration</th><th>Details</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Maternity Leave (RA 11210)</strong></td><td>105 days</td><td>Fully paid leave for live childbirth (regardless of civil status or legitimacy of the child). Solo parents get an additional 15 days. 60 days are given for miscarriages or emergency terminations.</td></tr>
+        <tr><td><strong>Paternity Leave (RA 8187)</strong></td><td>7 days</td><td>Fully paid leave for married male employees living in the same household, up to the first 4 deliveries of the legitimate spouse.</td></tr>
+        <tr><td><strong>Solo Parent Leave (RA 8972)</strong></td><td>7 days</td><td>Paid parental leave annually for employees left with the responsibility of parenthood alone, provided they have rendered 1 year of service.</td></tr>
+        <tr><td><strong>VAWC Leave (RA 9262)</strong></td><td>Up to 10 days</td><td>Paid leave for female employees who are victims of violence against women and their children.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Guide Computations</h3>
+    <h4>Work on:</h4>
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Equivalent Pay</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Ordinary day</td><td>100%</td></tr>
+        <tr><td>Sunday or rest day</td><td>130%</td></tr>
+        <tr><td>Special (non-working) day</td><td>130%</td></tr>
+        <tr><td>Regular holiday</td><td>200%</td></tr>
+      </tbody>
+    </table>
+    <h4>With night shift differential:</h4>
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Equivalent Pay</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Ordinary day</td><td>110%</td></tr>
+        <tr><td>Rest day</td><td>143%</td></tr>
+        <tr><td>Special (non-working) day</td><td>143%</td></tr>
+        <tr><td>Regular holiday</td><td>220%</td></tr>
+      </tbody>
+    </table>
+    <h4>With overtime:</h4>
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Equivalent Pay</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Ordinary day</td><td>125%</td></tr>
+        <tr><td>Rest day</td><td>169%</td></tr>
+        <tr><td>Special (non-working) day</td><td>169%</td></tr>
+        <tr><td>Regular holiday</td><td>260%</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="admin" class="notes-section">
+    <h2><i data-lucide="shield-check" class="w-7 h-7"></i> IV. Administrative and Human Relations</h2>
+
+    <h3>The Administrative Facet: Efficiency & Compliance</h3>
+    <p>The administrative side is all about precision, scaling operations, and protecting the company. If this side fails, trust erodes instantly.</p>
+
+    <h4>Automate the Mundane</h4>
+    <p>Don't waste precious human energy on tasks software can do. Implement robust Human Resources Information Systems (HRIS) for self-service onboarding, time-tracking, and leave management.</p>
+
+    <h4>Create "Living" Standard Operating Procedures (SOPs)</h4>
+    <p>Document every major process (e.g., offboarding, payroll verification, benefits enrollment). Review these quarterly so they don't become outdated, dusty PDF files.</p>
+
+    <h4>Master Data Integrity & Analytics</h4>
+    <p>HR isn't just "vibes"; it's numbers. Keep your employee data pristine. Use metrics like turnover rates, time-to-hire, and training completion percentages to prove HR's value to executive leadership.</p>
+
+    <h4>Proactive Compliance Audits</h4>
+    <p>Don't wait for a lawsuit or a government audit to find out your labor law posters are outdated or your independent contractor classifications are wrong. Schedule bi-annual internal compliance audits.</p>
+    <div class="highlight-box">
+      <p><i data-lucide="lightbulb" class="w-4 h-4 inline-block mr-1"></i> <strong>Tip:</strong> Build a "Centralized Source of Truth." Whether it's Notion, SharePoint, or a specific HRIS portal, ensure employees know exactly where to find policies, forms, and FAQs without needing to email you every time.</p>
+    </div>
+
+    <h3>The Human Relations Facet: Culture & Connection</h3>
+    <p>The human relations side is about empathy, psychological safety, and building an environment where people actually want to show up and do their best work.</p>
+
+    <h4>Practice Active, Objective Listening</h4>
+    <p>When an employee comes to you with a grievance, put your phone away, close your laptop, and listen to understand—not just to respond. Validate their feelings while remaining a neutral, objective party.</p>
+
+    <h4>Upskill Your Managers</h4>
+    <p>HR cannot be everywhere at once. The employee experience is largely dictated by immediate supervisors. Train managers on emotional intelligence, giving constructive feedback, and spotting burnout.</p>
+
+    <h4>Be Visible and Approachable</h4>
+    <p>If employees only see HR when someone is getting fired or disciplined, they will fear you. Walk the floor (or join casual Zoom channels), celebrate wins, and participate in the culture.</p>
+
+    <h4>Design Holistic Wellness Programs</h4>
+    <p>"Human Relations" means treating employees as whole humans. Move beyond basic health insurance; advocate for mental health days, flexible working arrangements, and professional development budgets.</p>
+  </section>
+
+  <div class="notes-footer">
+    <a href="index.html" class="back-to-home">
+      <i data-lucide="arrow-left" class="w-4 h-4"></i>
+      Back to Home
+    </a>
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">© 2026 HRM Program Showcase. Empowering the future of work.</p>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script>
+    // Initialize lucide icons on this page too
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>

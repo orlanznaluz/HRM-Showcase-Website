@@ -387,27 +387,62 @@
 
     // ---- Tri-Fold Brochure Interaction ----
   function initBrochure() {
-    const container = document.getElementById('triFoldBrochure');
-    if (!container) return;
+    // Initialize all 3 brochures
+    [0, 1, 2].forEach(index => {
+      const container = document.getElementById('triFoldBrochure' + index);
+      if (!container) return;
 
-    let state = 'closed'; // closed → half → open → closed
+      let state = 'closed'; // closed → half → open → closed
 
-    container.addEventListener('click', () => {
-      if (state === 'closed') {
-        // First click: open right panel slightly
-        container.classList.remove('open');
-        container.classList.add('half');
-        state = 'half';
-      } else if (state === 'half') {
-        // Second click: open both panels, reveal center
-        container.classList.remove('half');
-        container.classList.add('open');
-        state = 'open';
-      } else {
-        // Third click: close everything
-        container.classList.remove('open', 'half');
-        state = 'closed';
-      }
+      container.addEventListener('click', () => {
+        if (state === 'closed') {
+          container.classList.remove('open');
+          container.classList.add('half');
+          state = 'half';
+        } else if (state === 'half') {
+          container.classList.remove('half');
+          container.classList.add('open');
+          state = 'open';
+        } else {
+          container.classList.remove('open', 'half');
+          state = 'closed';
+        }
+      });
+    });
+
+    // Initialize brochure selector toggle
+    initBrochureSelector();
+  }
+
+  function initBrochureSelector() {
+    const selector = document.querySelector('.brochure-selector');
+    if (!selector) return;
+
+    const buttons = selector.querySelectorAll('.brochure-select-btn');
+    const contents = document.querySelectorAll('[data-brochure-content]');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const brochureIndex = btn.dataset.brochure;
+
+        // Update active button
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Show selected brochure, hide others
+        contents.forEach(content => {
+          if (content.dataset.brochureContent === brochureIndex) {
+            content.classList.remove('hidden');
+          } else {
+            content.classList.add('hidden');
+          }
+        });
+
+        // Re-init lucide icons
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons();
+        }
+      });
     });
   }
 

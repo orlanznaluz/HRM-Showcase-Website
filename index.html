@@ -15,6 +15,9 @@
   <base target="_blank">
   <link rel="stylesheet" href="styles.css">
 <base target="_blank">
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
 </head>
 <body class="w-full animated-gradient min-h-screen">
 
@@ -27,6 +30,8 @@
       <li><a href="#career-section">Careers</a></li>
       <li><a href="#learn-section">Curriculum</a></li>
       <li><a href="#stories-section">Stories</a></li>
+      <li><a href="#recruitment-section">Recruitment</a></li>
+      <li><a href="#student-guide-section">Guides</a></li>
       <li><a href="#firms-section">Firms</a></li>
     </ul>
     <button class="nav-theme-toggle" id="navThemeToggle" aria-label="Toggle dark mode">
@@ -41,6 +46,8 @@
     <a href="#career-section">Careers</a>
     <a href="#learn-section">Curriculum</a>
     <a href="#stories-section">Stories</a>
+    <a href="#recruitment-section">Recruitment</a>
+    <a href="#student-guide-section">Guides</a>
     <a href="#firms-section">Firms</a>
   </div>
 </nav>
@@ -60,17 +67,16 @@
   <!-- Hero Portrait Carousel -->
   <div class="hero-carousel-wrapper">
     <div class="scene">
-      <div class="a3d" style="--n: 10">
-        <img class="card" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&crop=face" style="--i: 0" alt="HR Professional" loading="lazy">
-        <img class="card" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=500&fit=crop&crop=face" style="--i: 1" alt="HR Professional" loading="lazy">
-        <img class="card" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face" style="--i: 2" alt="HR Professional" loading="lazy">
-        <img class="card" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=face" style="--i: 3" alt="HR Professional" loading="lazy">
-        <img class="card" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=face" style="--i: 4" alt="HR Professional" loading="lazy">
-        <img class="card" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=500&fit=crop&crop=face" style="--i: 5" alt="HR Professional" loading="lazy">
-        <img class="card" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=500&fit=crop&crop=face" style="--i: 6" alt="HR Professional" loading="lazy">
-        <img class="card" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop&crop=face" style="--i: 7" alt="HR Professional" loading="lazy">
-        <img class="card" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=face" style="--i: 8" alt="HR Professional" loading="lazy">
-        <img class="card" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop&crop=face" style="--i: 9" alt="HR Professional" loading="lazy">
+      <div class="a3d" style="--n: 9">
+        <img class="card" src="picture-carousel/p1.png" style="--i: 0" alt="HR Professional" loading="lazy">
+        <img class="card" src="picture-carousel/p2.png" style="--i: 1" alt="HR Professional" loading="lazy">
+        <img class="card" src="picture-carousel/p3.png" style="--i: 2" alt="HR Professional" loading="lazy">
+        <img class="card" src="picture-carousel/p4.png" style="--i: 3" alt="HR Professional" loading="lazy">
+        <img class="card" src="picture-carousel/p5.png" style="--i: 4" alt="HR Professional" loading="lazy">
+        <img class="card" src="picture-carousel/p6.png" style="--i: 5" alt="HR Professional" loading="lazy">
+        <img class="card" src="picture-carousel/p7.png" style="--i: 6" alt="HR Professional" loading="lazy">
+        <img class="card" src="picture-carousel/p8.png" style="--i: 7" alt="HR Professional" loading="lazy">
+        <img class="card" src="picture-carousel/p9.png" style="--i: 8" alt="HR Professional" loading="lazy">
       </div>
     </div>
   </div>
@@ -417,88 +423,81 @@
       </p>
     </div>
 
-    <!-- Desktop: Hover Accordion | Mobile: Click Accordion -->
-    <div class="mt-14 reveal reveal-delay-1">
-      <div class="learn-accordion" id="learnAccordion">
-
-        <div class="learn-option" data-index="0" style="--optionBackground:url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop);">
-          <div class="learn-shadow"></div>
-          <div class="learn-label">
-            <div class="learn-icon">
-              <i data-lucide="users"></i>
-            </div>
-            <div class="learn-info">
-              <div class="learn-main">Talent Management</div>
-              <div class="learn-sub">Workforce planning, succession management, and strategic talent pipelines that drive organizational growth.</div>
-            </div>
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card 1: Recruitment & Selection -->
+      <div class="learn-note-card reveal reveal-delay-1">
+        <div class="learn-note-img-wrap">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=640&h=400&fit=crop" alt="Recruitment and Selection" class="learn-note-img" loading="lazy">
+          <div class="learn-note-overlay"></div>
+          <div class="learn-note-icon">
+            <i data-lucide="users" class="w-6 h-6"></i>
           </div>
         </div>
+        <div class="learn-note-body">
+          <h3 class="learn-note-title">I. Recruitment & Selection</h3>
+          <p class="learn-note-desc">Master localized sourcing, candidate screening, multi-tiered evaluation, and mandatory medical clearances for food manufacturing roles in Valenzuela City.</p>
+          <a href="learning-notes.html#recruitment" class="learn-note-btn">
+            <span>View More</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
 
-        <div class="learn-option" data-index="1" style="--optionBackground:url(https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop);">
-          <div class="learn-shadow"></div>
-          <div class="learn-label">
-            <div class="learn-icon">
-              <i data-lucide="shield-check"></i>
-            </div>
-            <div class="learn-info">
-              <div class="learn-main">Labor Law & Compliance</div>
-              <div class="learn-sub">Philippine labor code, DOLE regulations, and international employment standards mastery.</div>
-            </div>
+      <!-- Card 2: Training & Development -->
+      <div class="learn-note-card reveal reveal-delay-2">
+        <div class="learn-note-img-wrap">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=640&h=400&fit=crop" alt="Training and Development" class="learn-note-img" loading="lazy">
+          <div class="learn-note-overlay"></div>
+          <div class="learn-note-icon">
+            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
           </div>
         </div>
+        <div class="learn-note-body">
+          <h3 class="learn-note-title">II. Training & Development</h3>
+          <p class="learn-note-desc">Design impactful learning programs using the 70-20-10 rule, micro-learning strategies, and a four-level impact tracking system for measurable growth.</p>
+          <a href="learning-notes.html#training" class="learn-note-btn">
+            <span>View More</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
 
-        <div class="learn-option" data-index="2" style="--optionBackground:url(https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop);">
-          <div class="learn-shadow"></div>
-          <div class="learn-label">
-            <div class="learn-icon">
-              <i data-lucide="bar-chart-3"></i>
-            </div>
-            <div class="learn-info">
-              <div class="learn-main">HR Analytics</div>
-              <div class="learn-sub">People data, predictive modeling, and evidence-based decision making for strategic advantage.</div>
-            </div>
+      <!-- Card 3: Salary, Wages, and Benefits -->
+      <div class="learn-note-card reveal reveal-delay-3">
+        <div class="learn-note-img-wrap">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=640&h=400&fit=crop" alt="Salary, Wages, and Benefits" class="learn-note-img" loading="lazy">
+          <div class="learn-note-overlay"></div>
+          <div class="learn-note-icon">
+            <i data-lucide="banknote" class="w-6 h-6"></i>
           </div>
         </div>
+        <div class="learn-note-body">
+          <h3 class="learn-note-title">III. Salary, Wages & Benefits</h3>
+          <p class="learn-note-desc">Understand Philippine compensation law: minimum wage, premium pay, SSS/PhilHealth/Pag-IBIG contributions, 13th-month pay, and specialized leaves.</p>
+          <a href="learning-notes.html#salary" class="learn-note-btn">
+            <span>View More</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
 
-        <div class="learn-option" data-index="3" style="--optionBackground:url(https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop);">
-          <div class="learn-shadow"></div>
-          <div class="learn-label">
-            <div class="learn-icon">
-              <i data-lucide="brain"></i>
-            </div>
-            <div class="learn-info">
-              <div class="learn-main">Organizational Behavior</div>
-              <div class="learn-sub">Motivation theories, team dynamics, leadership models, and culture building frameworks.</div>
-            </div>
+      <!-- Card 4: Administrative and Human Relations -->
+      <div class="learn-note-card reveal reveal-delay-4">
+        <div class="learn-note-img-wrap">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=640&h=400&fit=crop" alt="Administrative and Human Relations" class="learn-note-img" loading="lazy">
+          <div class="learn-note-overlay"></div>
+          <div class="learn-note-icon">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
           </div>
         </div>
-
-        <div class="learn-option" data-index="4" style="--optionBackground:url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=600&fit=crop);">
-          <div class="learn-shadow"></div>
-          <div class="learn-label">
-            <div class="learn-icon">
-              <i data-lucide="globe"></i>
-            </div>
-            <div class="learn-info">
-              <div class="learn-main">Global HR Practices</div>
-              <div class="learn-sub">Cross-cultural management, expatriate programs, and international staffing strategies.</div>
-            </div>
-          </div>
+        <div class="learn-note-body">
+          <h3 class="learn-note-title">IV. Admin & Human Relations</h3>
+          <p class="learn-note-desc">Balance efficiency and compliance with empathy and culture. Master HRIS automation, SOPs, compliance audits, active listening, and holistic wellness programs.</p>
+          <a href="learning-notes.html#admin" class="learn-note-btn">
+            <span>View More</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
         </div>
-
-        <div class="learn-option" data-index="5" style="--optionBackground:url(https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop);">
-          <div class="learn-shadow"></div>
-          <div class="learn-label">
-            <div class="learn-icon">
-              <i data-lucide="target"></i>
-            </div>
-            <div class="learn-info">
-              <div class="learn-main">Strategic HR Planning</div>
-              <div class="learn-sub">Aligning HR initiatives with business objectives and driving measurable organizational growth.</div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
@@ -508,46 +507,79 @@
   <div class="max-w-6xl mx-auto">
     <div class="text-center reveal">
       <div class="section-label">Resources</div>
-      <h2 class="section-title">Program Materials</h2>
+      <h2 class="section-title">Training Programs</h2>
       <p class="section-subtitle mx-auto">
-        Download our resources to learn more about the HRM program, upcoming events, and alumni success.
+        Industry-leading food safety and workforce training programs designed for frontline manufacturing teams.
       </p>
     </div>
     <div class="mt-14 grid sm:grid-cols-3 gap-8">
       <div class="material-card reveal reveal-delay-1">
         <div class="material-card-img-wrap">
-          <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=640&h=400&fit=crop" alt="Program Brochure" class="material-card-img" loading="lazy">
-          <button class="material-card-download" aria-label="Download Program Brochure">
-            <i data-lucide="download" class="w-4 h-4"></i>
-          </button>
+          <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=640&h=400&fit=crop" alt="Intertek Alchemy Courseware" class="material-card-img" loading="lazy">
+          <a href="https://www.alchemysystems.com/courseware/food-safety-training/" class="material-card-visit" aria-label="Visit Intertek Alchemy Courseware">
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+            <span>Visit</span>
+          </a>
         </div>
         <div class="p-6">
-          <h3 class="font-bold text-slate-900 text-lg">Program Brochure</h3>
-          <p class="text-sm text-slate-900 mt-2 leading-relaxed">Complete overview of curriculum, faculty profiles, and admission requirements.</p>
+          <h3 class="font-bold text-slate-900 text-lg">Intertek Alchemy Courseware &amp; Platform</h3>
+          <p class="text-sm text-slate-900 mt-2 leading-relaxed">Gamified, visual, story-based micro-learning modules covering HACCP, Allergen Control, and Preventative Maintenance. Delivered in short bursts on the facility floor and instantly translatable into 80+ languages.</p>
+          <div class="mt-3 flex flex-col gap-1.5">
+            <div class="flex items-start gap-2 text-xs text-slate-600">
+              <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5"></i>
+              <span><strong>Efficiency:</strong> Proven to reduce quality holds by up to 36% and line downtime by teaching operators how to prevent batch mistakes.</span>
+            </div>
+            <div class="flex items-start gap-2 text-xs text-slate-600">
+              <i data-lucide="heart" class="w-3.5 h-3.5 text-rose-500 flex-shrink-0 mt-0.5"></i>
+              <span><strong>Care:</strong> Reduces mental fatigue by avoiding 2-hour lectures. Multilingual options ensure non-native speakers feel included and equipped.</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="material-card reveal reveal-delay-2">
         <div class="material-card-img-wrap">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=640&h=400&fit=crop" alt="Event Poster" class="material-card-img" loading="lazy">
-          <button class="material-card-download" aria-label="Download Event Poster">
-            <i data-lucide="download" class="w-4 h-4"></i>
-          </button>
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&h=400&fit=crop" alt="Food Safety Essentials" class="material-card-img" loading="lazy">
+          <a href="https://aibinternational.com/en-apac/products/food-safety-essentials" class="material-card-visit" aria-label="Visit Food Safety Essentials">
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+            <span>Visit</span>
+          </a>
         </div>
         <div class="p-6">
-          <h3 class="font-bold text-slate-900 text-lg">Event Poster</h3>
-          <p class="text-sm text-slate-900 mt-2 leading-relaxed">Upcoming open days, career fairs, and guest speaker events you won't want to miss.</p>
+          <h3 class="font-bold text-slate-900 text-lg">Food Safety Essentials (Frontline Team eLearning)</h3>
+          <p class="text-sm text-slate-900 mt-2 leading-relaxed">15 self-paced, half-hour lessons covering GMPs, foreign material control, cross-contamination, and equipment maintenance — designed specifically for entry-level frontline manufacturing workers.</p>
+          <div class="mt-3 flex flex-col gap-1.5">
+            <div class="flex items-start gap-2 text-xs text-slate-600">
+              <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5"></i>
+              <span><strong>Efficiency:</strong> Frontline employees learn the exact science behind machinery failures and hygiene mistakes, driving up "first-time-right" manufacturing KPIs.</span>
+            </div>
+            <div class="flex items-start gap-2 text-xs text-slate-600">
+              <i data-lucide="heart" class="w-3.5 h-3.5 text-rose-500 flex-shrink-0 mt-0.5"></i>
+              <span><strong>Care:</strong> 30-minute lessons respect shift workers' schedules — easily woven into existing shifts without forcing overtime, protecting work-life balance.</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="material-card reveal reveal-delay-3">
         <div class="material-card-img-wrap">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&h=400&fit=crop" alt="Market Insert" class="material-card-img" loading="lazy">
-          <button class="material-card-download" aria-label="Download Market Insert">
-            <i data-lucide="download" class="w-4 h-4"></i>
-          </button>
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=640&h=400&fit=crop" alt="Food Safety Culture Training" class="material-card-img" loading="lazy">
+          <a href="https://www.intertek.com/knowledge-education/academy-online-food-safety-culture-managers/" class="material-card-visit" aria-label="Visit Food Safety Culture Training">
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+            <span>Visit</span>
+          </a>
         </div>
         <div class="p-6">
-          <h3 class="font-bold text-slate-900 text-lg">Market Insert</h3>
-          <p class="text-sm text-slate-900 mt-2 leading-relaxed">Industry partnerships, placement rates, and alumni success data at a glance.</p>
+          <h3 class="font-bold text-slate-900 text-lg">Food Safety Culture Training Suite</h3>
+          <p class="text-sm text-slate-900 mt-2 leading-relaxed">Behavioral science-focused training for floor workers and supervisors on how human behavior, communication, and peer accountability directly impact the factory environment.</p>
+          <div class="mt-3 flex flex-col gap-1.5">
+            <div class="flex items-start gap-2 text-xs text-slate-600">
+              <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5"></i>
+              <span><strong>Efficiency:</strong> Strong safety culture means teams proactively fix minor anomalies before they become multi-million dollar recalls or line shut-downs.</span>
+            </div>
+            <div class="flex items-start gap-2 text-xs text-slate-600">
+              <i data-lucide="heart" class="w-3.5 h-3.5 text-rose-500 flex-shrink-0 mt-0.5"></i>
+              <span><strong>Care:</strong> Fosters a peer-to-peer "Speak-Up" culture. Coaches supervisors to react with care when employees flag issues, removing fear of punishment.</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -628,46 +660,46 @@
         <!-- Page 1: Cover (0.png) / Back (1.png) -->
         <div class="flip-page">
           <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="0.png" alt="Cover" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+            <img src="comics/0.png" alt="Cover" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
           </div>
           <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="1.png" alt="Page 1" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+            <img src="comics/1.png" alt="Page 1" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
           </div>
         </div>
         <!-- Page 2: Front (2.png) / Back (3.png) -->
         <div class="flip-page">
           <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="2.png" alt="Page 2" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+            <img src="comics/2.png" alt="Page 2" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
           </div>
           <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="3.png" alt="Page 2 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+            <img src="comics/3.png" alt="Page 2 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
           </div>
         </div>
         <!-- Page 3: Front (4.png) / Back (5.png) -->
         <div class="flip-page">
           <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="4.png" alt="Page 3" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+            <img src="comics/4.png" alt="Page 3" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
           </div>
           <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="5.png" alt="Page 3 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+            <img src="comics/5.png" alt="Page 3 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
           </div>
         </div>
         <!-- Page 4: Front (6.png) / Back (7.png) -->
         <div class="flip-page">
           <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="6.png" alt="Page 4" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+            <img src="comics/6.png" alt="Page 4" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
           </div>
           <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="7.png" alt="Page 4 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+            <img src="comics/7.png" alt="Page 4 Back" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
           </div>
         </div>
         <!-- Page 5: Front (8.png) / Back Cover (9.png) -->
         <div class="flip-page">
           <div class="flip-front" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="8.png" alt="Page 5" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
+            <img src="comics/8.png" alt="Page 5" style="width:100%; height:100%; object-fit:cover; border-radius:0.3em 0.8em 0.8em 0.3em; display:block;">
           </div>
           <div class="flip-back" style="background:#ffffff; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0;">
-            <img src="9.png" alt="Back Cover" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
+            <img src="comics/9.png" alt="Back Cover" style="width:100%; height:100%; object-fit:cover; border-radius:0.8em 0.3em 0.3em 0.8em; display:block;">
           </div>
         </div>
       </div>
@@ -681,7 +713,7 @@
         </button>
         
         <div class="single-page-display" id="singlePageDisplay">
-          <img src="0.png" alt="Page 1" id="singlePageImg">
+          <img src="comics/0.png" alt="Page 1" id="singlePageImg">
           <div class="single-page-number" id="singlePageNum">1 / 10</div>
         </div>
         
@@ -693,34 +725,34 @@
       <!-- Page thumbnails for quick navigation -->
       <div class="single-page-thumbnails" id="singleThumbnails">
         <button class="thumb-btn active" data-page="0">
-          <img src="0.png" alt="Page 1">
+          <img src="comics/0.png" alt="Page 1">
         </button>
         <button class="thumb-btn" data-page="1">
-          <img src="1.png" alt="Page 2">
+          <img src="comics/1.png" alt="Page 2">
         </button>
         <button class="thumb-btn" data-page="2">
-          <img src="2.png" alt="Page 3">
+          <img src="comics/2.png" alt="Page 3">
         </button>
         <button class="thumb-btn" data-page="3">
-          <img src="3.png" alt="Page 4">
+          <img src="comics/3.png" alt="Page 4">
         </button>
         <button class="thumb-btn" data-page="4">
-          <img src="4.png" alt="Page 5">
+          <img src="comics/4.png" alt="Page 5">
         </button>
         <button class="thumb-btn" data-page="5">
-          <img src="5.png" alt="Page 6">
+          <img src="comics/5.png" alt="Page 6">
         </button>
         <button class="thumb-btn" data-page="6">
-          <img src="6.png" alt="Page 7">
+          <img src="comics/6.png" alt="Page 7">
         </button>
         <button class="thumb-btn" data-page="7">
-          <img src="7.png" alt="Page 8">
+          <img src="comics/7.png" alt="Page 8">
         </button>
         <button class="thumb-btn" data-page="8">
-          <img src="8.png" alt="Page 9">
+          <img src="comics/8.png" alt="Page 9">
         </button>
         <button class="thumb-btn" data-page="9">
-          <img src="9.png" alt="Page 10">
+          <img src="comics/9.png" alt="Page 10">
         </button>
       </div>
     </div>
@@ -731,45 +763,89 @@
   <div class="max-w-6xl mx-auto">
     <div class="text-center reveal">
       <div class="section-label">Resources</div>
-      <h2 class="section-title">Student Guide</h2>
+      <h2 class="section-title">Student Guides</h2>
       <p class="section-subtitle mx-auto">
-        Food Industry Career & OJT Readiness Guide — Everything you need to land your role in Valenzuela's thriving food manufacturing sector.
+        Explore our collection of career readiness guides — everything you need to land your role in Valenzuela's thriving industries.
       </p>
     </div>
 
-    <!-- Tri-Fold Brochure -->
-    <div class="brochure-wrapper reveal reveal-delay-1">
+    <!-- Brochure Selector Toggle -->
+    <div class="brochure-selector-wrapper reveal reveal-delay-1">
+      <div class="brochure-selector">
+        <button class="brochure-select-btn active" data-brochure="0">
+          <i data-lucide="utensils" class="w-4 h-4"></i>
+          <span>Food Industry</span>
+        </button>
+        <button class="brochure-select-btn" data-brochure="1">
+          <i data-lucide="building-2" class="w-4 h-4"></i>
+          <span>Manufacturing</span>
+        </button>
+        <button class="brochure-select-btn" data-brochure="2">
+          <i data-lucide="briefcase" class="w-4 h-4"></i>
+          <span>HR Career</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Brochure 1: Food Industry (default) -->
+    <div class="brochure-wrapper reveal reveal-delay-1" data-brochure-content="0">
       <div class="brochure-header">
         <i data-lucide="hand-click" class="w-5 h-5"></i>
         <span>Click the brochure to unfold it</span>
       </div>
-
-      <div class="tri-fold-container" id="triFoldBrochure">
-        <!-- Left Panel (folds right, front cover) -->
+      <div class="tri-fold-container" id="triFoldBrochure0">
         <div class="tf-left">
-          <div class="tf-front">
-            <img src="b2.png" alt="Front Cover" loading="lazy">
-          </div>
-          <div class="tf-back">
-            <img src="b0.png" alt="Inside Left" loading="lazy">
-          </div>
+          <div class="tf-front"><img src="studentguide/b2.png" alt="Front Cover" loading="lazy"></div>
+          <div class="tf-back"><img src="studentguide/b0.png" alt="Inside Left" loading="lazy"></div>
         </div>
-
-        <!-- Center Panel (fixed) -->
         <div class="tf-center">
-          <div class="tf-center-content">
-            <img src="b3.png" alt="Inside Center" loading="lazy">
-          </div>
+          <div class="tf-center-content"><img src="studentguide/b3.png" alt="Inside Center" loading="lazy"></div>
         </div>
-
-        <!-- Right Panel (folds left, back cover) -->
         <div class="tf-right">
-          <div class="tf-front">
-            <img src="b4.png" alt="Back Cover" loading="lazy">
-          </div>
-          <div class="tf-back">
-            <img src="b1.png" alt="Inside Right" loading="lazy">
-          </div>
+          <div class="tf-front"><img src="studentguide/b4.png" alt="Back Cover" loading="lazy"></div>
+          <div class="tf-back"><img src="studentguide/b1.png" alt="Inside Right" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brochure 2: Manufacturing -->
+    <div class="brochure-wrapper reveal reveal-delay-1 hidden" data-brochure-content="1">
+      <div class="brochure-header">
+        <i data-lucide="hand-click" class="w-5 h-5"></i>
+        <span>Click the brochure to unfold it</span>
+      </div>
+      <div class="tri-fold-container" id="triFoldBrochure1">
+        <div class="tf-left">
+          <div class="tf-front"><img src="workersguide/w2.png" alt="Front Cover" loading="lazy"></div>
+          <div class="tf-back"><img src="workersguide/w0.png" alt="Inside Left" loading="lazy"></div>
+        </div>
+        <div class="tf-center">
+          <div class="tf-center-content"><img src="workersguide/w3.png" alt="Inside Center" loading="lazy"></div>
+        </div>
+        <div class="tf-right">
+          <div class="tf-front"><img src="workersguide/w4.png" alt="Back Cover" loading="lazy"></div>
+          <div class="tf-back"><img src="workersguide/w1.png" alt="Inside Right" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brochure 3: HR Career -->
+    <div class="brochure-wrapper reveal reveal-delay-1 hidden" data-brochure-content="2">
+      <div class="brochure-header">
+        <i data-lucide="hand-click" class="w-5 h-5"></i>
+        <span>Click the brochure to unfold it</span>
+      </div>
+      <div class="tri-fold-container" id="triFoldBrochure2">
+        <div class="tf-left">
+          <div class="tf-front"><img src="hrguide/h2.png" alt="Front Cover" loading="lazy"></div>
+          <div class="tf-back"><img src="hrguide/h0.png" alt="Inside Left" loading="lazy"></div>
+        </div>
+        <div class="tf-center">
+          <div class="tf-center-content"><img src="hrguide/h3.png" alt="Inside Center" loading="lazy"></div>
+        </div>
+        <div class="tf-right">
+          <div class="tf-front"><img src="hrguide/h4.png" alt="Back Cover" loading="lazy"></div>
+          <div class="tf-back"><img src="hrguide/h1.png" alt="Inside Right" loading="lazy"></div>
         </div>
       </div>
     </div>

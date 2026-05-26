@@ -583,16 +583,16 @@ h1, h2, h3, h4 {
   transform: scale(1.08);
 }
 
-.material-card-download {
+.material-card-visit {
   position: absolute;
   bottom: 1rem; right: 1rem;
   z-index: 2;
-  width: 40px; height: 40px;
-  border-radius: 50%;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
   background: #ffffff;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.4rem;
   color: var(--text-main);
   box-shadow: var(--shadow-md);
   opacity: 0;
@@ -600,16 +600,21 @@ h1, h2, h3, h4 {
   transition: all var(--transition);
   cursor: pointer;
   border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-.material-card:hover .material-card-download {
+.material-card:hover .material-card-visit {
   opacity: 1;
   transform: translateY(0);
 }
 
-.material-card-download:hover {
+.material-card-visit:hover {
   background: var(--accent);
   color: #ffffff;
+  text-decoration: none;
 }
 
 /* ---- Trend Cards ---- */
@@ -1619,6 +1624,18 @@ body.dark-mode .material-card-img-wrap::after {
   background: rgba(10, 8, 6, 0.4);
 }
 
+body.dark-mode .material-card-visit {
+  background: rgba(26, 20, 16, 0.9);
+  color: #f5f0eb;
+  border: 1px solid rgba(224, 123, 58, 0.12);
+}
+
+body.dark-mode .material-card-visit:hover {
+  background: #e07b3a;
+  color: #ffffff;
+  border-color: #e07b3a;
+}
+
 /* Map overlay */
 body.dark-mode .map-overlay {
   background: rgba(18, 16, 14, 0.9);
@@ -2600,6 +2617,104 @@ body.dark-mode .flip-page .flip-back[style*="background:#ffffff"] {
   background: rgba(26, 20, 16, 0.9) !important;
 }
 
+
+/* ============================================
+   Brochure Selector Toggle
+   ============================================ */
+
+.brochure-selector-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.brochure-selector {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-alt);
+  border-radius: 100px;
+  padding: 5px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-sm);
+  gap: 4px;
+}
+
+.brochure-select-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: 100px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.brochure-select-btn:hover {
+  color: var(--text-main);
+  background: rgba(0,0,0,0.03);
+}
+
+.brochure-select-btn.active {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(37,99,235,0.25);
+}
+
+/* Hide inactive brochure content */
+.brochure-wrapper.hidden {
+  display: none;
+}
+
+/* Dark mode */
+body.dark-mode .brochure-selector {
+  background: rgba(26, 20, 16, 0.8);
+  border-color: rgba(224, 123, 58, 0.12);
+}
+
+body.dark-mode .brochure-select-btn {
+  color: #8a7e72;
+}
+
+body.dark-mode .brochure-select-btn:hover {
+  color: #f5f0eb;
+  background: rgba(224, 123, 58, 0.08);
+}
+
+body.dark-mode .brochure-select-btn.active {
+  background: #e07b3a;
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(224, 123, 58, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .brochure-selector {
+    padding: 4px;
+  }
+
+  .brochure-select-btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  .brochure-select-btn span {
+    display: none;
+  }
+
+  .brochure-select-btn i {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 /* ============================================
    Student Guide — Tri-Fold Brochure (Image-Based)
    ============================================ */
@@ -3042,5 +3157,207 @@ body.dark-mode .thumb-btn.active {
 
   .toggle-btn {
     padding: 0.6rem;
+  }
+}
+
+/* ============================================
+   Learning Notes Cards — What You'll Learn
+   ============================================ */
+
+.learn-note-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition);
+  border: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.learn-note-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(37,99,235,0.15);
+}
+
+.learn-note-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 180px;
+  flex-shrink: 0;
+}
+
+.learn-note-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.learn-note-card:hover .learn-note-img {
+  transform: scale(1.08);
+}
+
+.learn-note-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15,23,42,0.4);
+  transition: opacity var(--transition);
+}
+
+.learn-note-card:hover .learn-note-overlay {
+  background: rgba(15,23,42,0.25);
+}
+
+.learn-note-icon {
+  position: absolute;
+  bottom: -20px;
+  left: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  box-shadow: var(--shadow-md);
+  z-index: 2;
+  transition: all var(--transition);
+}
+
+.learn-note-card:hover .learn-note-icon {
+  transform: scale(1.1);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.learn-note-body {
+  padding: 2.5rem 1.5rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.learn-note-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.learn-note-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.learn-note-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  background: var(--accent);
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all var(--transition);
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+  box-shadow: 0 2px 10px rgba(37,99,235,0.25);
+}
+
+.learn-note-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(37,99,235,0.35);
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.learn-note-btn i {
+  transition: transform 0.3s ease;
+}
+
+.learn-note-btn:hover i {
+  transform: translateX(3px);
+}
+
+/* Dark mode */
+body.dark-mode .learn-note-card {
+  background: rgba(26, 20, 16, 0.7);
+  border-color: rgba(224, 123, 58, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+body.dark-mode .learn-note-card:hover {
+  border-color: rgba(224, 123, 58, 0.2);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 20px rgba(224, 123, 58, 0.1), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+body.dark-mode .learn-note-overlay {
+  background: rgba(10, 8, 6, 0.5);
+}
+
+body.dark-mode .learn-note-card:hover .learn-note-overlay {
+  background: rgba(10, 8, 6, 0.3);
+}
+
+body.dark-mode .learn-note-icon {
+  background: rgba(26, 20, 16, 0.9);
+  color: #e07b3a;
+  border: 1px solid rgba(224, 123, 58, 0.12);
+}
+
+body.dark-mode .learn-note-card:hover .learn-note-icon {
+  background: #e07b3a;
+  color: #ffffff;
+  border-color: #e07b3a;
+}
+
+body.dark-mode .learn-note-title {
+  color: #f5f0eb;
+}
+
+body.dark-mode .learn-note-desc {
+  color: #8a7e72;
+}
+
+body.dark-mode .learn-note-btn {
+  background: #e07b3a;
+  box-shadow: 0 2px 10px rgba(224, 123, 58, 0.25);
+}
+
+body.dark-mode .learn-note-btn:hover {
+  background: #c45d1f;
+  box-shadow: 0 4px 16px rgba(224, 123, 58, 0.35);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .learn-note-img-wrap {
+    height: 160px;
+  }
+}
+
+@media (max-width: 640px) {
+  .learn-note-img-wrap {
+    height: 140px;
+  }
+  .learn-note-body {
+    padding: 2rem 1.25rem 1.25rem;
   }
 }
