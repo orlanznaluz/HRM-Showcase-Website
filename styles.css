@@ -145,7 +145,7 @@ h1, h2, h3, h4 {
 .a3d {
   place-self: center;
   transform-style: preserve-3d;
-  animation: ry 200s linear infinite;
+  animation: ry 100s linear infinite;
 }
 
 @keyframes ry { 
