@@ -196,4 +196,191 @@
         }, { threshold: 0.2 });
         observer.observe(table);
       });
+    
+
+    // ===== COMPENSATION CALCULATOR =====
+    (function() {
+      const hourlyRateInput = document.getElementById('hourlyRate');
+      const hoursWorkedInput = document.getElementById('hoursWorked');
+      const otHoursInput = document.getElementById('otHours');
+      const otHoursField = document.getElementById('otHoursField');
+      const dayTypeCheckboxes = document.querySelectorAll('input[name="dayType"]');
+      const overtimeCheckbox = document.querySelector('input[name="overtime"]');
+      const nightshiftCheckbox = document.querySelector('input[name="nightshift"]');
+
+      const resBase = document.getElementById('resBase');
+      const resDayPremium = document.getElementById('resDayPremium');
+      const resOtPremium = document.getElementById('resOtPremium');
+      const resNsPremium = document.getElementById('resNsPremium');
+      const resTotal = document.getElementById('resTotal');
+      const resultFormula = document.getElementById('resultFormula');
+      const effRate = document.getElementById('effRate');
+      const effMultiplier = document.getElementById('effMultiplier');
+
+      const rowDayPremium = document.getElementById('rowDayPremium');
+      const rowOtPremium = document.getElementById('rowOtPremium');
+      const rowNsPremium = document.getElementById('rowNsPremium');
+
+      // Day type multipliers (Philippine labor law)
+      const dayMultipliers = {
+        ordinary: 1.0,
+        rest: 1.3,
+        special: 1.3,
+        regular: 2.0
+      };
+
+      // OT multipliers on top of day rate
+      const otMultipliers = {
+        ordinary: 1.25,
+        rest: 1.69,
+        special: 1.69,
+        regular: 2.6
+      };
+
+      function getSelectedDayType() {
+        let selected = 'ordinary';
+        dayTypeCheckboxes.forEach(cb => {
+          if (cb.checked) selected = cb.value;
+        });
+        return selected;
+      }
+
+      function formatCurrency(num) {
+        return '₱' + num.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      function updateCheckboxStyles() {
+        document.querySelectorAll('.checkbox-card').forEach(card => {
+          const cb = card.querySelector('input[type="checkbox"]');
+          if (cb.checked) {
+            card.classList.add('checked');
+          } else {
+            card.classList.remove('checked');
+          }
+        });
+      }
+
+      function calculate() {
+        const rate = parseFloat(hourlyRateInput.value) || 0;
+        const hours = parseFloat(hoursWorkedInput.value) || 0;
+        const otHours = parseFloat(otHoursInput.value) || 0;
+        const dayType = getSelectedDayType();
+        const hasOvertime = overtimeCheckbox && overtimeCheckbox.checked;
+        const hasNightshift = nightshiftCheckbox && nightshiftCheckbox.checked;
+
+        const dayMult = dayMultipliers[dayType];
+        const otMult = otMultipliers[dayType];
+
+        // Base pay = hourly rate * hours worked * day multiplier
+        const basePay = rate * hours * dayMult;
+
+        // Day premium = basePay - (rate * hours)  [the extra from day type]
+        const dayPremium = basePay - (rate * hours);
+
+        // OT pay = hourly rate * OT hours * OT multiplier
+        const otPay = hasOvertime ? (rate * otHours * otMult) : 0;
+        // OT premium = otPay - (rate * otHours)  [the extra from OT]
+        const otPremium = hasOvertime ? (rate * otHours * (otMult - 1)) : 0;
+
+        // Night shift premium = 10% of total pay (base + OT) if night shift
+        const totalHours = hours + (hasOvertime ? otHours : 0);
+        const nsPremium = hasNightshift ? (rate * totalHours * 0.10 * dayMult) : 0;
+
+        const total = basePay + otPay + nsPremium;
+
+        // Update UI
+        resBase.textContent = formatCurrency(basePay);
+
+        if (dayPremium > 0.01) {
+          rowDayPremium.style.display = 'flex';
+          resDayPremium.textContent = '+' + formatCurrency(dayPremium);
+        } else {
+          rowDayPremium.style.display = 'none';
+        }
+
+        if (otPremium > 0.01) {
+          rowOtPremium.style.display = 'flex';
+          resOtPremium.textContent = '+' + formatCurrency(otPremium);
+        } else {
+          rowOtPremium.style.display = 'none';
+        }
+
+        if (nsPremium > 0.01) {
+          rowNsPremium.style.display = 'flex';
+          resNsPremium.textContent = '+' + formatCurrency(nsPremium);
+        } else {
+          rowNsPremium.style.display = 'none';
+        }
+
+        resTotal.textContent = formatCurrency(total);
+
+        // Effective rate display
+        const effectiveMult = dayMult + (hasOvertime && otHours > 0 ? ((otMult - 1) * (otHours / totalHours)) : 0) + (hasNightshift ? 0.10 : 0);
+        effRate.textContent = Math.round(effectiveMult * 100) + '%';
+        effMultiplier.textContent = '×' + effectiveMult.toFixed(2);
+
+        // Formula text
+        if (rate <= 0) {
+          resultFormula.textContent = 'Enter your hourly rate to see the calculation.';
+        } else {
+          let formula = '';
+          const dayLabel = dayType.charAt(0).toUpperCase() + dayType.slice(1) + ' Day';
+          formula = dayLabel + ' (' + Math.round(dayMult * 100) + '%)';
+          if (hasOvertime && otHours > 0) {
+            formula += ' + OT (' + Math.round(otMult * 100) + '%)';
+          }
+          if (hasNightshift) {
+            formula += ' + Night Shift (+10%)';
+          }
+          resultFormula.textContent = formula;
+        }
+      }
+
+      // Day type: only one can be selected (radio-like behavior)
+      dayTypeCheckboxes.forEach(cb => {
+        cb.addEventListener('change', function() {
+          if (this.checked) {
+            dayTypeCheckboxes.forEach(other => {
+              if (other !== this) other.checked = false;
+            });
+          } else {
+            const anyChecked = Array.from(dayTypeCheckboxes).some(c => c.checked);
+            if (!anyChecked) {
+              document.querySelector('input[value="ordinary"]').checked = true;
+            }
+          }
+          updateCheckboxStyles();
+          calculate();
+        });
+      });
+
+      // Show/hide OT hours field
+      if (overtimeCheckbox) {
+        overtimeCheckbox.addEventListener('change', function() {
+          otHoursField.style.display = this.checked ? 'flex' : 'none';
+          if (this.checked) {
+            otHoursInput.value = otHoursInput.value || '2';
+          }
+          updateCheckboxStyles();
+          calculate();
+        });
+      }
+
+      if (nightshiftCheckbox) {
+        nightshiftCheckbox.addEventListener('change', function() {
+          updateCheckboxStyles();
+          calculate();
+        });
+      }
+
+      // Input listeners
+      hourlyRateInput.addEventListener('input', calculate);
+      hoursWorkedInput.addEventListener('input', calculate);
+      otHoursInput.addEventListener('input', calculate);
+
+      // Initial styles and calc
+      updateCheckboxStyles();
+      calculate();
     })();
+
+  })();

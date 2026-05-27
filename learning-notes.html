@@ -19,6 +19,7 @@
   
 <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body class="w-full animated-gradient min-h-screen">
 
@@ -339,6 +340,160 @@
         </tbody>
       </table>
     </div>
+
+<!-- ===== COMPENSATION CALCULATOR ===== -->
+<div class="compensation-calculator" id="compensationCalculator">
+  <div class="calc-header">
+    <i data-lucide="calculator" class="w-6 h-6"></i>
+    <h4>Compensation Calculator</h4>
+  </div>
+  <p class="calc-desc">Calculate your daily earnings based on work type, day category, and overtime hours. Select all applicable options below.</p>
+
+  <div class="calc-grid">
+    <!-- Left Column: Inputs -->
+    <div class="calc-inputs">
+      <!-- Hourly Rate -->
+      <div class="calc-field">
+        <label for="hourlyRate">
+          <i data-lucide="banknote" class="w-4 h-4"></i>
+          Hourly Rate (₱)
+        </label>
+        <input type="number" id="hourlyRate" placeholder="e.g. 85.50" min="0" step="0.01">
+      </div>
+
+      <!-- Hours Worked -->
+      <div class="calc-field">
+        <label for="hoursWorked">
+          <i data-lucide="clock" class="w-4 h-4"></i>
+          Hours Worked
+        </label>
+        <input type="number" id="hoursWorked" placeholder="e.g. 8" min="0" max="24" step="0.5" value="8">
+      </div>
+
+      <!-- Day Type Checkboxes -->
+      <div class="calc-field calc-checkboxes">
+        <label class="calc-label-main">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          Day Type
+        </label>
+        <div class="checkbox-group">
+          <label class="checkbox-card" data-value="ordinary">
+            <input type="checkbox" name="dayType" value="ordinary" checked>
+            <span class="check-indicator"></span>
+            <span class="check-text">
+              <strong>Ordinary Day</strong>
+              <small>100% rate</small>
+            </span>
+          </label>
+          <label class="checkbox-card" data-value="rest">
+            <input type="checkbox" name="dayType" value="rest">
+            <span class="check-indicator"></span>
+            <span class="check-text">
+              <strong>Rest Day</strong>
+              <small>130% rate</small>
+            </span>
+          </label>
+          <label class="checkbox-card" data-value="special">
+            <input type="checkbox" name="dayType" value="special">
+            <span class="check-indicator"></span>
+            <span class="check-text">
+              <strong>Special Holiday</strong>
+              <small>130% rate</small>
+            </span>
+          </label>
+          <label class="checkbox-card" data-value="regular">
+            <input type="checkbox" name="dayType" value="regular">
+            <span class="check-indicator"></span>
+            <span class="check-text">
+              <strong>Regular Holiday</strong>
+              <small>200% rate</small>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Overtime -->
+      <div class="calc-field calc-checkboxes">
+        <label class="calc-label-main">
+          <i data-lucide="zap" class="w-4 h-4"></i>
+          Overtime & Night Shift
+        </label>
+        <div class="checkbox-group">
+          <label class="checkbox-card" data-value="overtime">
+            <input type="checkbox" name="overtime" value="overtime">
+            <span class="check-indicator"></span>
+            <span class="check-text">
+              <strong>Overtime</strong>
+              <small>+25%–60% on top</small>
+            </span>
+          </label>
+          <label class="checkbox-card" data-value="nightshift">
+            <input type="checkbox" name="nightshift" value="nightshift">
+            <span class="check-indicator"></span>
+            <span class="check-text">
+              <strong>Night Shift Differential</strong>
+              <small>10% extra (10PM–6AM)</small>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Overtime Hours (conditional) -->
+      <div class="calc-field" id="otHoursField" style="display:none;">
+        <label for="otHours">
+          <i data-lucide="timer" class="w-4 h-4"></i>
+          Overtime Hours
+        </label>
+        <input type="number" id="otHours" placeholder="e.g. 2" min="0" max="16" step="0.5" value="0">
+      </div>
+    </div>
+
+    <!-- Right Column: Results -->
+    <div class="calc-results">
+      <div class="result-card">
+        <div class="result-header">Breakdown</div>
+        <div class="result-rows" id="resultRows">
+          <div class="result-row">
+            <span>Base Pay</span>
+            <span id="resBase">₱0.00</span>
+          </div>
+          <div class="result-row" id="rowDayPremium" style="display:none;">
+            <span>Day Premium</span>
+            <span id="resDayPremium">₱0.00</span>
+          </div>
+          <div class="result-row" id="rowOtPremium" style="display:none;">
+            <span>OT Premium</span>
+            <span id="resOtPremium">₱0.00</span>
+          </div>
+          <div class="result-row" id="rowNsPremium" style="display:none;">
+            <span>Night Shift Premium</span>
+            <span id="resNsPremium">₱0.00</span>
+          </div>
+        </div>
+        <div class="result-total">
+          <span>Total Earnings</span>
+          <span id="resTotal">₱0.00</span>
+        </div>
+        <div class="result-formula" id="resultFormula">
+          Enter your hourly rate to see the calculation.
+        </div>
+      </div>
+
+      <div class="rate-summary" id="rateSummary">
+        <div class="rate-item">
+          <span>Effective Rate</span>
+          <strong id="effRate">100%</strong>
+        </div>
+        <div class="rate-item">
+          <span>Multiplier</span>
+          <strong id="effMultiplier">×1.00</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   </section>
 
   <section id="admin" class="notes-section">
